@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="sodaubai" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString1" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="soDauBaiAdapter" GeneratorDataComponentClassName="soDauBaiAdapter" Name="soDauBai" UserDataComponentName="soDauBaiAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="coSoBoiDuongConnectionString1 (Settings)" DbObjectName="soDauBai" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, [Nội dung], [Bài tập về nhà], [Nhận xét], Ngày, idLop FROM soDauBai</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Nội dung" DataSetColumn="Nội dung" />
+              <Mapping SourceColumn="Bài tập về nhà" DataSetColumn="Bài tập về nhà" />
+              <Mapping SourceColumn="Nhận xét" DataSetColumn="Nhận xét" />
+              <Mapping SourceColumn="Ngày" DataSetColumn="Ngày" />
+              <Mapping SourceColumn="idLop" DataSetColumn="idLop" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="hocVienTableAdapter" GeneratorDataComponentClassName="hocVienTableAdapter" Name="hocVien" UserDataComponentName="hocVienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="coSoBoiDuongConnectionString (Settings)" DbObjectName="hocVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  [Họ tên lót] + ' ' + Tên AS Tên, Trường  
+FROM hocVien</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Trường" DataSetColumn="Tên" />
+              <Mapping SourceColumn="Tên" DataSetColumn="Trường" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="sodaubai" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="sodaubai" msprop:Generator_UserDSName="sodaubai">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="soDauBai" msprop:Generator_TableClassName="soDauBaiDataTable" msprop:Generator_TableVarName="tablesoDauBai" msprop:Generator_TablePropName="soDauBai" msprop:Generator_RowDeletingName="soDauBaiRowDeleting" msprop:Generator_RowChangingName="soDauBaiRowChanging" msprop:Generator_RowEvHandlerName="soDauBaiRowChangeEventHandler" msprop:Generator_RowDeletedName="soDauBaiRowDeleted" msprop:Generator_UserTableName="soDauBai" msprop:Generator_RowChangedName="soDauBaiRowChanged" msprop:Generator_RowEvArgName="soDauBaiRowChangeEvent" msprop:Generator_RowClassName="soDauBaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Nội_x0020_dung" msprop:Generator_ColumnVarNameInTable="columnNội_dung" msprop:Generator_ColumnPropNameInRow="Nội_dung" msprop:Generator_ColumnPropNameInTable="Nội_dungColumn" msprop:Generator_UserColumnName="Nội dung" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bài_x0020_tập_x0020_về_x0020_nhà" msprop:Generator_ColumnVarNameInTable="columnBài_tập_về_nhà" msprop:Generator_ColumnPropNameInRow="Bài_tập_về_nhà" msprop:Generator_ColumnPropNameInTable="Bài_tập_về_nhàColumn" msprop:Generator_UserColumnName="Bài tập về nhà" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nhận_x0020_xét" msprop:Generator_ColumnVarNameInTable="columnNhận_xét" msprop:Generator_ColumnPropNameInRow="Nhận_xét" msprop:Generator_ColumnPropNameInTable="Nhận_xétColumn" msprop:Generator_UserColumnName="Nhận xét" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ngày" msprop:Generator_ColumnVarNameInTable="columnNgày" msprop:Generator_ColumnPropNameInRow="Ngày" msprop:Generator_ColumnPropNameInTable="NgàyColumn" msprop:Generator_UserColumnName="Ngày" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idLop" msprop:Generator_ColumnVarNameInTable="columnidLop" msprop:Generator_ColumnPropNameInRow="idLop" msprop:Generator_ColumnPropNameInTable="idLopColumn" msprop:Generator_UserColumnName="idLop" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="hocVien" msprop:Generator_TableClassName="hocVienDataTable" msprop:Generator_TableVarName="tablehocVien" msprop:Generator_TablePropName="hocVien" msprop:Generator_RowDeletingName="hocVienRowDeleting" msprop:Generator_RowChangingName="hocVienRowChanging" msprop:Generator_RowEvHandlerName="hocVienRowChangeEventHandler" msprop:Generator_RowDeletedName="hocVienRowDeleted" msprop:Generator_UserTableName="hocVien" msprop:Generator_RowChangedName="hocVienRowChanged" msprop:Generator_RowEvArgName="hocVienRowChangeEvent" msprop:Generator_RowClassName="hocVienRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tên" msdata:Caption="Trường" msprop:Generator_ColumnVarNameInTable="columnTên" msprop:Generator_ColumnPropNameInRow="Tên" msprop:Generator_ColumnPropNameInTable="TênColumn" msprop:Generator_UserColumnName="Tên" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Trường" msdata:ReadOnly="true" msdata:Caption="Tên" msprop:Generator_ColumnVarNameInTable="columnTrường" msprop:Generator_ColumnPropNameInRow="Trường" msprop:Generator_ColumnPropNameInTable="TrườngColumn" msprop:Generator_UserColumnName="Trường" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//soDauBai" />
+      <xs:field xpath="ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

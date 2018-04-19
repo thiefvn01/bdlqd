@@ -1,0 +1,2 @@
+D:\ThayHai_LQD\Thay Hai\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\boiduongLeQuyDon.exe.config
+D:\ThayHai_LQD\Thay Hai\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.csproj.ResolveComReference.cache
