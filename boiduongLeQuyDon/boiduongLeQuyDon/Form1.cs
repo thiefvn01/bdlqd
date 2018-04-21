@@ -477,5 +477,9 @@ namespace boiduongLeQuyDon
             exx.Show();
         }
 
+        private void ucMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

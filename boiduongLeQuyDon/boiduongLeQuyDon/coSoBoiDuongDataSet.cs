@@ -1,7 +1,9 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class coSoBoiDuongDataSet {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class coSoBoiDuongDataSet
+    {
     }
 }
 namespace boiduongLeQuyDon {
