@@ -1,7 +1,9 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class hv {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class hv
+    {
     }
 }
 

@@ -1,10 +1,12 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class sdb {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class sdb
+    {
         partial class hocVienDataTable
         {
-            
+
         }
     }
 }

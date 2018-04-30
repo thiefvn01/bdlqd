@@ -1,7 +1,9 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class kqtoan {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class kqtoan
+    {
     }
 }
 

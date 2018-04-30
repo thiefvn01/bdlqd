@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>boiduongLeQuyDon</RootNamespace>
     <AssemblyName>boiduongLeQuyDon</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -38,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -47,6 +49,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Robinweatherall-Library-Book-open.ico</ApplicationIcon>
@@ -60,6 +63,9 @@
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Win.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -125,6 +131,7 @@
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -149,6 +156,8 @@
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.2.Extensions, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -221,6 +230,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdlqdDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="bdlqdDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="BUS\BUSChiTietTKB.cs" />
     <Compile Include="BUS\BUSDiemDanh.cs" />
@@ -330,6 +344,12 @@
     </Compile>
     <Compile Include="GUI\giaoVien.Designer.cs">
       <DependentUpon>giaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\guiEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\guiEmail.Designer.cs">
+      <DependentUpon>guiEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\hocVien.cs">
       <SubType>UserControl</SubType>
@@ -564,6 +584,9 @@
     <EmbeddedResource Include="GUI\giaoVien.resx">
       <DependentUpon>giaoVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\guiEmail.resx">
+      <DependentUpon>guiEmail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\hocVien.resx">
       <DependentUpon>hocVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -648,6 +671,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -662,6 +686,17 @@
     </None>
     <None Include="bdlqdDataSet.xss">
       <DependentUpon>bdlqdDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bdlqdDataSet1.xsc">
+      <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="bdlqdDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdlqdDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bdlqdDataSet1.xss">
+      <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
     </None>
     <None Include="coSoBoiDuongDataSet.xsc">
       <DependentUpon>coSoBoiDuongDataSet.xsd</DependentUpon>

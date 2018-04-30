@@ -1,7 +1,9 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class TKB {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class TKB
+    {
     }
 }
 

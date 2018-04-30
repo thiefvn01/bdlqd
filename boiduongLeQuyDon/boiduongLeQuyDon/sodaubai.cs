@@ -1,6 +1,8 @@
-﻿namespace boiduongLeQuyDon {
-    
-    
-    public partial class sodaubai {
+﻿namespace boiduongLeQuyDon
+{
+
+
+    public partial class sodaubai
+    {
     }
 }
