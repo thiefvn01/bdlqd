@@ -150,6 +150,8 @@ namespace boiduongLeQuyDon.GUI
 
         private void exportHV_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bdlqdDataSet1.getKhoaHoc' table. You can move, or remove it, as needed.
+            this.getKhoaHocTableAdapter.Fill(this.bdlqdDataSet1.getKhoaHoc);
             lkKhoa.Properties.DataSource = tkb.gettt().Tables[0];
             lkKhoa.Properties.DisplayMember = "Tên TKB";
             lkKhoa.Properties.ValueMember = "ID";

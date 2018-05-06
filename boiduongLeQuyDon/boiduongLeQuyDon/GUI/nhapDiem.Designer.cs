@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.ketQuaHocTapBindingSource = new System.Windows.Forms.BindingSource(this.components);
-       //     this.coSoBoiDuongDataSet = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHọtên = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,10 +42,6 @@
             this.lkKhoa = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lkdotkiemtra = new DevExpress.XtraEditors.LookUpEdit();
-            this.kiemTraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.deBindingSource = new System.Windows.Forms.BindingSource(this.components);
-       //     this.kiemTraTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
-       //     this.deTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.deTableAdapter();
             this.bntThem = new DevExpress.XtraEditors.SimpleButton();
             this.bntIn = new DevExpress.XtraEditors.SimpleButton();
             this.lblID = new DevExpress.XtraEditors.LabelControl();
@@ -61,27 +55,23 @@
             this.btRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.lbdiem = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.dataTable3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-      //      this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
-     //       this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketQuaHocTapBindingSource)).BeginInit();
-    //        ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkdotkiemtra.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiemTraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnx1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -89,7 +79,6 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.DataSource = this.ketQuaHocTapBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -97,16 +86,6 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // ketQuaHocTapBindingSource
-            // 
-            this.ketQuaHocTapBindingSource.DataMember = "ketQuaHocTap";
-   //         this.ketQuaHocTapBindingSource.DataSource = this.coSoBoiDuongDataSet;
-            // 
-            // coSoBoiDuongDataSet
-            // 
-  //          this.coSoBoiDuongDataSet.DataSetName = "coSoBoiDuongDataSet";
-  //          this.coSoBoiDuongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -118,6 +97,7 @@
             this.colCâu});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             // 
             // colid
@@ -190,8 +170,11 @@
             this.lkKhoa.Name = "lkKhoa";
             this.lkKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkKhoa.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.lkKhoa.Properties.DisplayMember = "TenTKB";
             this.lkKhoa.Properties.DropDownRows = 15;
             this.lkKhoa.Properties.NullText = "";
+            this.lkKhoa.Properties.ValueMember = "id";
             this.lkKhoa.Size = new System.Drawing.Size(100, 20);
             this.lkKhoa.TabIndex = 1;
             this.lkKhoa.EditValueChanged += new System.EventHandler(this.lkKhoa_EditValueChanged);
@@ -217,7 +200,6 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Lớp", "Lớp", 27, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Mã đề", "Mã đề", 39, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ngày làm", "Ngày làm", 54, DevExpress.Utils.FormatType.DateTime, "dd/MM/yyyy", true, DevExpress.Utils.HorzAlignment.Near)});
-            this.lkdotkiemtra.Properties.DataSource = this.kiemTraBindingSource;
             this.lkdotkiemtra.Properties.DisplayMember = "Ngày làm";
             this.lkdotkiemtra.Properties.DropDownRows = 15;
             this.lkdotkiemtra.Properties.NullText = "";
@@ -225,24 +207,6 @@
             this.lkdotkiemtra.Size = new System.Drawing.Size(100, 20);
             this.lkdotkiemtra.TabIndex = 3;
             this.lkdotkiemtra.EditValueChanged += new System.EventHandler(this.lkdotkiemtra_EditValueChanged);
-            // 
-            // kiemTraBindingSource
-            // 
-            this.kiemTraBindingSource.DataMember = "kiemTra";
-       //     this.kiemTraBindingSource.DataSource = this.coSoBoiDuongDataSet;
-            // 
-            // deBindingSource
-            // 
-            this.deBindingSource.DataMember = "de";
-    //        this.deBindingSource.DataSource = this.coSoBoiDuongDataSet;
-            // 
-            // kiemTraTableAdapter
-            // 
-    //        this.kiemTraTableAdapter.ClearBeforeFill = true;
-            // 
-            // deTableAdapter
-            // 
-    //        this.deTableAdapter.ClearBeforeFill = true;
             // 
             // bntThem
             // 
@@ -372,19 +336,6 @@
             this.checkEdit1.TabIndex = 47;
             this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
-            // dataTable3BindingSource
-            // 
-            this.dataTable3BindingSource.DataMember = "DataTable3";
-     //       this.dataTable3BindingSource.DataSource = this.coSoBoiDuongDataSet;
-            // 
-            // dataTable3TableAdapter
-            // 
-   //         this.dataTable3TableAdapter.ClearBeforeFill = true;
-            // 
-            // ketQuaHocTapTableAdapter
-            // 
-     //       this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
-            // 
             // simpleButton1
             // 
             this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -425,6 +376,16 @@
             this.simpleButton4.Text = "Nhập Excel";
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
             // nhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,19 +418,16 @@
             this.Size = new System.Drawing.Size(1003, 577);
             this.Load += new System.EventHandler(this.nhapDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketQuaHocTapBindingSource)).EndInit();
-     //       ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkdotkiemtra.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiemTraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnx1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,9 +443,6 @@
         private DevExpress.XtraEditors.LookUpEdit lkKhoa;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LookUpEdit lkdotkiemtra;
-        private System.Windows.Forms.BindingSource kiemTraBindingSource;
-   //     private coSoBoiDuongDataSet coSoBoiDuongDataSet;
-        private System.Windows.Forms.BindingSource deBindingSource;
    //     private coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kiemTraTableAdapter;
   //      private coSoBoiDuongDataSetTableAdapters.deTableAdapter deTableAdapter;
         private DevExpress.XtraEditors.SimpleButton bntThem;
@@ -503,9 +458,6 @@
         private DevExpress.XtraEditors.SimpleButton btRefresh;
         private DevExpress.XtraEditors.LabelControl lbdiem;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private System.Windows.Forms.BindingSource dataTable3BindingSource;
-  //      private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
-        private System.Windows.Forms.BindingSource ketQuaHocTapBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colHọtên;
         private DevExpress.XtraGrid.Columns.GridColumn colLớp;
@@ -516,5 +468,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private bdlqdDataSet1 bdlqdDataSet1;
     }
 }

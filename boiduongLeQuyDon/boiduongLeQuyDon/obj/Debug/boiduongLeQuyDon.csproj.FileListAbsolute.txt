@@ -268,3 +268,5 @@ C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\ja\DevExpress.XtraPivotGrid.v16.1.resources.dll
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\ru\DevExpress.XtraPivotGrid.v16.1.resources.dll
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.DS_GuiEmail.resources
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.deXuatPhuDao.resources
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.QuanLyPhuDao.resources

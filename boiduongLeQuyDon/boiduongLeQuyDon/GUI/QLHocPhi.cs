@@ -40,5 +40,12 @@ namespace boiduongLeQuyDon.GUI
         {
 
         }
+
+        private void upTKB_EditValueChanged(object sender, EventArgs e)
+        {
+            upLop.Properties.DataSource = ck.get(upTKB.EditValue.ToString()).Tables[0];
+            upLop.Properties.DisplayMember = "Lớp";
+            upLop.Properties.ValueMember = "ID";
+        }
     }
 }

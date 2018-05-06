@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-        //    this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+            this.components = new System.ComponentModel.Container();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -46,7 +46,10 @@
             this.lblID = new DevExpress.XtraEditors.LabelControl();
             this.lkPhep = new DevExpress.XtraEditors.LookUpEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-     //       ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.bdlqdDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -56,12 +59,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGhichu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // coSoBoiDuongDataSet1
-            // 
-        //    this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
-      //      this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // simpleButton3
             // 
@@ -97,6 +98,7 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             // 
             // gridControl1
@@ -160,8 +162,11 @@
             this.lkKhoa.Name = "lkKhoa";
             this.lkKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkKhoa.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.lkKhoa.Properties.DisplayMember = "TenTKB";
             this.lkKhoa.Properties.DropDownRows = 15;
             this.lkKhoa.Properties.NullText = "";
+            this.lkKhoa.Properties.ValueMember = "id";
             this.lkKhoa.Size = new System.Drawing.Size(100, 20);
             this.lkKhoa.TabIndex = 24;
             this.lkKhoa.EditValueChanged += new System.EventHandler(this.lkKhoa_EditValueChanged);
@@ -235,6 +240,25 @@
             this.checkEdit1.TabIndex = 34;
             this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdlqdDataSet1BindingSource
+            // 
+            this.bdlqdDataSet1BindingSource.DataSource = this.bdlqdDataSet1;
+            this.bdlqdDataSet1BindingSource.Position = 0;
+            // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1BindingSource;
+            // 
+            // getKhoaHocTableAdapter
+            // 
+            this.getKhoaHocTableAdapter.ClearBeforeFill = true;
+            // 
             // KiemTap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,7 +282,6 @@
             this.Name = "KiemTap";
             this.Size = new System.Drawing.Size(950, 515);
             this.Load += new System.EventHandler(this.KiemTap_Load);
-       //     ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay.Properties.CalendarTimeProperties)).EndInit();
@@ -268,6 +291,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGhichu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +319,9 @@
         private DevExpress.XtraEditors.LabelControl lblID;
         private DevExpress.XtraEditors.LookUpEdit lkPhep;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private System.Windows.Forms.BindingSource bdlqdDataSet1BindingSource;
+        private bdlqdDataSet1 bdlqdDataSet1;
+        private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
     }
 }

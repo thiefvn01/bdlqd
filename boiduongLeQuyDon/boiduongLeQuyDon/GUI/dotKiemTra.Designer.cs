@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtDe = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -47,6 +48,9 @@
             this.dbdang = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.lkLop = new DevExpress.XtraEditors.LookUpEdit();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.txtDe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -57,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dbdang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -113,11 +119,13 @@
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             // 
             // bntThem
@@ -176,8 +184,11 @@
             this.lkKhoa.Name = "lkKhoa";
             this.lkKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkKhoa.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.lkKhoa.Properties.DisplayMember = "TenTKB";
             this.lkKhoa.Properties.DropDownRows = 15;
             this.lkKhoa.Properties.NullText = "";
+            this.lkKhoa.Properties.ValueMember = "id";
             this.lkKhoa.Size = new System.Drawing.Size(100, 20);
             this.lkKhoa.TabIndex = 2;
             this.lkKhoa.EditValueChanged += new System.EventHandler(this.lkKhoa_EditValueChanged);
@@ -218,7 +229,7 @@
             // dbdang
             // 
             this.dbdang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dbdang.Location = new System.Drawing.Point(729, 363);
+            this.dbdang.Location = new System.Drawing.Point(724, 360);
             this.dbdang.Name = "dbdang";
             this.dbdang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -250,6 +261,20 @@
             this.lkLop.Size = new System.Drawing.Size(100, 20);
             this.lkLop.TabIndex = 3;
             this.lkLop.EditValueChanged += new System.EventHandler(this.lkLop_EditValueChanged);
+            // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
+            // getKhoaHocTableAdapter
+            // 
+            this.getKhoaHocTableAdapter.ClearBeforeFill = true;
             // 
             // dotKiemTra
             // 
@@ -286,6 +311,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dbdang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +339,8 @@
         private DevExpress.XtraEditors.ComboBoxEdit dbdang;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.LookUpEdit lkLop;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private bdlqdDataSet1 bdlqdDataSet1;
+        private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
     }
 }

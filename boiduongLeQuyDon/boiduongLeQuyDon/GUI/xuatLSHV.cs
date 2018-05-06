@@ -44,6 +44,8 @@ namespace boiduongLeQuyDon.GUI
 
         private void xuatLSHV_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bdlqdDataSet1.getKhoaHoc' table. You can move, or remove it, as needed.
+            this.getKhoaHocTableAdapter.Fill(this.bdlqdDataSet1.getKhoaHoc);
             lkPhep.Properties.DataSource = tkb.get(1).Tables[0];
             lkPhep.Properties.DisplayMember = "Tên TKB";
             lkPhep.Properties.ValueMember = "ID";

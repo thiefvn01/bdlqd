@@ -115,5 +115,10 @@ namespace boiduongLeQuyDon.GUI
                 lkKhoa.Properties.DataSource = tkb.gettt().Tables[0];
             }
         }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

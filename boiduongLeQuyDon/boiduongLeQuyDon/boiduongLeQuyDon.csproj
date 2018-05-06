@@ -293,6 +293,12 @@
     <Compile Include="GUI\changPass.Designer.cs">
       <DependentUpon>changPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DeXuatPhuDao.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\DeXuatPhuDao.Designer.cs">
+      <DependentUpon>DeXuatPhuDao.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\diemDanh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -394,6 +400,12 @@
     </Compile>
     <Compile Include="GUI\QLHocPhi.Designer.cs">
       <DependentUpon>QLHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyPhuDao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyPhuDao.Designer.cs">
+      <DependentUpon>QuanLyPhuDao.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Report\ChiTietSDB.cs">
       <SubType>Component</SubType>
@@ -562,6 +574,9 @@
     <EmbeddedResource Include="GUI\changPass.resx">
       <DependentUpon>changPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DeXuatPhuDao.resx">
+      <DependentUpon>DeXuatPhuDao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\diemDanh.resx">
       <DependentUpon>diemDanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -612,6 +627,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QLHocPhi.resx">
       <DependentUpon>QLHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyPhuDao.resx">
+      <DependentUpon>QuanLyPhuDao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Report\ChiTietSDB.resx">
       <DependentUpon>ChiTietSDB.cs</DependentUpon>

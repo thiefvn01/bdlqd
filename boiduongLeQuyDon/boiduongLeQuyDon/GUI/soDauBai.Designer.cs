@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -47,6 +48,9 @@
             this.txtca4 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lkKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -56,6 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtca1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtca4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -88,7 +94,10 @@
             this.lkKhoa.Name = "lkKhoa";
             this.lkKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkKhoa.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.lkKhoa.Properties.DisplayMember = "TenTKB";
             this.lkKhoa.Properties.NullText = "";
+            this.lkKhoa.Properties.ValueMember = "id";
             this.lkKhoa.Size = new System.Drawing.Size(100, 20);
             this.lkKhoa.TabIndex = 1;
             this.lkKhoa.EditValueChanged += new System.EventHandler(this.lkKhoa_EditValueChanged);
@@ -223,6 +232,20 @@
             this.checkEdit1.TabIndex = 25;
             this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
+            // getKhoaHocTableAdapter
+            // 
+            this.getKhoaHocTableAdapter.ClearBeforeFill = true;
+            // 
             // soDauBai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +281,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtca1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtca4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +309,8 @@
         private DevExpress.XtraEditors.TextEdit txtca4;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private bdlqdDataSet1 bdlqdDataSet1;
+        private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
     }
 }

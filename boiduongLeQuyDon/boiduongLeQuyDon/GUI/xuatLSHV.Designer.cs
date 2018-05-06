@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.bntExport = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -35,9 +36,14 @@
             this.cktt = new DevExpress.XtraEditors.CheckEdit();
             this.cktc = new DevExpress.XtraEditors.CheckEdit();
             this.bntNhan = new DevExpress.XtraEditors.SimpleButton();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cktt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cktc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
@@ -72,7 +78,10 @@
             this.lkPhep.Name = "lkPhep";
             this.lkPhep.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkPhep.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.lkPhep.Properties.DisplayMember = "TenTKB";
             this.lkPhep.Properties.NullText = "";
+            this.lkPhep.Properties.ValueMember = "id";
             this.lkPhep.Size = new System.Drawing.Size(230, 20);
             this.lkPhep.TabIndex = 10;
             // 
@@ -101,6 +110,20 @@
             this.bntNhan.Text = "Xuất";
             this.bntNhan.Click += new System.EventHandler(this.bntNhan_Click);
             // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
+            // getKhoaHocTableAdapter
+            // 
+            this.getKhoaHocTableAdapter.ClearBeforeFill = true;
+            // 
             // xuatLSHV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +142,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cktt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cktc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,6 +158,8 @@
         private DevExpress.XtraEditors.CheckEdit cktt;
         private DevExpress.XtraEditors.CheckEdit cktc;
         private DevExpress.XtraEditors.SimpleButton bntNhan;
-
+        private bdlqdDataSet1 bdlqdDataSet1;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
     }
 }

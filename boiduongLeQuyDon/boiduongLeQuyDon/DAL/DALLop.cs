@@ -114,7 +114,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai, ngayDK, tranthai) values ('" + idHV + "','" + lop + "','" + ghichu + "','"+sbl+"',1, '"+ngaydk +"', N'Bình thường')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai, ngayDK, trangthai) values ('" + idHV + "','" + lop + "','" + ghichu + "','"+sbl+"',1, '"+ngaydk +"', N'Bình thường')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

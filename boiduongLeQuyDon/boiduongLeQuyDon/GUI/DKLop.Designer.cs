@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtsbl = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,21 +49,24 @@
             this.dkTKB = new DevExpress.XtraEditors.LookUpEdit();
             this.lkLop = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.dtngay = new DevExpress.XtraEditors.DateEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsbl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtadGC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dkTKB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtngay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtngay.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
@@ -132,11 +138,28 @@
             this.groupControl3.TabIndex = 6;
             this.groupControl3.Text = "Đăng ký";
             // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(720, 24);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 13;
+            this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged_1);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(670, 31);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(33, 13);
+            this.labelControl3.TabIndex = 14;
+            this.labelControl3.Text = "Số tiền";
+            this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
             // txtsbl
             // 
             this.txtsbl.Location = new System.Drawing.Point(519, 60);
             this.txtsbl.Name = "txtsbl";
-            this.txtsbl.Size = new System.Drawing.Size(100, 20);
+            this.txtsbl.Size = new System.Drawing.Size(105, 20);
             this.txtsbl.TabIndex = 12;
             // 
             // label3
@@ -214,8 +237,11 @@
             this.dkTKB.Name = "dkTKB";
             this.dkTKB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dkTKB.Properties.DataSource = this.getKhoaHocBindingSource;
+            this.dkTKB.Properties.DisplayMember = "TenTKB";
             this.dkTKB.Properties.DropDownRows = 15;
             this.dkTKB.Properties.NullText = "";
+            this.dkTKB.Properties.ValueMember = "ID";
             this.dkTKB.Size = new System.Drawing.Size(100, 20);
             this.dkTKB.TabIndex = 2;
             this.dkTKB.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
@@ -224,7 +250,6 @@
             // 
             this.lkLop.Location = new System.Drawing.Point(258, 54);
             this.lkLop.Name = "lkLop";
-            this.lkLop.Properties.AllowMultiSelect = true;
             this.lkLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkLop.Properties.DropDownRows = 15;
@@ -246,22 +271,19 @@
             this.dtngay.Size = new System.Drawing.Size(100, 20);
             this.dtngay.TabIndex = 3;
             // 
-            // textEdit1
+            // bdlqdDataSet1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(720, 24);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 13;
-            this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged_1);
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // labelControl3
+            // getKhoaHocBindingSource
             // 
-            this.labelControl3.Location = new System.Drawing.Point(670, 31);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(33, 13);
-            this.labelControl3.TabIndex = 14;
-            this.labelControl3.Text = "Số tiền";
-            this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
+            // getKhoaHocTableAdapter
+            // 
+            this.getKhoaHocTableAdapter.ClearBeforeFill = true;
             // 
             // DKLop
             // 
@@ -280,13 +302,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsbl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtadGC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dkTKB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtngay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtngay.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,5 +337,8 @@
         private DevExpress.XtraEditors.DateEdit dtngay;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private bdlqdDataSet1 bdlqdDataSet1;
+        private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
+        private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
     }
 }

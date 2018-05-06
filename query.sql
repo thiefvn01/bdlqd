@@ -865,3 +865,241 @@ as
 UPDATE       ketQuaHocTap
 SET                diem = diem + @diem1 - @diem2
 WHERE        idBaiTap = @idbaitap and idhocvien=@idhocvien
+---
+create procedure getKhoaHoc
+as
+select id, TenTKB
+from ThoiKhoaBieu
+where Ngayketthuc>=GETDATE()
+----
+drop procedure getPhuDao_All
+go
+create procedure getPhuDao_All
+as
+select p.id, h.Hotenlot + ' ' + h.Ten as N'Họ và tên', l.Lop as N'Lớp',
+		lydo, thoiluong, p.thoigian, noidung, nhanVien.Hotenlot + ' ' + nhanVien.Ten as N'Trợ giảng', ykien, ketqua, nhanxet, sotien
+from phudao p inner join hocVien h on p.idhocvien=h.id inner join ChiTietTKB l on p.idlop=l.id
+inner join nhanVien on nhanvien.id=trogiang
+-----
+drop procedure getphudao1
+go
+create procedure getPhuDao1
+as
+select p.id, h.Hotenlot + ' ' + h.Ten as N'Họ và tên', l.Lop as N'Lớp',
+		lydo, thoiluong, p.thoigian, noidung, nhanVien.Hotenlot + ' ' + nhanVien.Ten as N'Trợ giảng', ykien, ketqua, nhanxet, sotien
+from phudao p inner join hocVien h on p.idhocvien=h.id inner join ChiTietTKB l on p.idlop=l.id
+inner join nhanVien on nhanvien.id=trogiang
+where ketqua is null
+----
+create procedure insertPhuDao
+@idhocvien int,
+@idlop int,
+@lydo nvarchar,
+@thoiluong nvarchar,
+@thoigian nvarchar,
+@noidung nvarchar,
+@trogiang int,
+@ykien nvarchar,
+@ketqua nvarchar,
+@nhanxet nvarchar,
+@sotien int
+as
+insert into phudao (idhocvien, idlop, lydo, thoiluong, thoigian, noidung, trogiang, ykien,ketqua, nhanxet, sotien)
+values (@idhocvien, @idlop, @lydo, @thoiluong, @thoigian, @noidung, @trogiang, @ykien, @ketqua, @nhanxet, @sotien)
+----
+create procedure updatePhuDao
+@idhocvien int,
+@idlop int,
+@lydo nvarchar,
+@thoiluong nvarchar,
+@thoigian nvarchar,
+@noidung nvarchar,
+@trogiang int,
+@ykien nvarchar,
+@ketqua nvarchar,
+@nhanxet nvarchar,
+@sotien int,
+@id int
+as
+update phudao set idhocvien=@idhocvien, idlop=@idlop, lydo=@lydo, thoiluong=@thoiluong, thoigian=@thoigian,
+noidung=@noidung, trogiang=@trogiang, ykien=@ykien, ketqua=@ketqua, nhanxet=@nhanxet, sotien=@sotien
+where id=@id
+----
+create procedure deletePhuDao
+@id int
+as
+delete phudao where id=@id
+----
+create procedure getCaBiet_all
+as
+select t.id, Hotenlot + ' ' + ten as N'Họ và tên', lylich as N'Lý lịch', vipham as N'Nội dung vi phạm', solan as N'Số lần', dacdiem, nguyennhan, khacphuc
+from theodoihocsinh t inner join hocVien h on t.idhocvien=h.id
+----
+----
+drop procedure getCaBiet1
+go
+create procedure getCaBiet1
+as
+select t.id, Hotenlot + ' ' + ten as N'Họ và tên', lylich as N'Lý lịch', vipham as N'Nội dung vi phạm', solan as N'Số lần', dacdiem, nguyennhan, khacphuc
+from theodoihocsinh t inner join hocVien h on t.idhocvien=h.id
+where dagiaiquyet = 0
+----
+create procedure insertCaBiet
+@idhocvien int,
+@dacdiem nvarchar,
+@nguyennhan nvarchar,
+@khacphuc nvarchar,
+@vipham nvarchar
+as
+insert into theodoihocsinh (idhocvien, dacdiem, nguyennhan, khacphuc, vipham, solan, dagiaiquyet)
+values (@idhocvien, @dacdiem, @nguyennhan, @khacphuc, @vipham, 1, 0)
+----
+create procedure updateCaBiet
+@dacdiem nvarchar,
+@nguyennhan nvarchar,
+@khacphuc nvarchar,
+@vipham nvarchar,
+@solan int,
+@dagiaiquyet bit,
+@id int
+as
+update theodoihocsinh set dacdiem=@dacdiem, nguyennhan=@nguyennhan, khaphuc=@khacphuc,vipham=@vipham, solan=@solan, dagiaiquyet=@dagiaiquyet
+where id=@id
+----
+create procedure deleteCaBiet
+@id int
+as
+delete theodoihocsinh where id=@id
+----
+drop procedure getNhanVien
+go
+drop procedure getNhanVien1
+go
+create procedure getNhanVien
+as
+SELECT        ID, Hotenlot AS N'Họ tên lot', Ten AS N'Tên', ThuongTru AS N'Địa chỉ thường trú', tamtru as N'Địa chỉ tạm trú', Sodienthoai AS N'Số điện thoại', Email, userName, [passWord], Mucluong AS N'Mức lương', GhiChu AS N'Ghi chú', Vitri AS N'Vị trí', Gioitinh AS N'Giới tính',
+cmnd as N'CMND', ngaycap as N'Ngày cấp', noicap as N'Nơi cấp', chuyennganh as N'Chuyên ngành', namthu as N'Năm thứ', truong as N'Trường', Khoa, BietDenTrungTam as N'Biết đến TT qua'
+FROM            nhanVien
+----
+create procedure getNhanVien1
+as
+SELECT        ID, Hotenlot AS N'Họ tên lot', Ten AS N'Tên', ThuongTru AS N'Địa chỉ thường trú', tamtru as N'Địa chỉ tạm trú', Sodienthoai AS N'Số điện thoại', Email, userName, [passWord], Mucluong AS N'Mức lương', GhiChu AS N'Ghi chú', Vitri AS N'Vị trí', Gioitinh AS N'Giới tính',
+cmnd as N'CMND', ngaycap as N'Ngày cấp', noicap as N'Nơi cấp', chuyennganh as N'Chuyên ngành', namthu as N'Năm thứ', truong as N'Trường', Khoa, BietDenTrungTam as N'Biết đến TT qua'
+FROM            nhanVien
+where DaNghi=0
+----
+create procedure insertnhanvien
+@hoten nvarchar,
+@ten nvarchar,
+@thuongtru nvarchar,
+@tamtru nvarchar, 
+@sodienthoai nvarchar,
+@email nvarchar,
+@uname nvarchar,
+@pass nvarchar,
+@ghichu nvarchar,
+@vitri	nvarchar,
+@gioitinh nvarchar,
+@cmnd nvarchar,
+@ngaycap smalldatetime,
+@noicap nvarchar,
+@chuyennganh nvarchar,
+@namthu int,
+@truong nvarchar,
+@khoa nvarchar,
+@bietden nvarchar
+as
+insert into nhanvien(Hotenlot, ten, ThuongTru, TamTru, Sodienthoai, email, userName, passWord, GhiChu, Vitri, Gioitinh, cmnd, ngaycap, noicap, chuyennganh, namthu, truong, khoa, BietDenTrungTam,DaNghi, nv, hv,kq,pq) 
+values (@hoten,@ten, @thuongtru, @tamtru, @sodienthoai, @email, @uname, @pass, @ghichu, @vitri, @gioitinh, @cmnd, @ngaycap, @noicap, @chuyennganh, @namthu, @truong, @khoa, @bietden,0, 0,0,0,0)
+-----
+create procedure updateNhanVien
+@hoten nvarchar,
+@ten nvarchar,
+@thuongtru nvarchar,
+@tamtru nvarchar, 
+@sodienthoai nvarchar,
+@email nvarchar,
+@uname nvarchar,
+@pass nvarchar,
+@ghichu nvarchar,
+@vitri	nvarchar,
+@gioitinh nvarchar,
+@cmnd nvarchar,
+@ngaycap smalldatetime,
+@noicap nvarchar,
+@chuyennganh nvarchar,
+@namthu int,
+@truong nvarchar,
+@khoa nvarchar,
+@bietden nvarchar,
+@danghi bit,
+@id int
+as
+update nhanvien set Hotenlot = @hoten, ten=@ten, ThuongTru=@thuongtru, TamTru=@tamtru, Sodienthoai=@sodienthoai, Email=@email, userName=@uname, passWord=@pass, Vitri=@vitri, Gioitinh=@gioitinh, cmnd=@cmnd, ngaycap=@ngaycap,noicap=@noicap, chuyennganh=@chuyennganh, namthu=@namthu, truong=@truong, khoa=@khoa, BietDenTrungTam=@bietden, DaNghi=@danghi
+where id=@id
+----
+create procedure deleteNhanVien
+@id int
+as
+delete nhanvien where id=@id
+----
+create procedure getquanhennhanvien
+@idnhanvien int
+as
+select hovaten, tuoi, nghenghiep, noilamviec, quanhe from QuanHeNhanVien where idnhanvien=@idnhanvien
+---
+create procedure updatequanhenhanvien
+@hoten nvarchar,
+@tuoi int,
+@nghenghiep nvarchar,
+@noilamviec nvarchar,
+@quanhe nvarchar,
+@id int
+as
+update QuanHeNhanVien set hovaten=@hoten, tuoi=@tuoi, nghenghiep=@nghenghiep, noilamviec=@noilamviec, quanhe=@quanhe
+where id=@id
+----
+create procedure insertquanhenhanvien
+@idnhanvien int,
+@hoten nvarchar,
+@tuoi int,
+@nghenghiep nvarchar,
+@noilamviec nvarchar,
+@quanhe nvarchar
+as
+insert into QuanHeNhanVien (idnhanvien, hovaten, tuoi, nghenghiep, noilamviec, quanhe)
+values (@idnhanvien, @hoten,@tuoi, @nghenghiep,@noilamviec, @quanhe)
+----
+create procedure deletequanhenhanvien
+@id int
+as
+delete QuanHeNhanVien where id=@id
+----
+create procedure getkinhnghiemnhanvien
+@idnhanvien int
+as
+select mon, lop, truong, nam from KinhNghiemNhanVien where idnhanvien=@idnhanvien
+-----
+create procedure insertkinhnghiemnhanvien
+@idnhanvien int,
+@mon nvarchar,
+@lop nvarchar,
+@truong nvarchar,
+@nam int
+as
+insert into KinhNghiemNhanVien (idnhanvien, mon, Lop, truong, Nam)
+values (@idnhanvien, @mon,@lop,@truong,@nam)
+----
+create procedure updatekinhnghiemnhanvien
+@mon nvarchar,
+@lop nvarchar,
+@truong nvarchar,
+@nam int,
+@id int
+as
+update KinhNghiemNhanVien set mon=@mon, lop=@lop, Truong=@truong, nam=@nam where id=@id
+----
+create procedure deletekinhnghiemnhanvien
+@id int
+as 
+delete KinhNghiemNhanVien where id=@id

@@ -31,9 +31,14 @@ namespace boiduongLeQuyDon.GUI
         public enum SplashScreenCommand
         {
         }
+        bdlqdDataSet1TableAdapters.getChiTietTKB_AllTableAdapter getChiTietTKB_AllTableAdapter = new bdlqdDataSet1TableAdapters.getChiTietTKB_AllTableAdapter();
         string change = "";
         private void DKLop_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bdlqdDataSet1.getKhoaHoc' table. You can move, or remove it, as needed.
+            this.getKhoaHocTableAdapter.Fill(this.bdlqdDataSet1.getKhoaHoc);
+            // TODO: This line of code loads data into the 'bdlqdDataSet1.getChiTietTKB_All' table. You can move, or remove it, as needed.
+            this.getChiTietTKB_AllTableAdapter.Fill(this.bdlqdDataSet1.getChiTietTKB_All);
             if (id == "-1")
             {
                 bntDK.Enabled = false;
@@ -75,7 +80,7 @@ namespace boiduongLeQuyDon.GUI
                     lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, dtngay.Text);
                     DataSet ds3 = new DataSet();
                     ds3 = lop.getlg();
-                    lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString(),"Đang học");
+                    lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString(),"Bình thường");
                     
               //  }
                 //catch

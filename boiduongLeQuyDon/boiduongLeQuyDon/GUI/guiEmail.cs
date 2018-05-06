@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
+using boiduongLeQuyDon.BUS;
 
 namespace boiduongLeQuyDon.GUI
 {
@@ -191,6 +192,13 @@ namespace boiduongLeQuyDon.GUI
             }
             DS_GuiEmail ds = new DS_GuiEmail(dt);
             ds.Show();
+        }
+        BUSChiTietTKB ck = new BUSChiTietTKB();
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            lookUpEdit2.Properties.DataSource = ck.get(lookUpEdit1.EditValue.ToString()).Tables[0];
+            lookUpEdit2.Properties.DisplayMember = "Lớp";
+            lookUpEdit2.Properties.ValueMember = "ID";
         }
     }
 }
