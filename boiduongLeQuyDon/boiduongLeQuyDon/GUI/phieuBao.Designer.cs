@@ -46,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtFrom = new DevExpress.XtraEditors.DateEdit();
             this.dtTo = new DevExpress.XtraEditors.DateEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtnx3 = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtnx4 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lkKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkPhep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnx1.Properties)).BeginInit();
@@ -56,6 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnx3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnx4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl4
@@ -135,9 +141,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(271, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Nhận xét";
+            this.label2.Text = "Nhận xét 1";
             // 
             // txtnx2
             // 
@@ -249,6 +255,42 @@
             this.dtTo.Size = new System.Drawing.Size(100, 20);
             this.dtTo.TabIndex = 16;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(549, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Nhận xét 2";
+            // 
+            // txtnx3
+            // 
+            this.txtnx3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtnx3.Location = new System.Drawing.Point(634, 102);
+            this.txtnx3.Name = "txtnx3";
+            this.txtnx3.Size = new System.Drawing.Size(100, 20);
+            this.txtnx3.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(549, 150);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Nhận xét 3";
+            // 
+            // txtnx4
+            // 
+            this.txtnx4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtnx4.Location = new System.Drawing.Point(634, 147);
+            this.txtnx4.Name = "txtnx4";
+            this.txtnx4.Size = new System.Drawing.Size(100, 20);
+            this.txtnx4.TabIndex = 16;
+            // 
             // phieuBao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,9 +299,13 @@
             this.Controls.Add(this.bntImp);
             this.Controls.Add(this.checkEdit1);
             this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.txtnx4);
+            this.Controls.Add(this.txtnx3);
             this.Controls.Add(this.txtnx2);
             this.Controls.Add(this.txtnx1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -284,6 +330,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnx3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnx4.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,6 +357,9 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.DateEdit dtFrom;
         private DevExpress.XtraEditors.DateEdit dtTo;
-
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.TextEdit txtnx3;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.TextEdit txtnx4;
     }
 }

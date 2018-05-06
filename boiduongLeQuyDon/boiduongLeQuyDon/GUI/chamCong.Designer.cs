@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.coSoBoiDuongDataSet = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+       //     this.coSoBoiDuongDataSet = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter();
+     //       this.nhanVienTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter();
             this.chamcongBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chamcongTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.chamcongTableAdapter();
+   //         this.chamcongTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.chamcongTableAdapter();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,10 +71,10 @@
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.lkNV = new DevExpress.XtraEditors.LookUpEdit();
             this.bntExport = new DevExpress.XtraEditors.SimpleButton();
-            this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
-            this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
-            this.ketQuaHocTapAdapter = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).BeginInit();
+   //         this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+  //          this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+  //          this.ketQuaHocTapAdapter = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
+    //        ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamcongBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -96,26 +96,26 @@
             // 
             // coSoBoiDuongDataSet
             // 
-            this.coSoBoiDuongDataSet.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+     //       this.coSoBoiDuongDataSet.DataSetName = "coSoBoiDuongDataSet";
+   //         this.coSoBoiDuongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nhanVienBindingSource
             // 
             this.nhanVienBindingSource.DataMember = "nhanVien";
-            this.nhanVienBindingSource.DataSource = this.coSoBoiDuongDataSet;
+     //       this.nhanVienBindingSource.DataSource = this.coSoBoiDuongDataSet;
             // 
             // nhanVienTableAdapter
             // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
+    //        this.nhanVienTableAdapter.ClearBeforeFill = true;
             // 
             // chamcongBindingSource
             // 
             this.chamcongBindingSource.DataMember = "chamcong";
-            this.chamcongBindingSource.DataSource = this.coSoBoiDuongDataSet;
+  //          this.chamcongBindingSource.DataSource = this.coSoBoiDuongDataSet;
             // 
             // chamcongTableAdapter
             // 
-            this.chamcongTableAdapter.ClearBeforeFill = true;
+    //        this.chamcongTableAdapter.ClearBeforeFill = true;
             // 
             // gridControl1
             // 
@@ -288,7 +288,7 @@
             // chamcongBindingSource1
             // 
             this.chamcongBindingSource1.DataMember = "chamcong";
-            this.chamcongBindingSource1.DataSource = this.coSoBoiDuongDataSet;
+      //      this.chamcongBindingSource1.DataSource = this.coSoBoiDuongDataSet;
             // 
             // txtday
             // 
@@ -491,15 +491,15 @@
             // 
             // dataTable3TableAdapter
             // 
-            this.dataTable3TableAdapter.ClearBeforeFill = true;
+       //     this.dataTable3TableAdapter.ClearBeforeFill = true;
             // 
             // ketQuaHocTapTableAdapter
             // 
-            this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
+    //        this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
             // 
             // ketQuaHocTapAdapter
             // 
-            this.ketQuaHocTapAdapter.ClearBeforeFill = true;
+   //         this.ketQuaHocTapAdapter.ClearBeforeFill = true;
             // 
             // chamCong
             // 
@@ -529,7 +529,7 @@
             this.Name = "chamCong";
             this.Size = new System.Drawing.Size(1061, 586);
             this.Load += new System.EventHandler(this.chamCong_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).EndInit();
+     //       ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamcongBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -555,11 +555,11 @@
 
         #endregion
 
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet;
+      //  private coSoBoiDuongDataSet coSoBoiDuongDataSet;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
-        private coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter nhanVienTableAdapter;
+    //    private coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter nhanVienTableAdapter;
         private System.Windows.Forms.BindingSource chamcongBindingSource;
-        private coSoBoiDuongDataSetTableAdapters.chamcongTableAdapter chamcongTableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.chamcongTableAdapter chamcongTableAdapter;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -597,9 +597,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LookUpEdit lkNV;
         private DevExpress.XtraEditors.SimpleButton bntExport;
-        private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
-        private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
-        private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter;
+    //    private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
+   //     private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
+ //       private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter;
 
     }
 }

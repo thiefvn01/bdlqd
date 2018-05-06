@@ -109,5 +109,15 @@ namespace boiduongLeQuyDon.Properties {
                 return ((string)(this["bdlqdConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KURT;Initial Catalog=bdlqd;User ID=sa;Password=Expelliarmus@1")]
+        public string bdlqdConnectionString2 {
+            get {
+                return ((string)(this["bdlqdConnectionString2"]));
+            }
+        }
     }
 }

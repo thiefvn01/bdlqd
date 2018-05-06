@@ -11,19 +11,26 @@ namespace boiduongLeQuyDon.GUI
             InitializeComponent();
         }
         int count = 0;
-        decimal tong = 0;
-        coSoBoiDuongDataSetTableAdapters.deTableAdapter da = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter ka = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
+        double tong = 0;
+        bdlqdDataSet1TableAdapters.getDe1TableAdapter getde1 = new bdlqdDataSet1TableAdapters.getDe1TableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTraTableAdapter getkiemtra = new bdlqdDataSet1TableAdapters.getKiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTra1TableAdapter getkiemtra1 = new bdlqdDataSet1TableAdapters.getKiemTra1TableAdapter();
+        bdlqdDataSet1TableAdapters.getDe4TableAdapter getde4 = new bdlqdDataSet1TableAdapters.getDe4TableAdapter();
+        bdlqdDataSet1TableAdapters.getDe5TableAdapter getde5 = new bdlqdDataSet1TableAdapters.getDe5TableAdapter();
+        bdlqdDataSet1TableAdapters.getDe7TableAdapter getde7 = new bdlqdDataSet1TableAdapters.getDe7TableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+        //   coSoBoiDuongDataSetTableAdapters.deTableAdapter da = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
+        //   coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter ka = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
         private void thietKeDe_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = getde1.GetData();
             gridView1.OptionsBehavior.ReadOnly = true;
             gridView1.OptionsBehavior.Editable = false;
-            lkde.Properties.DataSource = ka.GetData();
+            lkde.Properties.DataSource = getkiemtra.GetData();
             lkde.Properties.DisplayMember = "Mã đề";
             lkde.Properties.ValueMember = "ID";
-            this.dt = ka.GetData();
+            this.dt = getkiemtra.GetData();
           //  this.dang = dt.Rows[0]["dang"].ToString(); //them dạng đề vào database
           
             //I <3 vnn hân so much
@@ -38,28 +45,28 @@ namespace boiduongLeQuyDon.GUI
                 try
                 {
                     themhead();
-                    this.count = Convert.ToInt32(da.getcount(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dem"].ToString());
-                    da.InsertQuery(txtCau.Text, Convert.ToInt32(lkde.EditValue.ToString()), Convert.ToDecimal(txttd.Text), txtCauLon.Text, txtNhomCau.Text);
+                    this.count = Convert.ToInt32(getde4.GetData(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dem"].ToString());
+                    queries.InsertDe(txtCau.Text, Convert.ToInt32(lkde.EditValue.ToString()), Convert.ToDouble(txttd.Text), txtCauLon.Text, txtNhomCau.Text);
                    
                   //  MessageBox.Show(count.ToString());
                  //   tong = 0;
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
+                    queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
                     if (txtNhomCau.Text == "Đại số")
                     {
-                        // dai += Convert.ToDecimal(txttd.Text);
-                        da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Đại");
+                        // dai += Convert.ToDouble(txttd.Text);
+                         queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Đại");
                     }
                     else if (txtNhomCau.Text == "Hình học")
                     {
-                        da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Hình");
+                         queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Hình");
                     }
                     else if (txtNhomCau.Text == "Tự luận")
                     {
-                        da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TL");
+                         queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TL");
                     }
                     else if (txtNhomCau.Text == "Trắc nghiệm")
                     {
-                        da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
+                         queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
                     }
                //     gridControl1.DataSource = da.GetData();
                 }
@@ -70,25 +77,25 @@ namespace boiduongLeQuyDon.GUI
             else
             try
             {
-                da.InsertQuery(txtCau.Text, Convert.ToInt32(lkde.EditValue.ToString()), Convert.ToDecimal(txttd.Text), txtCauLon.Text, txtNhomCau.Text);
+                queries.InsertDe(txtCau.Text, Convert.ToInt32(lkde.EditValue.ToString()), Convert.ToDouble(txttd.Text), txtCauLon.Text, txtNhomCau.Text);
           //      gridControl1.DataSource = da.GetData();
-                da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
+                 queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
                 if (txtNhomCau.Text == "Đại số")
                 {
-                   // dai += Convert.ToDecimal(txttd.Text);
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Đại");
+                   // dai += Convert.ToDouble(txttd.Text);
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Đại");
                 }
                 else if (txtNhomCau.Text == "Hình học")
                 {
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Hình");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " Hình");
                 }
                 else if (txtNhomCau.Text == "Tự luận")
                 {
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TL");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TL");
                 }
                 else if (txtNhomCau.Text == "Trắc nghiệm")
                 {
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
                 }
             }
             catch
@@ -102,38 +109,38 @@ namespace boiduongLeQuyDon.GUI
                 txtCau.Text = "d";
             else  if (txtCau.Text == "d")
                 txtCau.Text = "a";
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = getde1.GetData();
         }
 
         private void bntEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                da.UpdateQuery(txtCau.Text, Convert.ToDecimal(txttd.Text), txtCauLon.Text, txtNhomCau.Text, Convert.ToInt32(lblID.Text));
+                 queries.UpdateDe1(txtCau.Text, Convert.ToDouble(txttd.Text), txtCauLon.Text, txtNhomCau.Text, Convert.ToInt32(lblID.Text));
 
                
                 if (txtNhomCau.Text == "Đại số")
                 {
-                    // dai += Convert.ToDecimal(txttd.Text);
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam,deid, " Đại");
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, "  Tổng");
-               //     da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " Tổng");
-                    //      da.UpdateQuery1(tong, Convert.ToDecimal(txttd.Text), deid, " Tổng");
+                    // dai += Convert.ToDouble(txttd.Text);
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam),deid, " Đại");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, "  Tổng");
+               //      queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " Tổng");
+                    //       queries.UpdateDe2(tong, Convert.ToDouble(txttd.Text), deid, " Tổng");
                 }
                 else if (txtNhomCau.Text == "Hình học")
                 {
-                    da.UpdateQuery1( Convert.ToDecimal(txttd.Text),diemtam, deid, " Hình");
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, "  Tổng");
+                     queries.UpdateDe2( Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, " Hình");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, "  Tổng");
                 }
                 else if (txtNhomCau.Text == "Tự luận")
                 {
-                    da.UpdateQuery1( Convert.ToDecimal(txttd.Text),diemtam, deid, " TL");
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, "  Tổng");
+                     queries.UpdateDe2( Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, " TL");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, "  Tổng");
                 }
                 else if (txtNhomCau.Text == "Trắc nghiệm")
                 {
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, " TN");
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, "  Tổng");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, " TN");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, "  Tổng");
                    
                 }
                 else
@@ -142,42 +149,42 @@ namespace boiduongLeQuyDon.GUI
                     {
                     }
                     else
-                    da.UpdateQuery1(Convert.ToDecimal(txttd.Text), diemtam, deid, "  Tổng");
+                     queries.UpdateDe2(Convert.ToDouble(txttd.Text), Convert.ToDouble(diemtam), deid, "  Tổng");
                 }
-                gridControl1.DataSource = da.GetData();
+                gridControl1.DataSource = getde1.GetData();
             }
             catch
             {
             }
         }
-        decimal diemtam = 0;
+        double diemtam = 0;
         private void bntDelete_Click(object sender, EventArgs e)
         {
             try
             {
                 if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    da.DeleteQuery(Convert.ToInt32(lblID.Text));
+                    queries.deleteDe(Convert.ToInt32(lblID.Text));
                     if (txtNhomCau.Text == "Đại số")
                     {
-                        // dai += Convert.ToDecimal(txttd.Text);
-                        da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " Đại");
-                        da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " Tổng");
-                  //      da.UpdateQuery1(tong, Convert.ToDecimal(txttd.Text), deid, " Tổng");
+                        // dai += Convert.ToDouble(txttd.Text);
+                         queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " Đại");
+                         queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " Tổng");
+                  //       queries.UpdateDe2(tong, Convert.ToDouble(txttd.Text), deid, " Tổng");
                     }
                     else if (txtNhomCau.Text == "Hình học")
                     {
-                        da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " Hình");
+                         queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " Hình");
                     }
                     else if (txtNhomCau.Text == "Tự luận")
                     {
-                        da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " TL");
+                         queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " TL");
                     }
                     else if (txtNhomCau.Text == "Trắc nghiệm")
                     {
-                        da.UpdateQuery1(0, Convert.ToDecimal(txttd.Text), deid, " TN");
+                         queries.UpdateDe2(0, Convert.ToDouble(txttd.Text), deid, " TN");
                     }
-                    gridControl1.DataSource = da.GetData();
+                    gridControl1.DataSource = getde1.GetData();
                 }
                
             }
@@ -193,9 +200,9 @@ namespace boiduongLeQuyDon.GUI
             txttd.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Điểm tối đa").ToString();
             txtNhomCau.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Nhóm câu").ToString();
             txtCauLon.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Câu lớn").ToString();
-            tong = Convert.ToDecimal(da.GetDataBy5(Convert.ToInt32(lblID.Text)).Rows[0]["diemtoida"].ToString());
-            deid = Convert.ToInt32(da.GetDataBy7(Convert.ToInt32(lblID.Text)).Rows[0]["deid"].ToString());
-            diemtam = Convert.ToDecimal(txttd.Text);
+            tong = Convert.ToDouble(getde5.GetData(Convert.ToInt32(lblID.Text)).Rows[0]["diemtoida"].ToString());
+            deid = Convert.ToInt32(getde7.GetData(Convert.ToInt32(lblID.Text)).Rows[0]["deid"].ToString());
+            diemtam = Convert.ToDouble(txttd.Text);
             //if (txtNhomCau.Text == "Đại số")
             //{
             //    dai = Convert.ToInt32(da.GetDataBy6(" Đại", Convert.ToInt32(lblID.Text)).Rows[0]["diemtoida"].ToString());
@@ -220,12 +227,12 @@ namespace boiduongLeQuyDon.GUI
             try
             {
                 if (dang == "Đề cơ bản")
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
                 else if (dang == "Đề hỗn hợp  Trắc nghiệm/Tự luận")
                 {
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
-                    da.InsertQuery(" TL", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
-                    da.InsertQuery(" TN", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe(" TL", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe(" TN", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
                 }
                 /* */
                
@@ -241,13 +248,13 @@ namespace boiduongLeQuyDon.GUI
             for (; from <= to; from++)
             {
                 if(from<10)
-                    da.InsertQuery("C.0" + from.ToString(), de, Convert.ToDecimal(txtmax.Text), "", "Trắc nghiệm");
+                    queries.InsertDe("C.0" + from.ToString(), de, Convert.ToDouble(txtmax.Text), "", "Trắc nghiệm");
                 else
-                    da.InsertQuery("C." + from.ToString(), de, Convert.ToDecimal(txtmax.Text), "", "Trắc nghiệm");
-                da.UpdateQuery1(Convert.ToDecimal(txtmax.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
-                da.UpdateQuery1(Convert.ToDecimal(txtmax.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
+                    queries.InsertDe("C." + from.ToString(), de, Convert.ToDouble(txtmax.Text), "", "Trắc nghiệm");
+                 queries.UpdateDe2(Convert.ToDouble(txtmax.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), " TN");
+                 queries.UpdateDe2(Convert.ToDouble(txtmax.Text), 0, Convert.ToInt32(lkde.EditValue.ToString()), "  Tổng");
             }
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = getde1.GetData();
         }
         void themhead()
         {
@@ -255,22 +262,22 @@ namespace boiduongLeQuyDon.GUI
             {
                 if (dang == "Đề toán")
                 {
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()),0,"","");
-                    da.InsertQuery(" Đại", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
-                    da.InsertQuery(" Hình", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()),0,"","");
+                    queries.InsertDe(" Đại", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe(" Hình", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
                 }
                 else if (dang == "Đề cơ bản")
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
                 else if (dang == "Đề hỗn hợp  Trắc nghiệm/Tự luận")
                 {
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
-                    da.InsertQuery(" TL", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
-                    da.InsertQuery(" TN", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe(" TL", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
+                    queries.InsertDe(" TN", Convert.ToInt32(lkde.EditValue.ToString()), 0, "", "");
                 }
                     /* */
                 else if (dang == "Đề 1 câu")
-                    da.InsertQuery("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 10, "", "");
-                gridControl1.DataSource = da.GetData();
+                    queries.InsertDe("  Tổng", Convert.ToInt32(lkde.EditValue.ToString()), 10, "", "");
+                gridControl1.DataSource = getde1.GetData();
             }
             catch
             {
@@ -279,8 +286,8 @@ namespace boiduongLeQuyDon.GUI
 
         private void lkde_EditValueChanged(object sender, EventArgs e)
         {
-            this.dang = ka.GetDataBy3(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dang"].ToString();
-            this.count = Convert.ToInt32(da.getcount(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dem"].ToString());
+            this.dang = getkiemtra1.GetData(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dang"].ToString();
+            this.count = Convert.ToInt32(getde4.GetData(Convert.ToInt32(lkde.EditValue.ToString())).Rows[0]["dem"].ToString());
         }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)

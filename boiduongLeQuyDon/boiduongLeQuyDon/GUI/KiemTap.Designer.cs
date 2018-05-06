@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+        //    this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -46,7 +46,7 @@
             this.lblID = new DevExpress.XtraEditors.LabelControl();
             this.lkPhep = new DevExpress.XtraEditors.LookUpEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
+     //       ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -60,8 +60,8 @@
             // 
             // coSoBoiDuongDataSet1
             // 
-            this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+        //    this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
+      //      this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // simpleButton3
             // 
@@ -258,7 +258,7 @@
             this.Name = "KiemTap";
             this.Size = new System.Drawing.Size(950, 515);
             this.Load += new System.EventHandler(this.KiemTap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
+       //     ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay.Properties.CalendarTimeProperties)).EndInit();
@@ -275,7 +275,7 @@
 
         #endregion
 
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
+    //    private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;

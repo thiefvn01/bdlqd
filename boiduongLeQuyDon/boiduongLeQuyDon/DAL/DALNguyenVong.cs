@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM nguyenVongHocVien", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM nguyenVongHocVien", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -23,10 +23,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT n.ID, [Họ tên lót] + ' ' + [Tên] AS [Họ tên],  truong as [Trường], [Môn chuyên], ghiChu as [Ghi chú] FROM nguyenVongHocVien n inner join hocVien v on v.id=n.idhocvien WHERE idHocVien=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT n.ID, hotenlot + ' ' + [Ten] AS [Họ tên],  truong as [Trường], monchuyen as N'Môn chuyên', ghiChu as [Ghi chú] FROM nguyenVongHocVien n inner join hocVien v on v.id=n.idhocvien WHERE idHocVien=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -36,9 +36,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE nguyenVongHocVien SET truong='" + truong + "',\"Môn chuyên\"='" + mon + "',ghiChu='" + ghiChu + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE nguyenVongHocVien SET truong='" + truong + "',monchuyen='" + mon + "',ghiChu='" + ghiChu + "'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -52,9 +52,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO nguyenVongHocVien (idHocVien, truong,ghiChu, \"Môn chuyên\") values (" + idhocvien + ",'" + truong + "','" + ghichu + "','" + mon + "')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO nguyenVongHocVien (idHocVien, truong,ghiChu, monchuyen) values (" + idhocvien + ",'" + truong + "','" + ghichu + "','" + mon + "')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -68,9 +68,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM nguyenVongHocVien WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM nguyenVongHocVien WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

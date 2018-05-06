@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,STT,\"Môn học\", \"Lớp\", \"Giáo Viên\",\"Thứ\", \"Thời gian\", \"Học phí\" FROM ChiTietTKB WHERE idTKB>=(SELECT MAX(id) FROM ThoiKhoaBieu)", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,STT,monhoc as N'Môn học', lop as N'Lớp', giaovien as N'Giáo viên',thu as N'Thứ', thoigian as N'Thời gian', hocphi as N'Học phí' FROM ChiTietTKB WHERE idTKB>=(SELECT MAX(id) FROM ThoiKhoaBieu)", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -23,10 +23,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(int a)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,\"Lớp\", \"Giáo Viên\" FROM ChiTietTKB WHERE idTKB>=(SELECT MAX(id) FROM ThoiKhoaBieu)", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,lop as N'Lớp', giaovien as N'Giáo viên' FROM ChiTietTKB WHERE idTKB>=(SELECT MAX(id) FROM ThoiKhoaBieu)", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -34,10 +34,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getgv(string lop)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT \"Giáo Viên\",[Thứ],[Lớp],[Thời gian] FROM ChiTietTKB WHERE ID="+lop+"", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT giaovien as 'Giáo viên',thu as [Thứ],lop as [Lớp],thoigian as [Thời gian] FROM ChiTietTKB WHERE ID="+lop+"", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -45,10 +45,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID, \"Lớp\", [Thứ],[Thời gian] FROM ChiTietTKB WHERE idTKB=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID, lop as N'Lớp',thu as  [Thứ],thoigian as [Thời gian] FROM ChiTietTKB WHERE idTKB=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -56,10 +56,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet gettkb(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,STT,\"Môn học\", \"Lớp\", \"Giáo Viên\",\"Thứ\", \"Thời gian\", \"Học phí\" FROM ChiTietTKB WHERE idTKB=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,STT,monhoc as N'Môn học', lop as N'Lớp', giaovien as N'Giáo viên',thu as N'Thứ', thoigian as N'Thời gian', hocphi as N'Học phí' FROM ChiTietTKB WHERE idTKB=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -67,10 +67,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet gett(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT \"Học phí\" FROM ChiTietTKB WHERE ID=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT hocphi as N'Học phí' FROM ChiTietTKB WHERE ID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -78,10 +78,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getlop(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT \"Lớp\" FROM ChiTietTKB WHERE ID=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT lop as N'Lớp' FROM ChiTietTKB WHERE ID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -89,10 +89,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get2(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT idTKB FROM ChiTietTKB WHERE id=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT idTKB FROM ChiTietTKB WHERE id=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -100,10 +100,10 @@ namespace boiduongLeQuyDon.DAL
         }
         //public DataSet getlop(string id)
         //{
-        //    OdbcConnection conn = access.AccessData();
+        //    SqlConnection conn = access.AccessData();
         //    conn.Open();
-        //    OdbcCommand cmd = new OdbcCommand("SELECT id FROM ChiTietTKB WHERE \"Lớp\"=" + id, conn);
-        //    OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+        //    SqlCommand cmd = new SqlCommand("SELECT id FROM ChiTietTKB WHERE lop=" + id, conn);
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
         //    DataSet dt = new DataSet();
         //    da.Fill(dt);
         //    conn.Close();
@@ -111,10 +111,10 @@ namespace boiduongLeQuyDon.DAL
         //}
         public DataSet get1(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID, \"Môn học\", \"Lớp\" FROM ChiTietTKB WHERE idTKB=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID, monhoc as N'Môn học', lop as N'Lớp' FROM ChiTietTKB WHERE idTKB=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -124,9 +124,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE ChiTietTKB SET STT=" + stt + ",\"Môn học\"='" + monhoc + "',\"Lớp\"='" + lop + "',\"Giáo viên\"='" + giaovien + "',\"Thứ\"='" + thu + "',\"Thời gian\"='"+thoigian+"',\"Học phí\"='"+hocphi+"'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ChiTietTKB SET STT=" + stt + ",monhoc='" + monhoc + "',lop='" + lop + "',giaovien='" + giaovien + "',thu='" + thu + "',thoigian='"+thoigian+"',hocphi='"+hocphi+"'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -140,9 +140,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO ChiTietTKB (STT, \"Môn học\",\"Lớp\",\"Giáo viên\",\"Thứ\",\"Thời gian\",\"Học phí\",idTKB) values (" + stt + ",'" + monhoc + "','" + lop + "','" + giaovien + "','" + thu + "','"+thoigian+"','"+hocphi+"',"+idTKB+")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO ChiTietTKB (STT, monhoc,lop,giaovien,thu,thoigian,hocphi,idTKB) values (" + stt + ",'" + monhoc + "','" + lop + "','" + giaovien + "','" + thu + "','"+thoigian+"','"+hocphi+"',"+idTKB+")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -156,9 +156,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM ChiTietTKB WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM ChiTietTKB WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

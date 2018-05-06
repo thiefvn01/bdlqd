@@ -30,8 +30,8 @@
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPivotGrid4 = new DevExpress.XtraReports.UI.XRPivotGrid();
-            this.dataTable4TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
-            this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+       //     this.dataTable4TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
+        //    this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.xrPivotGridField23 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField24 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField25 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
@@ -79,7 +79,7 @@
             this.fieldmaDe = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.fieldngayLam = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.fieldcauLon = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
-            this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+        //    this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
@@ -97,7 +97,7 @@
             this.xrPivotGridField38 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField36 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField39 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
+        //    ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -121,9 +121,9 @@
             this.xrPivotGrid4.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid4.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid4.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid4.DataAdapter = this.dataTable4TableAdapter;
+      //      this.xrPivotGrid4.DataAdapter = this.dataTable4TableAdapter;
             this.xrPivotGrid4.DataMember = "DataTable4";
-            this.xrPivotGrid4.DataSource = this.coSoBoiDuongDataSet1;
+     //       this.xrPivotGrid4.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid4.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField23,
             this.xrPivotGridField24,
@@ -156,12 +156,12 @@
             // 
             // dataTable4TableAdapter
             // 
-            this.dataTable4TableAdapter.ClearBeforeFill = true;
+        //    this.dataTable4TableAdapter.ClearBeforeFill = true;
             // 
             // coSoBoiDuongDataSet1
             // 
-            this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+    //        this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
+    //        this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // xrPivotGridField23
             // 
@@ -274,9 +274,9 @@
             this.xrPivotGrid3.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid3.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid3.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid3.DataAdapter = this.dataTable4TableAdapter;
+     //       this.xrPivotGrid3.DataAdapter = this.dataTable4TableAdapter;
             this.xrPivotGrid3.DataMember = "DataTable4";
-            this.xrPivotGrid3.DataSource = this.coSoBoiDuongDataSet1;
+     //       this.xrPivotGrid3.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid3.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField12,
             this.xrPivotGridField13,
@@ -418,9 +418,9 @@
             this.xrPivotGrid2.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid2.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid2.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid2.DataAdapter = this.dataTable4TableAdapter;
+       //     this.xrPivotGrid2.DataAdapter = this.dataTable4TableAdapter;
             this.xrPivotGrid2.DataMember = "DataTable4";
-            this.xrPivotGrid2.DataSource = this.coSoBoiDuongDataSet1;
+      //      this.xrPivotGrid2.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid2.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField1,
             this.xrPivotGridField2,
@@ -562,9 +562,9 @@
             this.xrPivotGrid1.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid1.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid1.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid1.DataAdapter = this.dataTable4TableAdapter;
+         //   this.xrPivotGrid1.DataAdapter = this.dataTable4TableAdapter;
             this.xrPivotGrid1.DataMember = "DataTable4";
-            this.xrPivotGrid1.DataSource = this.coSoBoiDuongDataSet1;
+      //      this.xrPivotGrid1.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid1.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.fieldid1,
             this.fieldHtn1,
@@ -698,7 +698,7 @@
             // 
             // ketQuaHocTapTableAdapter
             // 
-            this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
+      //      this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
             // 
             // TopMargin
             // 
@@ -871,7 +871,7 @@
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4Rotated;
             this.Version = "14.1";
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
+       //     ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -889,8 +889,8 @@
         private DevExpress.XtraReports.UI.XRPivotGrid xrPivotGrid1;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
+     //   private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
+    //    private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldid1;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldHtn1;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldLp1;
@@ -899,7 +899,7 @@
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldTn1;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldCauLon1;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fielddiemtoida1;
-        private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldcauLon;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldmaDe;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldngayLam;

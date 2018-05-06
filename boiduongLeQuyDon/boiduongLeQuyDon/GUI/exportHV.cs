@@ -11,7 +11,9 @@ namespace boiduongLeQuyDon.GUI
     {
         BUSThoiKhoaBieu tkb = new BUSThoiKhoaBieu();
         BUSChiTietTKB ck = new BUSChiTietTKB();
-        coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter da = new coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
+        bdlqdDataSet1TableAdapters.getHocVien3TableAdapter gethocvien3 = new bdlqdDataSet1TableAdapters.getHocVien3TableAdapter();
+        bdlqdDataSet1TableAdapters.getHocVien4TableAdapter gethocvien4 = new bdlqdDataSet1TableAdapters.getHocVien4TableAdapter();
+        //coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter da = new coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
         public exportHV()
         {
             InitializeComponent();
@@ -49,12 +51,12 @@ namespace boiduongLeQuyDon.GUI
             if (lop == 0)
             {
              //   MessageBox.Show("!23");
-                dt = da.getFilter(0, tungay, denngay);
+                dt = gethocvien3.GetData(0, tungay, denngay);
              //   MessageBox.Show(dt.Rows.Count.ToString());
             }
             else
             {
-                dt = da.getFilter2(lop, tungay, denngay);
+                dt = gethocvien4.GetData(lop, tungay, denngay);
             }
             saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";

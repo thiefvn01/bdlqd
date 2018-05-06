@@ -51,9 +51,7 @@ namespace boiduongLeQuyDon.GUI
             dkTKB.Properties.DataSource = tkb.gettt().Tables[0];
             dkTKB.Properties.DisplayMember = "Tên TKB";
             dkTKB.Properties.ValueMember = "ID";
-            upTKB.Properties.DataSource = tkb.gettt().Tables[0];
-            upTKB.Properties.DisplayMember = "Tên TKB";
-            upTKB.Properties.ValueMember = "ID";
+            
             //lkLop.Properties.DataSource = ck.get().Tables[0];
             //lkLop.Properties.DisplayMember = "Lớp";
             //lkLop.Properties.ValueMember = "ID";
@@ -77,7 +75,7 @@ namespace boiduongLeQuyDon.GUI
                     lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, dtngay.Text);
                     DataSet ds3 = new DataSet();
                     ds3 = lop.getlg();
-                    lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString());
+                    lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString(),"Đang học");
                     
               //  }
                 //catch
@@ -90,12 +88,7 @@ namespace boiduongLeQuyDon.GUI
 
         }
 
-        private void textEdit3_EditValueChanged(object sender, EventArgs e)
-        {
-            upLop.Properties.DataSource = ck.get(upTKB.EditValue.ToString()).Tables[0];
-            upLop.Properties.DisplayMember = "Lớp";
-            upLop.Properties.ValueMember = "ID";
-        }
+      
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -104,52 +97,11 @@ namespace boiduongLeQuyDon.GUI
             lkLop.Properties.ValueMember = "ID";
         }
 
-        private void bntUpdate_Click(object sender, EventArgs e)
-        {
-            if (change!="")
-                try
-                {
-                    //   lop.update(upLop.EditValue.ToString(),txtupGC.Text,lblID.Text);
-                    lop.insert(lblHV.Text, upLop.EditValue.ToString(), txtupGC.Text, txtusbl.Text, lblLC.Text, lblLopGoc.Text);
-                    lop.updateold1(lblID.Text, "0");
-                    lop.updateold("", "1");
-                    load();
-
-                }
-                catch
-                {
-                    XtraMessageBox.Show("Có lỗi xảy ra");
-                }
-            else
-            {
-                try
-                {
-                    lop.update(txtusbl.Text, txtupGC.Text, lblID.Text);
-                    
-                }
-                catch
-                {
-                }
-                finally
-                {
-                    load();
-                    change = "";
-                }
-            }
-        }
+       
 
         private void bntXoa_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                lop.delete(lblID.Text);
-                load();
-            }
-            catch
-            {
-                XtraMessageBox.Show("Chọn 1 dòng để xóa");
-            }
+          
         }
         private void load()
         {
@@ -168,37 +120,26 @@ namespace boiduongLeQuyDon.GUI
             this.Close();
         }
 
-        private void gridView2_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-            change = "";
-          //  upLop.EditValue = "-1";
-          //  upTKB.EditValue = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "idLop").ToString();
-         //   idLop.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Lớp").ToString();
-            lblID.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID").ToString();
-            txtusbl.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "SBL").ToString();
-            DataSet ds1 = lop.getlg(lblID.Text);
-            lblLC.Text = ds1.Tables[0].Rows[0]["idLop"].ToString();
-            lblHV.Text = ds1.Tables[0].Rows[0]["idHocVien"].ToString();
-            lblLopGoc.Text = ds1.Tables[0].Rows[0]["lopGoc"].ToString();
-        }
+       
 
         private void upLop_EditValueChanged(object sender, EventArgs e)
         {
             change = "1";
         }
 
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        private void labelControl3_Click(object sender, EventArgs e)
         {
-            if (checkEdit1.Checked == true)
-            {
-                upTKB.Properties.DataSource = tkb.get(1).Tables[0];
-                dkTKB.Properties.DataSource = tkb.get(1).Tables[0];
-            }
-            else
-            {
-                upTKB.Properties.DataSource = tkb.gettt().Tables[0];
-                dkTKB.Properties.DataSource = tkb.gettt().Tables[0];
-            }
+
+        }
+
+        private void textEdit1_EditValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

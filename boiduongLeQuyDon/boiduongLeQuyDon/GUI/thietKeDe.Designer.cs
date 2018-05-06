@@ -52,11 +52,11 @@
             this.txtCauLon = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtNhomCau = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.coSoBoiDuongDataSet = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+       //     this.coSoBoiDuongDataSet = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.deBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.deTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.deTableAdapter();
+      //      this.deTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.deTableAdapter();
             this.kiemTraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kiemTraTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
+    //        this.kiemTraTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCâu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMãđề = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauLon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhomCau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).BeginInit();
+       //     ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kiemTraBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -311,26 +311,26 @@
             // 
             // coSoBoiDuongDataSet
             // 
-            this.coSoBoiDuongDataSet.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+        //    this.coSoBoiDuongDataSet.DataSetName = "coSoBoiDuongDataSet";
+       //     this.coSoBoiDuongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // deBindingSource
             // 
             this.deBindingSource.DataMember = "de";
-            this.deBindingSource.DataSource = this.coSoBoiDuongDataSet;
+     //       this.deBindingSource.DataSource = this.coSoBoiDuongDataSet;
             // 
             // deTableAdapter
             // 
-            this.deTableAdapter.ClearBeforeFill = true;
+    //        this.deTableAdapter.ClearBeforeFill = true;
             // 
             // kiemTraBindingSource
             // 
             this.kiemTraBindingSource.DataMember = "kiemTra";
-            this.kiemTraBindingSource.DataSource = this.coSoBoiDuongDataSet;
+     //       this.kiemTraBindingSource.DataSource = this.coSoBoiDuongDataSet;
             // 
             // kiemTraTableAdapter
             // 
-            this.kiemTraTableAdapter.ClearBeforeFill = true;
+     //       this.kiemTraTableAdapter.ClearBeforeFill = true;
             // 
             // colID
             // 
@@ -420,7 +420,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauLon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhomCau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).EndInit();
+         //   ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kiemTraBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -454,7 +454,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.ComboBoxEdit txtNhomCau;
         private System.Windows.Forms.BindingSource deBindingSource;
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet;
+     //   private coSoBoiDuongDataSet coSoBoiDuongDataSet;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colCâu;
         private DevExpress.XtraGrid.Columns.GridColumn colMãđề;
@@ -463,7 +463,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCâulớn;
         private DevExpress.XtraGrid.Columns.GridColumn colNhómcâu;
         private System.Windows.Forms.BindingSource kiemTraBindingSource;
-        private coSoBoiDuongDataSetTableAdapters.deTableAdapter deTableAdapter;
-        private coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kiemTraTableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.deTableAdapter deTableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kiemTraTableAdapter;
     }
 }

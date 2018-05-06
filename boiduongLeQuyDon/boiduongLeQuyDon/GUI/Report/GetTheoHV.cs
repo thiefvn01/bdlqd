@@ -13,8 +13,8 @@ namespace boiduongLeQuyDon.GUI.Report
         int  lop;
    
      
-        coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter kq = new coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
-        coSoBoiDuongDataSetTableAdapters.deTableAdapter dedt = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
+     //   coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter kq = new coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
+   //     coSoBoiDuongDataSetTableAdapters.deTableAdapter dedt = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
     
         public GetTheoHV(DataTable dtmp,string lop, string tenlop,  string hovaten, int idhocvien,  DataTable data2, DataTable data3, DataTable data4, int sotrang)
         {

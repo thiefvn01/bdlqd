@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,11 +12,11 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM HocVien", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM HocVien", conn);
         //    string sql = "SELECT * from ((hocvien v inner join lop l on l.idhocvien=v.id) inner join chitiettkb c on c.id=l.idlop) inner join thoikhoabieu t on t.id=c.idTKB where [Ngày kết thúc] >=now()";
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -24,11 +24,11 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getcurr()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT  v.ID,\"Mã học viên\", \"Họ tên lót\", \"Tên\",\"Họ tên lót\" +' ' + \"Tên\" as [Họ và tên],\"Ngày sinh\", \"Trường\",\"Điện thoại\",\"Email\",\"Địa chỉ\",v.\"Ghi chú\" from hocvien v ORDER BY v.ngayDK DESC", conn);
+            SqlCommand cmd = new SqlCommand("SELECT  v.ID,MaHV, hotenlot as N'Họ tên lót', ten as N'Tên' ,hotenlot +' ' + ten as [Họ và tên],ngaysinh as N'Ngày sinh', truong as N'Trường',dienthoai as N'Điện thoại',email, diachi as N'Địa chỉ',v.ghichu as N'Ghi chú' from hocvien v ORDER BY v.ngayDK DESC", conn);
          //   string sql = "SELECT * from ((hocvien v inner join lop l on l.idhocvien=v.id) inner join chitiettkb c on c.id=l.idlop) inner join thoikhoabieu t on t.id=c.idTKB where [Ngày kết thúc] >=now()";
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -36,10 +36,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getdiemdanh(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT hocVien.ID,\"Họ tên lót\" + ' ' + \"Tên\" as \"Họ tên\"  FROM HocVien inner join Lop on hocVien.id=Lop.idHocVien WHERE lophientai=1 and Lop.idLop=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT hocVien.ID,hotenlot + ' ' + ten as \"Họ tên\"  FROM HocVien inner join Lop on hocVien.id=Lop.idHocVien WHERE lophientai=1 and Lop.idLop=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -47,10 +47,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getTKB()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,\"Họ tên lót\",\"Tên\",\"Ngày sinh\", ngayDK FROM HocVien order by ngayDK", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,hotenlot as N'Họ tên lót',ten as N'Tên',ngaysinh as N'Ngày sinh', ngayDK FROM HocVien order by ngayDK", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -58,10 +58,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string a)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT DISTINCT v.ID,\"Mã học viên\", \"Họ tên lót\", \"Tên\",\"Họ tên lót\" +' ' + \"Tên\" as [Họ và tên],\"Ngày sinh\", \"Trường\",\"Điện thoại\",\"Email\",\"Địa chỉ\",v.\"Ghi chú\" FROM ((hocvien v inner join lop l on l.idhocvien=v.id) inner join chitiettkb c on c.id=l.idlop) inner join thoikhoabieu t on t.id=c.idTKB where [Ngày kết thúc] >=now()", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT v.ID,MaHV as N'Mã HV', hotenlot as 'Họ tên lót', ten as N'Tên',hotenlot +' ' + ten as [Họ và tên],ngaysinh as N'Ngày sinh', truong as N'Trường',dienthoai as N'Điện thoại',email,diachi as N'Địa chỉ',v.ghichu as N'Ghi chú' FROM ((hocvien v inner join lop l on l.idhocvien=v.id) inner join chitiettkb c on c.id=l.idlop) inner join thoikhoabieu t on t.id=c.idTKB where ngayketthuc >=getdate()", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -69,10 +69,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get1(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM HocVien WHERE ID="+id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM HocVien WHERE ID="+id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -82,9 +82,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE hocVien SET \"Mã học viên\"='" + mahocvien + "',\"Họ tên lót\"='" + hotenlot + "',\"Tên\"='" + ten + "',\"Ngày sinh\"='" + ngaysinh + "',\"Ghi chú\"='" + ghichu + "',\"Trường\"='" + idtruong + "', \"Điện thoại\"='"+dienthoai+"',email='"+email+"',\"Địa chỉ\"='"+diachi+"',hoTenCha='"+hotencha+"', dienThoaiCha='"+dienthoaicha+"',ngheNghiepCha='"+ nghenghiepcha+"', chucVuCha='"+chucvucha+"',hoTenMe='"+hotenme+"',dienThoaiMe='"+dienthoaime+"', ngheNghiepMe='"+nghenghiepme+"', chucVuMe='"+chucvume+"', tenNguoiNuoiDuong='"+nguoinuoidung+"', dienThoaiNguoiNuoiDuong='"+dienthoainguoinuoiduong+"', emailPhuHuynh='"+emailphuhuynh+"' WHERE ID=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE hocVien SET MaHV='" + mahocvien + "',hotenlot='" + hotenlot + "',ten='" + ten + "',ngaysinh='" + ngaysinh + "',ghichu='" + ghichu + "',truong='" + idtruong + "', dienthoai='"+dienthoai+"',email='"+email+"',diachi='"+diachi+"',hoTenCha='"+hotencha+"', dienThoaiCha='"+dienthoaicha+"',ngheNghiepCha='"+ nghenghiepcha+"', chucVuCha='"+chucvucha+"',hoTenMe='"+hotenme+"',dienThoaiMe='"+dienthoaime+"', ngheNghiepMe='"+nghenghiepme+"', chucVuMe='"+chucvume+"', tenNguoiNuoiDuong='"+nguoinuoidung+"', dienThoaiNguoiNuoiDuong='"+dienthoainguoinuoiduong+"', emailPhuHuynh='"+emailphuhuynh+"' WHERE ID=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -98,9 +98,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO hocVien(\"Mã học viên\", \"Họ tên lót\", \"Tên\", \"Ngày sinh\",\"Trường\",\"Điện thoại\", Email, \"Địa chỉ\", hoTenCha, dienThoaiCha, ngheNghiepCha, chucVuCha, hoTenMe, dienThoaiMe, ngheNghiepMe, chucVuMe, tenNguoiNuoiDuong, dienThoaiNguoiNuoiDuong, emailPhuHuynh,\"Ghi chú\") values ('"+mahocvien +"','" + hotenlot + "','" + ten + "','" + ngaysinh + "','" + idtruong + "','" + dienthoai + "','" + email + "','" + diachi + "','" + hotencha + "','" + dienthoaicha + "','" + nghenghiepcha + "','" + chucvucha + "','" + hotenme + "','" + dienthoaime + "','" + nghenghiepme + "','" + chucvume + "','" + nguoinuoidung + "','" + dienthoainguoinuoiduong + "','" + emailphuhuynh + "','" + ghiChu + "')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO hocVien(MaHV, hotenlot, ten, ngaysinh,truong,dienthoai, Email, diachi, hoTenCha, dienThoaiCha, ngheNghiepCha, chucVuCha, hoTenMe, dienThoaiMe, ngheNghiepMe, chucVuMe, tenNguoiNuoiDuong, dienThoaiNguoiNuoiDuong, emailPhuHuynh,ghichu) values ('"+mahocvien +"','" + hotenlot + "','" + ten + "','" + ngaysinh + "','" + idtruong + "','" + dienthoai + "','" + email + "','" + diachi + "','" + hotencha + "','" + dienthoaicha + "','" + nghenghiepcha + "','" + chucvucha + "','" + hotenme + "','" + dienthoaime + "','" + nghenghiepme + "','" + chucvume + "','" + nguoinuoidung + "','" + dienthoainguoinuoiduong + "','" + emailphuhuynh + "','" + ghiChu + "')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -114,9 +114,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM hocVien WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM hocVien WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

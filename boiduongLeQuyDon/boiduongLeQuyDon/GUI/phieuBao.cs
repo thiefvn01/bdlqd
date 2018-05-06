@@ -17,8 +17,10 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
         }
-
-        coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua21TableAdapter ketqua21 = new bdlqdDataSet1TableAdapters.getKetQua21TableAdapter();
+        bdlqdDataSet1TableAdapters.getThongTinPhieuBaoTableAdapter ttphieubao = new bdlqdDataSet1TableAdapters.getThongTinPhieuBaoTableAdapter();
+      //  coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
         private void lkKhoa_EditValueChanged(object sender, EventArgs e)
         {
             lkLop.Properties.DataSource = ck.get(lkKhoa.EditValue.ToString()).Tables[0];
@@ -42,12 +44,12 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                tt.InsertQuery(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()), txtnx1.Text, txtnx2.Text);
+                queries.insertPhieuBao(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()), txtnx1.Text, txtnx2.Text, txtnx3.Text, txtnx4.Text);
             }
             catch
             {
             }
-            Report.phieuBaoHocTap rp = new Report.phieuBaoHocTap(lkPhep.EditValue.ToString(), lkLop.EditValue.ToString(),lkLop.Text, txtnx1.Text,txtnx2.Text,lkKhoa.EditValue.ToString(), Convert.ToDateTime(dtFrom.Text), Convert.ToDateTime(dtTo.Text));
+            Report.phieuBaoHocTap rp = new Report.phieuBaoHocTap(lkPhep.EditValue.ToString(), lkLop.EditValue.ToString(),lkLop.Text, txtnx1.Text,txtnx2.Text,txtnx3.Text, txtnx4.Text, lkKhoa.EditValue.ToString(), Convert.ToDateTime(dtFrom.Text), Convert.ToDateTime(dtTo.Text));
             rp.ShowPreview();
         }
 
@@ -78,7 +80,7 @@ namespace boiduongLeQuyDon.GUI
         private void btxExport_Click(object sender, EventArgs e)
         {
 
-            dt = da.Getdataby8(Convert.ToInt32(lkLop.EditValue.ToString()));
+            dt = ketqua21.GetData(Convert.ToInt32(lkLop.EditValue.ToString()));
             savaFileDialog1.FileName = "";
             savaFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
             if (this.savaFileDialog1.ShowDialog() == DialogResult.OK)
@@ -94,7 +96,9 @@ namespace boiduongLeQuyDon.GUI
             ((Excel.Range)wcel.Cells[1, 4]).Value2 = "Họ tên";
             ((Excel.Range)wcel.Cells[1, 5]).Value2 = "Lớp";
             ((Excel.Range)wcel.Cells[1, 6]).Value2 = "Tên giáo viên";
-            ((Excel.Range)wcel.Cells[1, 7]).Value2 = "Nhận xét";
+            ((Excel.Range)wcel.Cells[1, 7]).Value2 = "Nhận xét 1";
+            ((Excel.Range)wcel.Cells[1, 8]).Value2 = "Nhận xét 2";
+            ((Excel.Range)wcel.Cells[1, 9]).Value2 = "Nhận xét 3";
             wcel.Cells[1, 1].Font.Bold = true;
       //      wcel.Cells[2, 1].Font.Bold = true;
             wcel.Cells[1, 2].Font.Bold = true;
@@ -117,7 +121,7 @@ namespace boiduongLeQuyDon.GUI
        
         string path;
         OpenFileDialog op = new OpenFileDialog();
-        coSoBoiDuongDataSetTableAdapters.ttphieubaoTableAdapter tt = new coSoBoiDuongDataSetTableAdapters.ttphieubaoTableAdapter();
+     //   coSoBoiDuongDataSetTableAdapters.ttphieubaoTableAdapter tt = new coSoBoiDuongDataSetTableAdapters.ttphieubaoTableAdapter();
         private void bntImp_Click(object sender, EventArgs e)
         {
             readExcel();
@@ -127,7 +131,7 @@ namespace boiduongLeQuyDon.GUI
                 try
                 {
                    
-                    tt.InsertQuery(Convert.ToInt32(dt1.Rows[i]["idhocvien"].ToString()), Convert.ToInt32(dt1.Rows[i]["idlop"].ToString()), dt1.Rows[i]["Tên giáo viên"].ToString(), dt1.Rows[i]["Nhận xét"].ToString());
+                    queries.insertPhieuBao(Convert.ToInt32(dt1.Rows[i]["idhocvien"].ToString()), Convert.ToInt32(dt1.Rows[i]["idlop"].ToString()), dt1.Rows[i]["Tên giáo viên"].ToString(), dt1.Rows[i]["Nhận xét 1"].ToString(), dt1.Rows[i]["Nhận xét 2"].ToString(), dt1.Rows[i]["Nhận xét 3"].ToString());
                 }
                 catch
                 {
@@ -165,7 +169,7 @@ namespace boiduongLeQuyDon.GUI
         private void lkPhep_EditValueChanged(object sender, EventArgs e)
         {
            try{
-           dt2= tt.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()), Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+           dt2= ttphieubao.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
            txtnx1.Text = dt2.Rows[0]["giaovien"].ToString();
            txtnx2.Text = dt2.Rows[0]["nhanxet"].ToString();
 }

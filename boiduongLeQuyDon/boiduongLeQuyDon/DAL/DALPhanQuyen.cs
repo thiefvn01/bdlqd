@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 
 namespace boiduongLeQuyDon.DAL
@@ -13,10 +13,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM PHanQuyen", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PHanQuyen", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -24,10 +24,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM PHanQuyen WHERE idNhanVien="+id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PHanQuyen WHERE idNhanVien="+id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -37,9 +37,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE PhanQuyen SET nv=" + nv + ", HV= "+hv+",KQ="+kq+", PQ="+pq+"  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE PhanQuyen SET nv=" + nv + ", HV= "+hv+",KQ="+kq+", PQ="+pq+"  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -53,9 +53,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO PhanQuyen(idNhanVien, nv,hc,kq,pq) values (" + idnv + "," + nv + "," + hv + ","+kq+","+pq+")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO PhanQuyen(idNhanVien, nv,hc,kq,pq) values (" + idnv + "," + nv + "," + hv + ","+kq+","+pq+")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -69,9 +69,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM PhanQuyen WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM PhanQuyen WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

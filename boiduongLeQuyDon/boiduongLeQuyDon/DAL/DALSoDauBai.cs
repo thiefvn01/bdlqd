@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT s.ID, [Nội dung], [Bài tập về nhà],[Nhận xét],[Ngày],[Lớp], idlop as lid FROM soDauBai s inner join chitiettkb c on s.idlop=c.id order by [Ngày]", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT s.ID, noidung as [Nội dung], baitapvenha as [Bài tập về nhà], nhanxet as [Nhận xét],ngay as [Ngày],lop as [Lớp], idlop as lid FROM soDauBai s inner join chitiettkb c on s.idlop=c.id order by ngay", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -24,10 +24,10 @@ namespace boiduongLeQuyDon.DAL
 
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT s.ID, [Nội dung], [Bài tập về nhà],[Nhận xét],[Ngày],[Lớp], idlop as lid FROM soDauBai s inner join chitiettkb c on s.idlop=c.id WHERE idlop="+id+" order by [Ngày]", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT s.ID, noidung as [Nội dung], baitapvenha as [Bài tập về nhà], nhanxet as [Nhận xét],ngay as [Ngày],lop as [Lớp], idlop as lid FROM soDauBai s inner join chitiettkb c on s.idlop=c.id WHERE idlop=" + id+" order by [Ngày]", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -35,10 +35,10 @@ namespace boiduongLeQuyDon.DAL
         }
         //public DataSet get(string id)
         //{
-        //    OdbcConnection conn = access.AccessData();
+        //    SqlConnection conn = access.AccessData();
         //    conn.Open();
-        //    OdbcCommand cmd = new OdbcCommand("SELECT * FROM nguyenVongHocVien WHERE idHocVien=" + id, conn);
-        //    OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+        //    SqlCommand cmd = new SqlCommand("SELECT * FROM nguyenVongHocVien WHERE idHocVien=" + id, conn);
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
         //    DataSet dt = new DataSet();
         //    da.Fill(dt);
         //    conn.Close();
@@ -48,9 +48,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE soDauBai SET \"Nội dung\"='" + noidung + "',\"Bài tập về nhà\"='" + baitap + "',\"Nhận xét\"='" + nhanxet + "',\"Ngày\"='" + ngay + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE soDauBai SET noidung='" + noidung + "',baitapvenha='" + baitap + "',nhanxet='" + nhanxet + "',ngay='" + ngay + "'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -64,9 +64,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO soDauBai (\"Nội dung\", \"Bài tập về nhà\",\"Nhận xét\", \"Ngày\",idLop) values ('" + noidung + "','" + baitap + "','" + nhanxet + "','" + ngay + "',"+lop+")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO soDauBai (noidung, baitapvenha,nhanxet, ngay,idLop) values ('" + noidung + "','" + baitap + "','" + nhanxet + "','" + ngay + "',"+lop+")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -80,9 +80,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM soDauBai WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM soDauBai WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID, [Họ tên lót] , [Tên],[Địa chỉ],[Số điện thoại],[Email],[Vị trí] ,[Mức lương],[userName], [Giới tính],[Ghi chú] FROM nhanVien WHERE ID <> 1", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID, hotenlot as [Họ tên lót] , ten as [Tên],diachi as [Địa chỉ], sodienthoai as[Số điện thoại],[Email], vitri as [Vị trí] ,[Mức lương],[userName], gioitinh as [Giới tính], ghichu as [Ghi chú] FROM nhanVien WHERE ID <> 1", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -23,10 +23,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getpq()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,[Họ tên lót] + ' ' + [Tên] AS [Họ tên],IIF(NV=1,'x','') as [Nhân viên],IiF(HV=1,'x','') as [Học viên],IiF(KQ=1,'x','') as [Kết quả],IiF(PQ=1,'x','') as [Phân quyền] FROM nhanVien where ID<>1", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,hotenlot + ' ' + ten AS [Họ tên],IIF(NV=1,'x','') as [Nhân viên],IiF(HV=1,'x','') as [Học viên],IiF(KQ=1,'x','') as [Kết quả],IiF(PQ=1,'x','') as [Phân quyền] FROM nhanVien where ID<>1", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -34,10 +34,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getpq(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,[Họ tên lót] + ' ' + [Tên] AS [Họ tên],IIF(NV=1,'x','') as [Nhân viên],IiF(HV=1,'x','') as [Học viên],IiF(KQ=1,'x','') as [Kết quả],IiF(PQ=1,'x','') as [Phân quyền] FROM nhanVien where ID<>1 AND ID=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID, hotenlot + ' ' + ten AS [Họ tên],IIF(NV=1,'x','') as [Nhân viên],IiF(HV=1,'x','') as [Học viên],IiF(KQ=1,'x','') as [Kết quả],IiF(PQ=1,'x','') as [Phân quyền] FROM nhanVien where ID<>1 AND ID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -45,10 +45,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get1()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID, [Họ tên lót] + ' ' + [Tên] AS [Họ tên],[Địa chỉ],[Số điện thoại],[Email],[Vị trí],[Ghi chú] FROM nhanVien WHERE ID <> 1", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID, hotenlot + ' ' + ten AS [Họ tên],diachi as [Địa chỉ], sodienthoai as[Số điện thoại],[Email], vitri as [Vị trí], ghichu as [Ghi chú] FROM nhanVien WHERE ID <> 1", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -56,10 +56,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet login(string a)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT passWord FROM nhanVien WHERE userName='"+a+"'", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT passWord FROM nhanVien WHERE userName='"+a+"'", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -69,9 +69,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE nhanVien SET nv=" + nv + ", HV= " + hv + ",KQ=" + kq + ", PQ=" + pq + "  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE nhanVien SET nv=" + nv + ", HV= " + hv + ",KQ=" + kq + ", PQ=" + pq + "  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -83,10 +83,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet login1(string a)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID FROM nhanVien WHERE userName='" + a + "'", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID FROM nhanVien WHERE userName='" + a + "'", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -96,9 +96,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE nhanVien SET \"Họ tên lót\"='" + ho + "',\"Tên\"='" + ten + "',\"Địa chỉ\"='" + diachi + "',\"Ghi chú\"='" + ghiChu + "',\"Số điện thoại\"='" + sodienthoai + "', Email='"+email+"',\"Vị trí\"='"+vitri+"',\"Giới tính\"='"+gioitinh+"',\"Mức lương\"="+mucluong+"  WHERE ID=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE nhanVien SET \"Họ tên lót\"='" + ho + "',\"Tên\"='" + ten + "',\"Địa chỉ\"='" + diachi + "',\"Ghi chú\"='" + ghiChu + "',sodienthoai='" + sodienthoai + "', Email='"+email+"',vitri='"+vitri+"',gioitinh='"+gioitinh+"',\"Mức lương\"="+mucluong+"  WHERE ID=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -112,9 +112,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE nhanVien SET \"Họ tên lót\"='" + ho + "',\"Tên\"='" + ten + "',\"Địa chỉ\"='" + diachi + "',\"Ghi chú\"='" + ghiChu + "',\"Số điện thoại\"='" + sodienthoai + "', Email='" + email + "',\"Vị trí\"='" + vitri + "',userName='" + uname + "',passWord='" + passwd + "',\"Giới tính\"='" + gioitinh + "',\"Mức lương\"=" + mucluong + "  WHERE ID=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE nhanVien SET hotenlot='" + ho + "',ten='" + ten + "',diachi='" + diachi + "',ghichu='" + ghiChu + "',sodienthoai='" + sodienthoai + "', Email='" + email + "',vitri='" + vitri + "',userName='" + uname + "',passWord='" + passwd + "',gioitinh='" + gioitinh + "',\"Mức lương\"=" + mucluong + "  WHERE ID=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -128,9 +128,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO nhanVien(\"Họ tên lót\",\"Tên\", \"Địa chỉ\", \"Số điện thoại\", Email, \"Vị trí\", userName, passWord, \"Giới tính\", \"Mức lương\", \"Ghi chú\") values ('" + ho + "','" + ten + "','" + diachi + "','" + sodienthoai + "','" + email + "','" + vitri + "','" + uname + "','" + passwd + "','" + gioitinh + "'," + mucluong + ",'" + ghiChu +"')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO nhanVien(\"Họ tên lót\",\"Tên\", \"Địa chỉ\", sodienthoai, Email, vitri, userName, passWord, gioitinh, \"Mức lương\", \"Ghi chú\") values ('" + ho + "','" + ten + "','" + diachi + "','" + sodienthoai + "','" + email + "','" + vitri + "','" + uname + "','" + passwd + "','" + gioitinh + "'," + mucluong + ",'" + ghiChu +"')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -144,9 +144,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM nhanVien WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM nhanVien WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

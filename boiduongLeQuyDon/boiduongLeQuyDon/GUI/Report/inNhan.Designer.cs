@@ -32,8 +32,8 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
-            this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
-            this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+    //        this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+    //        this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
             this.ketQuaHocTapAdapter = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -79,11 +79,11 @@
             // 
             // dataTable3TableAdapter
             // 
-            this.dataTable3TableAdapter.ClearBeforeFill = true;
+     //       this.dataTable3TableAdapter.ClearBeforeFill = true;
             // 
             // ketQuaHocTapTableAdapter
             // 
-            this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
+    //        this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
             // 
             // ketQuaHocTapAdapter
             // 
@@ -119,8 +119,8 @@
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
-        private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
-        private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
         private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }

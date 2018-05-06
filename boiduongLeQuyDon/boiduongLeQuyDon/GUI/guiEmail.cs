@@ -1,238 +1,196 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Templates;
-using DevExpress.ExpressApp.Templates.ActionControls;
-using DevExpress.ExpressApp.Utils;
-using DevExpress.ExpressApp.Win.Controls;
-using DevExpress.ExpressApp.Win.SystemModule;
-using DevExpress.ExpressApp.Win.Templates;
-using DevExpress.ExpressApp.Win.Templates.Utils;
-using DevExpress.Utils.Controls;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraPrinting;
 using System.Net.Mail;
 using System.Net;
 
 namespace boiduongLeQuyDon.GUI
 {
-    [ToolboxItem(false)]
-    public partial class bntCheck : XtraUserControl, IActionControlsSite, IFrameTemplate, ISupportActionsToolbarVisibility, IViewSiteTemplate, ISupportUpdate, IBarManagerHolder, ISupportViewChanged, IContextMenuHolder, IBasePrintableProvider, IViewHolder, ISeparatorsHolder, ISupportBorderStyle
+    public partial class GuiEmail : UserControl
     {
-        private static readonly object viewChanged = new object();
-        private XtraResizableControlProxy resizableControlProxy;
-
-        protected virtual void RaiseViewChanged(DevExpress.ExpressApp.View view)
+        List<int> danhsach = new List<int>();
+        List<int> danhsach_ten = new List<int>();
+        List<string> email = new List<string>();
+        List<string> doituong = new List<string>();
+        public GuiEmail()
         {
-            EventHandler<TemplateViewChangedEventArgs> handler = (EventHandler<TemplateViewChangedEventArgs>)Events[viewChanged];
-            if (handler != null)
+            InitializeComponent();
+        }
+        List<MyObject> GetData(int count)
+        {
+            List<MyObject> list = new List<MyObject>();
+            for (int i = 0; i < count; i++)
             {
-                handler(this, new TemplateViewChangedEventArgs(view));
+                list.Add(new MyObject() { ID = i, Name = "Name" + i, Info = "Info" + i });
             }
+            return list;
         }
-        protected override IXtraResizableControl GetInnerIXtraResizableControl()
+        public class MyObject
         {
-            return resizableControlProxy;
-        }
+            public MyObject() { }
 
-  
-
-        public Bar ToolBar
-        {
-            get { return standardToolBar; }
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public string Info { get; set; }
         }
-
-        #region IActionControlsSite Members
-        IEnumerable<IActionControl> IActionControlsSite.ActionControls
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
-            get { return barManager.ActionControls; }
-        }
-        IEnumerable<IActionControlContainer> IActionControlsSite.ActionContainers
-        {
-            get { return barManager.ActionContainers; }
-        }
-        IActionControlContainer IActionControlsSite.DefaultContainer
-        {
-            get { return actionContainerDefault; }
-        }
-        #endregion
-
-        #region IFrameTemplate Members
-        void IFrameTemplate.SetView(DevExpress.ExpressApp.View view)
-        {
-            viewSiteManager.SetView(view);
-            if (view != null)
+            string server = "";
+            string from = textEdit1.Text.Trim();
+            string split8 = from.Substring(from.Length - 8, 8);
+            string split9 = from.Substring(from.Length - 9, 9);
+            string split12 = from.Substring(from.Length - 12, 12);
+            //gửi chưa có custom nội dung
+            MailMessage mail = new MailMessage();
+            foreach (string a in email)
             {
-                Tag = EasyTestTagHelper.FormatTestContainer(view.Caption);
-            }
-            RaiseViewChanged(view);
-        }
-        ICollection<IActionContainer> IFrameTemplate.GetContainers()
-        {
-            { return new IActionContainer[0]; }
-        }
-        IActionContainer IFrameTemplate.DefaultContainer
-        {
-            get { return null; }
-        }
-        #endregion
-
-        #region ISupportUpdate Members
-        void ISupportUpdate.BeginUpdate()
-        {
-            barManager.BeginUpdate();
-        }
-        void ISupportUpdate.EndUpdate()
-        {
-            barManager.EndUpdate();
-        }
-        #endregion
-
-        #region IBarManagerHolder Members
-        BarManager IBarManagerHolder.BarManager
-        {
-            get { return barManager; }
-        }
-        event EventHandler IBarManagerHolder.BarManagerChanged
-        {
-            add { }
-            remove { }
-        }
-        #endregion
-
-        #region IViewSiteTemplate Members
-        object IViewSiteTemplate.ViewSiteControl
-        {
-            get { return viewSiteManager.ViewSiteControl; }
-        }
-        #endregion
-
-        #region ISupportViewChanged Members
-        event EventHandler<TemplateViewChangedEventArgs> ISupportViewChanged.ViewChanged
-        {
-            add { Events.AddHandler(viewChanged, value); }
-            remove { Events.RemoveHandler(viewChanged, value); }
-        }
-        #endregion
-
-        #region ISupportActionsToolbarVisibility Members
-        void ISupportActionsToolbarVisibility.SetVisible(bool isVisible)
-        {
-            foreach (Bar bar in barManager.Bars)
-            {
-                bar.Visible = isVisible;
-            }
-        }
-        #endregion
-
-        #region IContextMenuHolder Members
-        PopupMenu IContextMenuHolder.ContextMenu
-        {
-            get { return contextMenu; }
-        }
-        #endregion
-
-        #region IBasePrintableProvider Members
-        object IBasePrintableProvider.GetIPrintableImplementer()
-        {
-            DevExpress.ExpressApp.View view = viewSiteManager.View;
-            return view != null ? view.Control : null;
-        }
-        #endregion
-
-        #region IViewHolder Members
-        DevExpress.ExpressApp.View IViewHolder.View
-        {
-            get { return viewSiteManager.View; }
-        }
-        #endregion
-
-        #region ISeparatorsHolder Members
-        AnchorStyles ISeparatorsHolder.SeparatorAnchors
-        {
-            get
-            {
-                return topSeparatorControl.Visible ? AnchorStyles.Top : AnchorStyles.None;
-            }
-            set
-            {
-                topSeparatorControl.Visible = value.HasFlag(AnchorStyles.Top);
-            }
-        }
-        #endregion
-
-        #region ISupportBorderStyle Members
-        BorderStyles ISupportBorderStyle.BorderStyle
-        {
-            get
-            {
-                return viewSitePanel != null ? viewSitePanel.BorderStyle : BorderStyles.Default;
-            }
-            set
-            {
-                if (viewSitePanel != null)
+                if (split8 == "gmail.com")
                 {
-                    viewSitePanel.BorderStyle = value;
+                    server = "smpt.gmail.com";
+                    SmtpClient smtpsvr = new SmtpClient(server);
+                    mail.From = new MailAddress(from, textEdit4.Text);
+                    mail.Subject = textEdit2.Text;
+                  //  mail.To = new MailAddress(;
+                    smtpsvr.Port = 465;
+                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    smtpsvr.EnableSsl = true;
+                    mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    mail.IsBodyHtml = true;
+                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    mail.To.Add(new MailAddress(a));
+                    smtpsvr.Send(mail);
+                }
+                else if (split9 == "yahoo.com")
+                {
+                    server = "smtp.mail.yahoo.com";
+                    SmtpClient smtpsvr = new SmtpClient(server);
+                    //  SmtpClient smtpsvr = new SmtpClient(server);
+                    mail.From = new MailAddress(from, textEdit4.Text);
+                    mail.Subject = textEdit2.Text;
+                    smtpsvr.Port = 587;
+                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    smtpsvr.EnableSsl = true;
+                    mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    mail.IsBodyHtml = true;
+                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    mail.To.Add(new MailAddress(a));
+                    smtpsvr.Send(mail);
+                }
+                else if (split12 == "yahoo.com.vn")
+                {
+                    server = "smtp.mail.yahoo.com.vn";
+                    SmtpClient smtpsvr = new SmtpClient(server);
+                    mail.From = new MailAddress(from, textEdit4.Text);
+                    mail.Subject = textEdit2.Text;
+                    smtpsvr.Port = 465;
+                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    smtpsvr.EnableSsl = true;
+                    mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    mail.IsBodyHtml = true;
+                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    mail.To.Add(new MailAddress(a));
+                    smtpsvr.Send(mail);
                 }
             }
         }
-        #endregion
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void simpleButton3_Click(object sender, EventArgs e)
         {
+            bool daxuly = false;
+            int count = 0;
+            // string a = txtNoiDung.Text.Replace(Environment.NewLine, "<br>"); ;
             
+            //kiểm tra nút tất cả có đc check hay không
+            //nếu được check
+            for (int i = 0; i < cbDanhsach.Properties.Items.Count; i++)
+            {
+                var item = cbDanhsach.Properties.Items[i];
+                if (item.CheckState == CheckState.Checked)
+                {
+                    if (item.Value.ToString() == "Tất cả")
+                    {
+                        for (int j = 0; i < cbDanhsach.Properties.Items.Count; j++)
+                        {
+                            danhsach.Add(Convert.ToInt32(item.Value.ToString()));
+                            count++;
+                        }
+                        daxuly = true;
+                    }
+                }
+            }
+            //nếu không được check
+            if (daxuly == false)
+            {
+                for (int i = 0; i < cbDanhsach.Properties.Items.Count; i++)
+                {
+                    var item = cbDanhsach.Properties.Items[i];
+                    if (item.CheckState == CheckState.Checked)
+                    {
+                        danhsach.Add(Convert.ToInt32(item.Value.ToString()));
+                      //  danhsach_ten.Add(item.)
+                        count++;
+                    }
+                }
+                daxuly = true;
+            }
+            //lấy ds đối tượng
+            for (int i = 0; i < checkedComboBoxEdit2.Properties.Items.Count; i++)
+            {
+               
+                var item = checkedComboBoxEdit2.Properties.Items[i];
+                if (item.CheckState == CheckState.Checked)
+                {
+                    for(int j = 0; j < count; j++)
+                    {
+                        doituong.Add(item.Value.ToString());
+                    }
+                }
+            }
+            //lấy email
+            for(int i=0;i<count;i++)
+            {
+                //query lấy email
+                //select doituong from hocvien where id = danhsach[i]
+                email.Add("");
+            }
+            //set count = 0 để có thể add liên tục
+            count = 0;
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            doituong.Clear();
+            danhsach.Clear();
+            email.Clear();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string server = "";
-            string from = txtMail.Text.Trim();
-            string split8 = from.Substring(from.Length - 8, 8);
-            string split9 = from.Substring(from.Length - 9, 9);
-            string split12 = from.Substring(from.Length - 12, 12);
-            MailMessage mail = new MailMessage();
-            if (split8 == "gmail.com")
+            DataTable dt = new DataTable();
+           // DataSet ds = new DataSet();
+         //   dt.DataSet.DataSetName = "DSEmail";
+            dt.Columns.Add("Thứ tự");
+            dt.Columns.Add("Học viên");
+            dt.Columns.Add("Người nhận");
+            dt.Columns.Add("Email nhận");
+            for (int i = 0; i < doituong.Count; i++)
             {
-                server = "smpt.gmail.com";
-                SmtpClient smtpsvr = new SmtpClient(server);
-                mail.From = new MailAddress(from);
-                mail.Subject = txtSub.Text;
-                smtpsvr.Port = 587;
-                smtpsvr.Credentials = new NetworkCredential(from, txtPass.Text);
-                smtpsvr.EnableSsl = true;
-                smtpsvr.Send(mail);
+                DataRow r = dt.NewRow();
+                r.SetField("Thứ tự", i + 1);
+                //query get ten hoc vien tai day
+                string ten = "";
+                r.SetField("Học viên", ten);
+                r.SetField("Người nhận", doituong[i]);
+                r.SetField("Email nhận", email[i]);
+                dt.Rows.Add(r);
             }
-            else if (split9 == "yahoo.com")
-            {
-                server = "smtp.mail.yahoo.com";
-                SmtpClient smtpsvr = new SmtpClient(server);
-            }
-            else if (split12 == "yahoo.com.vn")
-            {
-                server = "smtp.mail.yahoo.com.vn";
-                SmtpClient smtpsvr = new SmtpClient(server);
-            }
-            
-            
-        }
-
-        private void labelControl7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl7_Click_1(object sender, EventArgs e)
-        {
-
+            DS_GuiEmail ds = new DS_GuiEmail(dt);
+            ds.Show();
         }
     }
 }

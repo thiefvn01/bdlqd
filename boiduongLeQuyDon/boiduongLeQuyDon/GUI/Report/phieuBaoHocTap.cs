@@ -4,15 +4,20 @@ using System.Linq;
 using System.Xml.Linq;
 using boiduongLeQuyDon.BUS;
 using DevExpress.XtraPrinting;
+using System.Data.SqlClient;
 namespace boiduongLeQuyDon.GUI.Report
 {
+    
     public partial class phieuBaoHocTap : DevExpress.XtraReports.UI.XtraReport
     {
+        static string connstring = "Data Source=kurt;Initial Catalog=bdlqd;Integrated Security=True";
+        SqlDataAdapter loptb = new SqlDataAdapter();
         BUSChiTietTKB bus = new BUSChiTietTKB();
         BUSThoiKhoaBieu tkb = new BUSThoiKhoaBieu();
         DateTime dtfrom, dtto;
-        coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter hv = new coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
-        public phieuBaoHocTap(string idhocvien, string idlop, string tenlop, string tengv, string nx2,  string idtkb, DateTime dtfrom, DateTime dtto)
+        
+      //  coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter hv = new coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
+        public phieuBaoHocTap(string idhocvien, string idlop, string tenlop, string tengv, string nx2, string nx3, string nx4, string idtkb, DateTime dtfrom, DateTime dtto)
         {
             InitializeComponent();
             this.idhocvien = idhocvien;
@@ -37,7 +42,8 @@ namespace boiduongLeQuyDon.GUI.Report
             load();
             lbgiaovien.Text = tengv;
             lbnx2.Text = nx2;
-        //    lbnx3.Text = nx3;
+            lblnhanxet2.Text = nx3;
+            lblnhanxet3.Text = nx4;
             lblop.Text = tenlop;
          //   lbtenp.Text = tenp.ToUpper();
            
@@ -50,51 +56,59 @@ namespace boiduongLeQuyDon.GUI.Report
       //  string lop = "";
         string cophep = "";
         string khongphep = "";
-    //    string strlop = "-2";
-        coSoBoiDuongDataSetTableAdapters.LopTableAdapter loptb = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter chamtap = new coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter diemdanh = new coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.kiemTra1TableAdapter kt = new coSoBoiDuongDataSetTableAdapters.kiemTra1TableAdapter();
-        coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter kq = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+        //    string strlop = "-2";
+
+        bdlqdDataSet1TableAdapters.getHocVien2TableAdapter hv = new bdlqdDataSet1TableAdapters.getHocVien2TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop1TableAdapter loptb1 = new bdlqdDataSet1TableAdapters.getLop1TableAdapter();
+        bdlqdDataSet1TableAdapters.getDiemDanh5TableAdapter diemdanh5 = new bdlqdDataSet1TableAdapters.getDiemDanh5TableAdapter();
+        bdlqdDataSet1TableAdapters.getDiemDanh3TableAdapter diemdanh3 = new bdlqdDataSet1TableAdapters.getDiemDanh3TableAdapter();
+        bdlqdDataSet1TableAdapters.getDiemDanh4TableAdapter diemdanh4 = new bdlqdDataSet1TableAdapters.getDiemDanh4TableAdapter();
+        bdlqdDataSet1TableAdapters.getChamTap2TableAdapter chamtap2 = new bdlqdDataSet1TableAdapters.getChamTap2TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua15TableAdapter ketqua15 = new bdlqdDataSet1TableAdapters.getKetQua15TableAdapter();
+       // coSoBoiDuongDataSetTableAdapters.LopTableAdapter loptb = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
+     //   coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter chamtap = new coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
+    //    coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter diemdanh = new coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter();
+        //coSoBoiDuongDataSetTableAdapters.kiemTra1TableAdapter kt = new coSoBoiDuongDataSetTableAdapters.kiemTra1TableAdapter();
+     //   coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter kq = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
         void load()
         {
-
             string tentkb = tkb.get(idtkb).Tables[0].Rows[0]["Tên TKB"].ToString().ToLower().Replace("thời khóa biểu", "").ToUpper();
             string nh = tkb.get(idtkb).Tables[0].Rows[0]["Năm học"].ToString();
             lbtenp.Text = tentkb.ToUpper();
             int tmp = 0;
             try
             {
-                lbhotenhs.Text = hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["ho ten"].ToString();
-                if (hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim() != "")
-                    lbdienthoai.Text = hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim();
-                else if (hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiCha"].ToString().Trim() != "")
-                    lbdienthoai.Text = hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiCha"].ToString().Trim();
-                else if (hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiNguoiNuoiDuong"].ToString().Trim() != "")
-                    lbdienthoai.Text = hv.GetDataBy(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiNguoiNuoiDuong"].ToString().Trim();
+                lbhotenhs.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["ho ten"].ToString();
+                if (hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim() != "")
+                    lbdienthoai.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim();
+                else if (hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiCha"].ToString().Trim() != "")
+                    lbdienthoai.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiCha"].ToString().Trim();
+                else if (hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiNguoiNuoiDuong"].ToString().Trim() != "")
+                    lbdienthoai.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiNguoiNuoiDuong"].ToString().Trim();
             }
             catch
             {
             }
-            dtlop = loptb.getlopgoc(Convert.ToInt32(idhocvien), Convert.ToInt32(idlop));
+            
+            dtlop = loptb1.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(idlop));
             lopgoc = dtlop.Rows[0]["lopGoc"].ToString();
         //    XtraMessageBox.Show(lopgoc);
             try
             {
               
 
-                for (int j = 0; j < diemdanh.gettre(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; j++)
+                for (int j = 0; j < diemdanh5.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; j++)
                 {
                     //    lop = loptb.getlop(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc)).Rows[j]["idLop"].ToString();
                     //     XtraMessageBox.Show(lop);
                     try
                     {
                         //   XtraMessageBox.Show(tre);
-                        tre += diemdanh.gettre(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[j]["Trễ"].ToString();
+                        tre += diemdanh5.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[j]["Trễ"].ToString();
                         tre += " ngày ";
                         //  XtraMessageBox.Show(tre);
-                        tre += Convert.ToDateTime(diemdanh.gettre(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[j]["Ngày"].ToString()).ToShortDateString();
-                        if (j == diemdanh.gettre(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count - 1)
+                        tre += Convert.ToDateTime(diemdanh5.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[j]["Ngày"].ToString()).ToShortDateString();
+                        if (j == diemdanh5.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count - 1)
                             tre += " .";
                         else
                             tre += "; ";
@@ -112,21 +126,21 @@ namespace boiduongLeQuyDon.GUI.Report
                // {
                //     lop = loptb.getlop(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc)).Rows[i]["idLop"].ToString();
 
-                for (int i = 0; i < diemdanh.GetDataBy1(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; i++)
+                for (int i = 0; i < diemdanh3.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; i++)
                 {
                     try
                     {
-                        cophep += Convert.ToDateTime(diemdanh.GetDataBy1(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[i]["Có phép"].ToString()).ToShortDateString();
+                        cophep += Convert.ToDateTime(diemdanh3.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[i]["Có phép"].ToString()).ToShortDateString();
                         cophep += "; ";
                     }
                     catch { }
                 }
-                for (int i = 0; i < diemdanh.GetDataBy2(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; i++)
+                for (int i = 0; i < diemdanh4.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows.Count; i++)
                 {
                     try
                     {
 
-                        khongphep += Convert.ToDateTime(diemdanh.GetDataBy2(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[i]["Không phép"].ToString()).ToShortDateString();
+                        khongphep += Convert.ToDateTime(diemdanh4.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto).Rows[i]["Không phép"].ToString()).ToShortDateString();
                         khongphep += "; ";
                     }
                     catch
@@ -139,7 +153,7 @@ namespace boiduongLeQuyDon.GUI.Report
             catch
             {
             }
-            tmp = chamtap.getfn(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc),dtfrom, dtto).Rows.Count;
+            tmp = chamtap2.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc),dtfrom, dtto).Rows.Count;
             if (tre.Length == 0)
                 lbtre.Text = "Không.";
             else
@@ -180,7 +194,7 @@ namespace boiduongLeQuyDon.GUI.Report
      //       xrPivotGrid1.DataSource = chamtap.getfn(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc),dtfrom, dtto);
         //    min = min + sodong;
             DataTable dt = new DataTable();
-            dt = chamtap.getfn(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto);
+            dt = chamtap2.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto);
             DataTable dt4 = new DataTable();
             DataTable dt2 = new DataTable();
             DataTable dt3 = new DataTable();
@@ -249,7 +263,7 @@ namespace boiduongLeQuyDon.GUI.Report
           //   XtraMessageBox.Show(tmp.ToString());
          //    kt.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc));
              DataTable dt1 = new DataTable();
-             dt1 = kq.gettoreport(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), Convert.ToInt32(idhocvien),dtfrom, dtto);
+             dt1 = ketqua15.GetData(Convert.ToInt32(idhocvien), Convert.ToInt32(lopgoc), dtfrom, dtto);
         //     XtraMessageBox.Show(dt1.Rows.Count.ToString());
              double sum = 0;
              if (dt1.Rows.Count >= 4)

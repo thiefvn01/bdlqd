@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM ThoiKhoaBieu WHERE [Ngày kết thúc] IS NULL OR [Ngày kết thúc] >=now", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ThoiKhoaBieu WHERE ngayketthuc IS NULL OR ngayketthuc >=getdate()", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -23,10 +23,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(int id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,[Tên TKB],[Năm học] FROM ThoiKhoaBieu ", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,tentkb as [Tên TKB],namhoc as [Năm học] FROM ThoiKhoaBieu ", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -34,10 +34,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet gettt()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT ID,[Tên TKB],[Năm học] FROM ThoiKhoaBieu WHERE [Ngày kết thúc] IS NULL OR [Ngày kết thúc] >=now", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT ID,tentkb as [Tên TKB], namhoc as [Năm học] FROM ThoiKhoaBieu WHERE ngayketthuc IS NULL OR ngayketthuc >= getdate()", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -45,10 +45,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getinf(string ID)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT \"Khai giảng\" FROM ThoiKhoaBieu WHERE id="+ID, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT khaigiang as N'Khaigiang' FROM ThoiKhoaBieu WHERE id="+ID, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -56,10 +56,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM ThoiKhoaBieu WHERE ID=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ThoiKhoaBieu WHERE ID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -69,9 +69,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE ThoiKhoaBieu SET \"Tên TKB\"='" + ten + "',\"Lớp\"='" + lop + "',\"Năm học\"='" + namhoc + "',\"Khai giảng\"='" + khaigiang + "',\"Ngày kết thúc\"='"+ngayketthuc+"'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb='" + ten + "',lop='" + lop + "',namhoc='" + namhoc + "',khaigiang='" + khaigiang + "',ngayketthuc='"+ngayketthuc+"'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -85,9 +85,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE ThoiKhoaBieu SET \"Tên TKB\"='" + ten + "',\"Lớp\"='" + lop + "',\"Năm học\"='" + namhoc + "',\"Khai giảng\"='" + khaigiang + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb='" + ten + "',lop='" + lop + "',namhoc='" + namhoc + "',khaigiang='" + khaigiang + "'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -101,9 +101,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO ThoiKhoaBieu (\"Tên TKB\", \"Lớp\",\"Năm học\",\"Khai giảng\",\"Ngày kết thúc\") values ('" + ten + "','" + lop + "','" + namhoc + "','" + khaigiang + "','"+ngayketthuc+"')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO ThoiKhoaBieu (tentkb, lop,namhoc,khaigiang,ngayketthuc) values ('" + ten + "','" + lop + "','" + namhoc + "','" + khaigiang + "','"+ngayketthuc+"')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -117,9 +117,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM ThoiKhoaBieu WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM ThoiKhoaBieu WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

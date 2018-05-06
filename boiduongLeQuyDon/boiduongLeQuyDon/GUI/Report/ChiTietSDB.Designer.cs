@@ -64,7 +64,7 @@
             this.st = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.bd = new DevExpress.XtraReports.UI.XRLabel();
-            this.hocVienTableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
+  //          this.hocVienTableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -351,7 +351,7 @@
             // 
             // hocVienTableAdapter1
             // 
-            this.hocVienTableAdapter1.ClearBeforeFill = true;
+   //         this.hocVienTableAdapter1.ClearBeforeFill = true;
             // 
             // ChiTietSDB
             // 
@@ -360,7 +360,7 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader});
-            this.DataAdapter = this.hocVienTableAdapter1;
+     //       this.DataAdapter = this.hocVienTableAdapter1;
             this.Version = "13.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
@@ -408,6 +408,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
-        private coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter hocVienTableAdapter1;
+     //   private coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter hocVienTableAdapter1;
     }
 }

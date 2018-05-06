@@ -10,8 +10,10 @@ namespace boiduongLeQuyDon.GUI
  //       BUSKetQuaToan bus = new BUSKetQuaToan();
     //    coSoBoiDuongDataSetTableAdapters.deTableAdapter da = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
         DataTable dt = new DataTable();
-        coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter ka = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua11TableAdapter ketqua11 = new bdlqdDataSet1TableAdapters.getKetQua11TableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+    //    coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+   //     coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter ka = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
         decimal maxdiem;
         public ThemDiem(DataTable ds, int idhocvien, int idlop, int made,string dang)
         {
@@ -45,9 +47,9 @@ namespace boiduongLeQuyDon.GUI
         public enum SplashScreenCommand
         {
         }
-        decimal tongdiem=0;
-        decimal dtn=0;
-        decimal dlt=0;
+        double tongdiem=0;
+        double dtn =0;
+        double dlt =0;
         private void bntCN_Click(object sender, EventArgs e)
         {
             if (txtDiem.Text == "")
@@ -62,16 +64,16 @@ namespace boiduongLeQuyDon.GUI
                 //  MessageBox.Show(lt.ToString() + " haha" + tn.ToString() + "tmp" + tmp.ToString());
                 if (tmp < socau)
                 {
-                    da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[tmp]["ID"].ToString()), Convert.ToDecimal(txtDiem.Text), made);
-                    tongdiem += Convert.ToDecimal(txtDiem.Text);
+                    queries.InsertKetQua(idhocvien, idlop, Convert.ToInt32(ds.Rows[tmp]["ID"].ToString()), Convert.ToDouble(txtDiem.Text));
+                    tongdiem += Convert.ToDouble(txtDiem.Text);
                     if (nhomcau == "Đại số" || nhomcau == "Tự luận")
                     {
-                        dtn += Convert.ToDecimal(txtDiem.Text);
+                        dtn += Convert.ToDouble(txtDiem.Text);
                         //MessageBox.Show( dtn.ToString());
                     }
                     if (nhomcau == "Hình học" || nhomcau == "Trắc nghiệm")
                     {
-                        dlt += Convert.ToDecimal(txtDiem.Text);
+                        dlt += Convert.ToDouble(txtDiem.Text);
                         //        MessageBox.Show(dlt.ToString());
                     }
                     tmp++;
@@ -94,19 +96,19 @@ namespace boiduongLeQuyDon.GUI
                 {
                     if (flag == 1)
                     {
-                        da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[0]["ID"].ToString()), tongdiem, made);
+                        queries.InsertKetQua(idhocvien, idlop, Convert.ToInt32(ds.Rows[0]["ID"].ToString()), tongdiem);
                         //  if (dang == "Đề toán")
                         {
-                            da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[1]["ID"].ToString()), dtn, made);
+                            queries.InsertKetQua(idhocvien, idlop, Convert.ToInt32(ds.Rows[1]["ID"].ToString()), dtn);
                             //     da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[1]["ID"].ToString()), dlt, made);
-                            da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[2]["ID"].ToString()), dlt, made);
+                            queries.InsertKetQua(idhocvien, idlop, Convert.ToInt32(ds.Rows[2]["ID"].ToString()), dlt);
                         }
 
                         socau = socau - 3;
                     }
                     if (flag == 0)
                     {
-                        da.InsertQuery(idhocvien, idlop, Convert.ToInt32(ds.Rows[0]["ID"].ToString()), tongdiem, made);
+                        queries.InsertKetQua(idhocvien, idlop, Convert.ToInt32(ds.Rows[0]["ID"].ToString()), tongdiem);
                         socau = socau - 1;
                     }
                     /*   */
@@ -129,11 +131,11 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                if (da.trungget(idhocvien, made).Rows[0]["kq"].ToString() == "1")
+                if (ketqua11.GetData(idhocvien, made).Rows[0]["kq"].ToString() == "1")
                 {
                     if (MessageBox.Show("Người này đã có điểm, điểm cũ sẽ bị xóa khỏi hệ thống?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        da.DeleteQuery1(made, idhocvien);
+                        queries.deleteKetQua1(made, idhocvien);
                     }
                     else
                     {

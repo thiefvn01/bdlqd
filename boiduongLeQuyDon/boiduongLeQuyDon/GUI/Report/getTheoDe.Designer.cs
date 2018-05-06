@@ -31,7 +31,7 @@
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPivotGrid2 = new DevExpress.XtraReports.UI.XRPivotGrid();
             this.ketQuaHocTapAdapter2 = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
-            this.coSoBoiDuongDataSet2 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+        //    this.coSoBoiDuongDataSet2 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.xrPivotGridField5 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField6 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField7 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
@@ -52,9 +52,9 @@
             this.xrPivotGridField14 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField15 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.xrPivotGridField16 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
-            this.dataTable3TableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
-            this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
-            this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
+       //     this.dataTable3TableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+       //     this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+      //      this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ketQuaHocTapAdapter = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
@@ -64,11 +64,11 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblop = new DevExpress.XtraReports.UI.XRLabel();
             this.ketQuaHocTapAdapter1 = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
-            this.dataTable4TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
-            this.dataTable4TableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
-            this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
+         //   this.dataTable4TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
+        //    this.dataTable4TableAdapter1 = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
+      //      this.dataTable3TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+          //  ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet2)).BeginInit();
+        //    ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -92,7 +92,7 @@
             this.xrPivotGrid2.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid2.DataAdapter = this.ketQuaHocTapAdapter2;
             this.xrPivotGrid2.DataMember = "ketQuaHocTap";
-            this.xrPivotGrid2.DataSource = this.coSoBoiDuongDataSet2;
+       //     this.xrPivotGrid2.DataSource = this.coSoBoiDuongDataSet2;
             this.xrPivotGrid2.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField5,
             this.xrPivotGridField6,
@@ -121,8 +121,8 @@
             // 
             // coSoBoiDuongDataSet2
             // 
-            this.coSoBoiDuongDataSet2.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+     //       this.coSoBoiDuongDataSet2.DataSetName = "coSoBoiDuongDataSet";
+     //       this.coSoBoiDuongDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // xrPivotGridField5
             // 
@@ -200,7 +200,7 @@
             this.xrPivotGrid1.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid1.DataAdapter = this.ketQuaHocTapAdapter2;
             this.xrPivotGrid1.DataMember = "ketQuaHocTap";
-            this.xrPivotGrid1.DataSource = this.coSoBoiDuongDataSet2;
+        //    this.xrPivotGrid1.DataSource = this.coSoBoiDuongDataSet2;
             this.xrPivotGrid1.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField1,
             this.xrPivotGridField2,
@@ -299,7 +299,7 @@
             this.xrPivotGrid3.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid3.DataAdapter = this.ketQuaHocTapAdapter2;
             this.xrPivotGrid3.DataMember = "ketQuaHocTap";
-            this.xrPivotGrid3.DataSource = this.coSoBoiDuongDataSet2;
+     //       this.xrPivotGrid3.DataSource = this.coSoBoiDuongDataSet2;
             this.xrPivotGrid3.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField11,
             this.xrPivotGridField12,
@@ -390,16 +390,16 @@
             // 
             // dataTable3TableAdapter1
             // 
-            this.dataTable3TableAdapter1.ClearBeforeFill = true;
+      //      this.dataTable3TableAdapter1.ClearBeforeFill = true;
             // 
             // ketQuaHocTapTableAdapter
             // 
-            this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
+     //       this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
             // 
             // coSoBoiDuongDataSet1
             // 
-            this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      //      this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
+      //      this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TopMargin
             // 
@@ -479,15 +479,15 @@
             // 
             // dataTable4TableAdapter
             // 
-            this.dataTable4TableAdapter.ClearBeforeFill = true;
+        //    this.dataTable4TableAdapter.ClearBeforeFill = true;
             // 
             // dataTable4TableAdapter1
             // 
-            this.dataTable4TableAdapter1.ClearBeforeFill = true;
+      //      this.dataTable4TableAdapter1.ClearBeforeFill = true;
             // 
             // dataTable3TableAdapter
             // 
-            this.dataTable3TableAdapter.ClearBeforeFill = true;
+      //      this.dataTable3TableAdapter.ClearBeforeFill = true;
             // 
             // getTheoDe
             // 
@@ -501,8 +501,8 @@
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4Rotated;
             this.Version = "14.1";
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
+        //    ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet2)).EndInit();
+        //    ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -512,7 +512,7 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-        private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
+     //   private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
         private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
         private DevExpress.XtraReports.UI.XRLabel lbtende;
@@ -540,13 +540,13 @@
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField xrPivotGridField14;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField xrPivotGridField15;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField xrPivotGridField16;
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
+    //    private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
         private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter2;
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet2;
+    //    private coSoBoiDuongDataSet coSoBoiDuongDataSet2;
         private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter1;
-        private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter1;
-        private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter;
-        private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter1;
-        private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
+   //     private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter1;
+   //     private coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dataTable4TableAdapter;
+   //     private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter1;
+    //    private coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
     }
 }

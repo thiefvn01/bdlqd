@@ -450,8 +450,8 @@ namespace boiduongLeQuyDon
 
         private void barButtonItem25_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Bck bc = new Bck();
-            bc.Show();
+           // Bck bc = new Bck();
+        //    bc.Show();
         }
 
         private void barButtonItem26_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -480,6 +480,43 @@ namespace boiduongLeQuyDon
         private void ucMain_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+        }
+
+        private void barButtonItem30_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GUI.QLHocPhi xs = new GUI.QLHocPhi();
+            //      GUI.QuanLyHocPhi quanLyHocPhi = new QuanLyHocPhi();
+            try
+            {
+                ucMain.Controls.RemoveAt(0);
+            }
+            catch
+            {
+            }
+            //      quanLyHocPhi.Dock = DockStyle.Fill;
+            ucMain.Controls.Add(xs);
+            this.Text = "Quản lý lớp";
+        }
+
+        private void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GUI.GuiEmail xs = new GUI.GuiEmail();
+            //      GUI.QuanLyHocPhi quanLyHocPhi = new QuanLyHocPhi();
+            try
+            {
+                ucMain.Controls.RemoveAt(0);
+            }
+            catch
+            {
+            }
+            //      quanLyHocPhi.Dock = DockStyle.Fill;
+            ucMain.Controls.Add(xs);
+            this.Text = "Gửi Email";
         }
     }
 }

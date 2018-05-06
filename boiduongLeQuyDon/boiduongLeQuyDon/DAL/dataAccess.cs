@@ -1,17 +1,17 @@
-﻿using System.Data.Odbc;
+﻿using System.Data.SqlClient;
 namespace boiduongLeQuyDon.DAL
 {
     class dataAccess
     {
         
-        public OdbcConnection AccessData()
+        public SqlConnection AccessData()
         {
-            OdbcConnection conn = new OdbcConnection();
+            SqlConnection conn = new SqlConnection();
       //      XDocument doc = XDocument.Load("Config.xml");
     //        string password = doc.Element("connect").Elements("password").FirstOrDefault().Value.ToString();
        //     string path = doc.Element("connect").Elements("path").FirstOrDefault().Value.ToString();
 
-            conn.ConnectionString = @"Driver={Microsoft Access Driver (*.mdb)};Dbq=coSoBoiDuong.mdb;Pwd=iSolution;";
+            conn.ConnectionString = @"Data Source=KURT;Initial Catalog=bdlqd;User ID=sa;Password=Expelliarmus@1";
             return conn;
         }
     }

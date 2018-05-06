@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM KetQuaToan", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM KetQuaToan", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -25,9 +25,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE KetQuaToan SET maHocVien=" + mahocvien + ",\"Mã đề thi\"=" + made + ",\"  Tổng\"=" + tongdiem + ",\" Đại\"=" + daiso + ",\" Hình\" =" + hinh + ",1a=" + a1 + ",1b=" + b1 + ",1c=" + c1 + ",1d=" + d1 + ",2a=" + a2 + ",2b=" + b2 + ",3a=" + a3 + ",3b=" + b3 + ",4a=" + a4 + ",4b=" + b4 + ",5a=" + a5 + " ,5b=" + b5 + ",5c=" + c5 + " ,5d=" + d5 + " WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE KetQuaToan SET MaHV=" + mahocvien + ",\"Mã đề thi\"=" + made + ",\"  Tổng\"=" + tongdiem + ",\" Đại\"=" + daiso + ",\" Hình\" =" + hinh + ",1a=" + a1 + ",1b=" + b1 + ",1c=" + c1 + ",1d=" + d1 + ",2a=" + a2 + ",2b=" + b2 + ",3a=" + a3 + ",3b=" + b3 + ",4a=" + a4 + ",4b=" + b4 + ",5a=" + a5 + " ,5b=" + b5 + ",5c=" + c5 + " ,5d=" + d5 + " WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -41,9 +41,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO KetQuaToan (maHocVien, \"Mã đề thi\", \"  Tổng\",\" Đại\", \" Hình\",1a,1b,1c,1d,2a,2b,3a,3b,4a,4b,5a,5b,5c,5d) values (" + mahocvien + "," + made + "," + tongdiem + "," + daiso + "," + hinh + "," + daiso + "," + a1 + "," + b1 + "," + c1 + "," + d1 + "," + a2 + "," + b2 + "," + a3 + "," + b3 + "," + a4 + "," + b4 + "," + a5 + "," + b5 + "," + c5 + "," + d5 + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO KetQuaToan (maHocVien, \"Mã đề thi\", \"  Tổng\",\" Đại\", \" Hình\",1a,1b,1c,1d,2a,2b,3a,3b,4a,4b,5a,5b,5c,5d) values (" + mahocvien + "," + made + "," + tongdiem + "," + daiso + "," + hinh + "," + daiso + "," + a1 + "," + b1 + "," + c1 + "," + d1 + "," + a2 + "," + b2 + "," + a3 + "," + b3 + "," + a4 + "," + b4 + "," + a5 + "," + b5 + "," + c5 + "," + d5 + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -57,9 +57,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM KetQuaToan WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM KetQuaToan WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

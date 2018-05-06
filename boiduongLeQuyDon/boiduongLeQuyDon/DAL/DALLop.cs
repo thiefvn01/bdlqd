@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 
 namespace boiduongLeQuyDon.DAL
@@ -13,10 +13,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT Lop.ID,ChiTietTKB.STT AS [STT TKB], \"Họ tên lót\" + ' ' + \"Tên\" as [Họ và tên],ChiTietTKB.\"Lớp\", SBL FROM Lop INNER JOIN hocVien on Lop.idHocVien=hocVien.ID, ChiTietTKB WHERE ChiTietTKB.ID=Lop.idLop and lophientai=1 ORDER BY ChiTietTKB.IDTKB, ChiTietTKB.STT", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT Lop.ID,ChiTietTKB.STT AS [STT TKB], hotenlot + ' ' + ten as [Họ và tên],ChiTietTKB.lop as N'Lớp', SBL, trangthai as N'Trạng thái' FROM Lop INNER JOIN hocVien on Lop.idHocVien=hocVien.ID, ChiTietTKB WHERE ChiTietTKB.ID=Lop.idLop and lophientai=1 ORDER BY ChiTietTKB.IDTKB, ChiTietTKB.STT", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -24,10 +24,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getlg(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT idLop, lopgoc, idHocVien from lop WHERE id="+id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT idLop, lopgoc, idHocVien from lop WHERE id="+id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -35,22 +35,22 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getlg()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT id,idLop from lop WHERE id=(SELECT max(id) from lop)", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT id,idLop from lop WHERE id=(SELECT max(id) from lop)", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
             return dt;
         }
-        public int update(string sbl, string ghiChu, string id)
+        public int update(string sbl, string ghiChu,string trangthai, string id)
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE Lop SET SBL='" + sbl + "',\"Ghi chú\"='" + ghiChu + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Lop SET SBL='" + sbl + "',ghichu='" + ghiChu + "', trangthai=N'"+ trangthai+"'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -60,13 +60,13 @@ namespace boiduongLeQuyDon.DAL
                 return 0;
             }
         }
-        public int updatenew(string lc, string lg)
+        public int updatenew(string lc, string lg, string trangthai)
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE Lop SET lopCu="+lc+" ,lopGoc="+lg+" WHERE id=(SELECt MAX(ID) FROM LOP)", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Lop SET lopCu="+lc+" ,lopGoc="+lg+" trangthai=N'" + trangthai + "' WHERE id=(SELECt MAX(ID) FROM LOP)", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -76,13 +76,13 @@ namespace boiduongLeQuyDon.DAL
                 return 0;
             }
         }
-        public int updateold(string id, string ht)
+        public int updateold(string id, string ht, string trangthai)
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE Lop SET lophientai="+ht+"  WHERE id=(SELECT max(ID) from lop", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Lop SET lophientai="+ht+", trangthai=N'"+trangthai + "' WHERE id=(SELECT max(ID) from lop", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -92,13 +92,13 @@ namespace boiduongLeQuyDon.DAL
                 return 0;
             }
         }
-        public int updateold1(string id, string ht)
+        public int updateold1(string id, string ht, string trangthai)
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE Lop SET lophientai=" + ht + "  WHERE id="+id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Lop SET lophientai=" + ht + ", trangthai=N'" + trangthai + "'  WHERE id="+id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -112,9 +112,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO Lop(idHocVien, idLop,\"Ghi chú\",SBL, lophientai, ngayDK) values ('" + idHV + "','" + lop + "','" + ghichu + "','"+sbl+"',1, '"+ngaydk +"')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai, ngayDK, tranthai) values ('" + idHV + "','" + lop + "','" + ghichu + "','"+sbl+"',1, '"+ngaydk +"', N'Bình thường')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -128,9 +128,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO Lop(idHocVien, idLop,\"Ghi chú\",SBL, lophientai,lopcu, lopgoc) values ('" + idHV + "','" + lop + "','" + ghichu + "','" + sbl + "',1,"+lopcu+","+lopgoc+")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai,lopcu, lopgoc, trangthai) values ('" + idHV + "','" + lop + "','" + ghichu + "','" + sbl + "',1,"+lopcu+","+lopgoc+", N'Bình thường')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -144,9 +144,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM Lop WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Lop WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

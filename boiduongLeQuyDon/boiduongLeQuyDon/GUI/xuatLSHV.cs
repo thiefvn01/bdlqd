@@ -27,10 +27,16 @@ namespace boiduongLeQuyDon.GUI
         BUSDiemDanh bus = new BUSDiemDanh();
         BUSHocVien hv = new BUSHocVien();
      //   BUSHocVien bus = new BUSHocVien();
-        coSoBoiDuongDataSetTableAdapters.ChiTietTKBTableAdapter ct = new coSoBoiDuongDataSetTableAdapters.ChiTietTKBTableAdapter();
+        //coSoBoiDuongDataSetTableAdapters.ChiTietTKBTableAdapter ct = new coSoBoiDuongDataSetTableAdapters.ChiTietTKBTableAdapter();
         int[] idhv = new int[100];
-     //   int a = 0;
-        coSoBoiDuongDataSetTableAdapters.LopTableAdapter da = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
+        bdlqdDataSet1TableAdapters.getChiTietTKB1TableAdapter chitiettkb1 = new bdlqdDataSet1TableAdapters.getChiTietTKB1TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop7TableAdapter getlop7 = new bdlqdDataSet1TableAdapters.getLop7TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop5TableAdapter getlop5 = new bdlqdDataSet1TableAdapters.getLop5TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop4TableAdapter getlop4 = new bdlqdDataSet1TableAdapters.getLop4TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop6TableAdapter getlop6 = new bdlqdDataSet1TableAdapters.getLop6TableAdapter();
+        bdlqdDataSet1TableAdapters.getLop3TableAdapter getlop3 = new bdlqdDataSet1TableAdapters.getLop3TableAdapter();
+        //   int a = 0;
+        //    coSoBoiDuongDataSetTableAdapters.LopTableAdapter da = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
         DataTable dt = new DataTable();
         public enum SplashScreenCommand
         {
@@ -59,7 +65,7 @@ namespace boiduongLeQuyDon.GUI
         {
             DataTable dtt = new DataTable();
             DataTable dtmp = new DataTable();
-            dtt = ct.GetDataBy(Convert.ToInt32(lkPhep.EditValue.ToString()));
+            dtt = chitiettkb1.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()));
             int dong = 1;
             saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
@@ -76,7 +82,7 @@ namespace boiduongLeQuyDon.GUI
             {
                 dt.Clear();
                       
-                dt = da.exportnhan(Convert.ToInt32(lkPhep.EditValue.ToString()));
+                dt = getlop7.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()));
                 DataColumn dtc = new DataColumn();
                 dtc.ColumnName = "tmp";
                 dt.Columns.Add(dtc);
@@ -150,7 +156,7 @@ namespace boiduongLeQuyDon.GUI
         {
             DataTable dtt = new DataTable();
             DataTable dtmp = new DataTable();
-            dtt = ct.GetDataBy(Convert.ToInt32(lkPhep.EditValue.ToString()));
+            dtt = chitiettkb1.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()));
             int dong = 2;
             saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
@@ -279,11 +285,11 @@ namespace boiduongLeQuyDon.GUI
                 ten = "";
                 if (cktc.Checked == true)
                 {
-                    dt = da.hv4();
+                    dt = getlop5.GetData();
                 }
                 else
                 {
-                    dt = da.exporthv1(Convert.ToInt32(lkPhep.EditValue.ToString()));
+                    dt = getlop4.GetData(Convert.ToInt32(lkPhep.EditValue.ToString()));
                 }
                 DataColumn dtc = new DataColumn();
                 dtc.ColumnName = "tmp";
@@ -362,11 +368,11 @@ namespace boiduongLeQuyDon.GUI
                         if (cktc.Checked == true)
                         {
 
-                            dtmp = da.HV5(Convert.ToInt32(dt.Rows[i]["idHocVien"].ToString()));
+                            dtmp = getlop6.GetData(Convert.ToInt32(dt.Rows[i]["idHocVien"].ToString()));
                         }
                         else
                         {
-                            dtmp = da.exporthv(Convert.ToInt32(dt.Rows[i]["idHocVien"].ToString()), Convert.ToInt32(lkPhep.EditValue.ToString()));
+                            dtmp = getlop3.GetData(Convert.ToInt32(dt.Rows[i]["idHocVien"].ToString()), Convert.ToInt32(lkPhep.EditValue.ToString()));
                         }
                         foreach (DataRow row in dtmp.Rows)
                         {

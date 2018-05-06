@@ -10,9 +10,9 @@ namespace boiduongLeQuyDon.GUI
         BUSDiemDanh bus = new BUSDiemDanh();
         BUSChiTietTKB ck = new BUSChiTietTKB();
         BUSThoiKhoaBieu tkb = new BUSThoiKhoaBieu();
-        coSoBoiDuongDataSetTableAdapters.LopTableAdapter loptb = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
+        //coSoBoiDuongDataSetTableAdapters.LopTableAdapter loptb = new coSoBoiDuongDataSetTableAdapters.LopTableAdapter();
         DataTable dtlop = new DataTable();
-        coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter diemdanh = new coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter();
+      //  coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter diemdanh = new coSoBoiDuongDataSetTableAdapters.diemDanhTableAdapter();
         public diemDanh()
         {
             InitializeComponent();

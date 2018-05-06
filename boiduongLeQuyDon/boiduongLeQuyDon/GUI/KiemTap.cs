@@ -14,13 +14,15 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
         }
-        coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
+        bdlqdDataSet1TableAdapters.getChamTap_allTableAdapter chamtapall = new bdlqdDataSet1TableAdapters.getChamTap_allTableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+    //    coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
         private void KiemTap_Load(object sender, EventArgs e)
         {
             gridControl1.RefreshDataSource();
             //coSoBoiDuongDataSet ds= new coSoBoiDuongDataSet();
           
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = chamtapall.GetData();
             gridView1.OptionsBehavior.ReadOnly = true;
             gridView1.OptionsBehavior.Editable = false;
             this.Dock = DockStyle.Fill;
@@ -37,7 +39,7 @@ namespace boiduongLeQuyDon.GUI
             gridControl1.RefreshDataSource();
             //coSoBoiDuongDataSet ds= new coSoBoiDuongDataSet();
 
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = chamtapall.GetData();
         }
         private void lkKhoa_EditValueChanged(object sender, EventArgs e)
         {
@@ -65,7 +67,7 @@ namespace boiduongLeQuyDon.GUI
            // {
                 try
                 {
-                    da.InsertQuery(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToDateTime(dtNgay.Text), txtGhichu.Text, Convert.ToInt32(lkLop.EditValue.ToString()));
+                    queries.insertChamTap(Convert.ToInt32(lkPhep.EditValue.ToString()), Convert.ToDateTime(dtNgay.Text), txtGhichu.Text, Convert.ToInt32(lkLop.EditValue.ToString()));
                     load();
                 }
                 catch
@@ -86,7 +88,7 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                da.UpdateQuery(txtGhichu.Text,lblID.Text);
+                queries.updateChamTap(txtGhichu.Text,Convert.ToInt32(lblID.Text));
                 load();
             }
             catch
@@ -99,7 +101,7 @@ namespace boiduongLeQuyDon.GUI
             try
             {
                 if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                da.DeleteQuery(lblID.Text);
+                queries.xoaChamtap(Convert.ToInt32(lblID.Text));
                 load();
             }
             catch

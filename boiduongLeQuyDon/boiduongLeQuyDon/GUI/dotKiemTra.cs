@@ -14,10 +14,12 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
         }
-        coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter da = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTraTableAdapter getkiemtra = new bdlqdDataSet1TableAdapters.getKiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+        //coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter da = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
         private void dotKiemTra_Load(object sender, EventArgs e)
         {
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = getkiemtra.GetData();
             gridView1.OptionsBehavior.ReadOnly = true;
             gridView1.OptionsBehavior.Editable = false;
             this.Dock = DockStyle.Fill;
@@ -45,7 +47,7 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                da.InsertQuery(txtDe.Text, Convert.ToInt32(lkLop.EditValue.ToString()), Convert.ToDateTime(dtngay.Text), Convert.ToInt32(txtHeso.Text),dbdang.Text);
+                queries.insertKiemTra(txtDe.Text, Convert.ToInt32(lkLop.EditValue.ToString()), Convert.ToDateTime(dtngay.Text), Convert.ToInt32(txtHeso.Text),dbdang.Text);
                 load();
             }
             catch
@@ -59,7 +61,7 @@ namespace boiduongLeQuyDon.GUI
             try
             {
                 if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                da.DeleteQuery(Convert.ToInt32(lblID.Text));
+                queries.deleteKiemTra(Convert.ToInt32(lblID.Text));
                 load();
             }
             catch
@@ -79,7 +81,7 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                da.UpdateQuery(txtDe.Text, Convert.ToInt32(txtHeso.Text),Convert.ToInt32(lblID.Text));
+                queries.updateKiemTra(txtDe.Text, Convert.ToInt32(txtHeso.Text),Convert.ToInt32(lblID.Text));
                 load();
             }
             catch
@@ -88,7 +90,7 @@ namespace boiduongLeQuyDon.GUI
         }
         void load()
         {
-            gridControl1.DataSource = da.GetData();
+            gridControl1.DataSource = getkiemtra.GetData();
 
         }
 

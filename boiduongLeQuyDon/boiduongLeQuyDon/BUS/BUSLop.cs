@@ -33,21 +33,21 @@ namespace boiduongLeQuyDon.BUS
         {
             return dal.insert(idHV, lop, ghiChu, sbl,lopcu,lopgoc);
         }
-        public int update(string sbl, string ghiChu, string id)
+        public int update(string sbl, string ghiChu, string id, string trangthai)
         {
-            return dal.update(sbl,ghiChu,id);
+            return dal.update(sbl,ghiChu,trangthai, id);
         }
-        public int updatenew(string lc, string lg)
+        public int updatenew(string lc, string lg, string trangthai)
         {
-            return dal.updatenew(lc, lg);
+            return dal.updatenew(lc, lg, trangthai);
         }
-        public int updateold(string id, string ht)
+        public int updateold(string id, string ht, string trangthai)
         {
-            return dal.updateold(id, ht);
+            return dal.updateold(id, ht, trangthai);
         }
-        public int updateold1(string id, string ht)
+        public int updateold1(string id, string ht, string trangthai)
         {
-            return dal.updateold1(id, ht);
+            return dal.updateold1(id, ht, trangthai);
         }
     }
 }

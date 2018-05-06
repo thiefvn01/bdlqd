@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.DAL
 {
@@ -12,10 +12,10 @@ namespace boiduongLeQuyDon.DAL
         dataAccess access = new dataAccess();
         public DataSet get()
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT diemDanh.ID,[Mã học viên], [Họ tên lót] +' ' +[Tên] AS [Họ tên], [Lớp], [Có phép],[Không phép],[Ngày] as [Ngày trễ],[Trễ] as [Số phút], diemDanh.[Ghi chú] FROM (diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id) INNER JOIN chitietTKB on chitietTKB.id=diemdanh.tkbID", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT diemDanh.ID, mahv as [Mã học viên], hotenlot +' ' +ten AS [Họ tên], lop as [Lớp], cophep as [Có phép], khongphep as[Không phép], ngay as [Ngày trễ], tre as [Số phút], diemDanh.ghichu as N'Ghi chú' FROM (diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id) INNER JOIN chitietTKB on chitietTKB.id=diemdanh.tkbID", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -23,10 +23,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT diemDanh.ID,[Mã học viên], [Họ tên lót] +' ' +[Tên] AS [Họ tên], [Lớp], [Có phép],[Không phép],[Ngày] as [Ngày trễ],[Trễ] as [Số phút], diemDanh.[Ghi chú] FROM (diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id) INNER JOIN chitietTKB on chitietTKB.id=diemdanh.tkbID WHERE tkbID=" + id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT diemDanh.ID, mahv as [Mã học viên], hotenlot +' ' +ten AS [Họ tên], lop as [Lớp], cophep as [Có phép], khongphep as[Không phép], ngay as [Ngày trễ], tre as [Số phút], diemDanh.ghichu as N'Ghi chú' FROM (diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id) INNER JOIN chitietTKB on chitietTKB.id=diemdanh.tkbID WHERE tkbID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -34,10 +34,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet get(string id, string ngay)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT diemDanh.ID, [Mã  học viên], [Họ tên lót] +' ' +[Tên] AS [Họ tên], [Có phép],[Không phép], [Trễ], diemDanh.[Ghi chú] FROM diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id WHERE tkbID=" + id + " and( [Có phép]=#" + ngay + "# OR [Không phép]=#" + ngay + "# OR [Ngày]=#" + ngay + "#)", conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT diemDanh.ID, mahv as [Mã học viên], hotenlot +' ' +ten AS [Họ tên], cophep as [Có phép], khongphep as[Không phép], tre as 'Trễ', diemDanh.ghichu as N'Ghi chú'FROM diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id WHERE tkbID=" + id + " and( [Có phép]=#" + ngay + "# OR [Không phép]=#" + ngay + "# OR [Ngày]=#" + ngay + "#)", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -45,10 +45,10 @@ namespace boiduongLeQuyDon.DAL
         }
         public DataSet getinfo(string id)
         {
-            OdbcConnection conn = access.AccessData();
+            SqlConnection conn = access.AccessData();
             conn.Open();
-            OdbcCommand cmd = new OdbcCommand("SELECT * FROM diemDanh WHERE idHocVien="+id, conn);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM diemDanh WHERE idHocVien="+id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
             conn.Close();
@@ -58,9 +58,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("UPDATE diemDanh SET \"Ghi chú\"='" + ghiChu + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE diemDanh SET ghichu='" + ghiChu + "'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -74,9 +74,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO diemDanh (idHocVien, \"Có phép\", \"Ghi chú\",tkbID) values ('" + idhocvien + "','" + cophep + "','" + ghiChu + "'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, cophep, ghichu,tkbID) values ('" + idhocvien + "','" + cophep + "','" + ghiChu + "'," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -90,9 +90,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO diemDanh (idHocVien, \"Không phép\", \"Ghi chú\",tkbID) values ('" + idhocvien + "','" + kphep + "','" + ghiChu + "'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, khongphep, ghichu,tkbID) values ('" + idhocvien + "','" + kphep + "','" + ghiChu + "'," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -106,9 +106,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("INSERT INTO diemDanh (idHocVien, \"Trễ\", \"Ghi chú\",\"Ngày\",tkbID) values ('" + idhocvien + "','" + tre + "','" + ghiChu + "','"+ngay+"'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, tre, ghichu,ngay,tkbID) values ('" + idhocvien + "','" + tre + "','" + ghiChu + "','"+ngay+"'," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -122,9 +122,9 @@ namespace boiduongLeQuyDon.DAL
         {
             try
             {
-                OdbcConnection conn = access.AccessData();
+                SqlConnection conn = access.AccessData();
                 conn.Open();
-                OdbcCommand cmd = new OdbcCommand("DELETE FROM diemDanh WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM diemDanh WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

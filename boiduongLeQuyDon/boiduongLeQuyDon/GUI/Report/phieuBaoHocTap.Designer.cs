@@ -32,8 +32,6 @@
             this.lbkop = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPivotGrid1 = new DevExpress.XtraReports.UI.XRPivotGrid();
-            this.chamTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
-            this.coSoBoiDuongDataSet1 = new boiduongLeQuyDon.coSoBoiDuongDataSet();
             this.fieldID1 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.fieldNgy1 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
             this.fieldKimtra1 = new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField();
@@ -104,13 +102,11 @@
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.ketQuaHocTapAdapter = new boiduongLeQuyDon.testTableAdapters.ketQuaHocTapAdapter();
-            this.dataTable2TableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.DataTable2TableAdapter();
-            this.ketQuaHocTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
-            this.baiTapTableAdapter = new boiduongLeQuyDon.coSoBoiDuongDataSetTableAdapters.baiTapTableAdapter();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.GroupFooter3 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).BeginInit();
+            this.lblnhanxet3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblnhanxet2 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -160,23 +156,15 @@
             this.xrPivotGrid1.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid1.Appearance.Cell.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid1.Appearance.Cell.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid1.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGrid1.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid1.Appearance.FieldHeader.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid1.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
             this.xrPivotGrid1.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid1.Appearance.FieldValue.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid1.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid1.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid1.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid1.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid1.Appearance.Lines.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGrid1.Appearance.Lines.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid1.Appearance.Lines.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid1.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid1.DataAdapter = this.chamTapTableAdapter;
             this.xrPivotGrid1.DataMember = "chamTap";
-            this.xrPivotGrid1.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid1.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.fieldID1,
             this.fieldNgy1,
@@ -203,30 +191,16 @@
             this.xrPivotGrid1.CustomRowHeight += new System.EventHandler<DevExpress.XtraReports.UI.PivotGrid.PivotCustomRowHeightEventArgs>(this.xrPivotGrid1_CustomRowHeight);
             this.xrPivotGrid1.PrintFieldValue += new System.EventHandler<DevExpress.XtraReports.UI.PivotGrid.CustomExportFieldValueEventArgs>(this.xrPivotGrid1_PrintFieldValue);
             // 
-            // chamTapTableAdapter
-            // 
-            this.chamTapTableAdapter.ClearBeforeFill = true;
-            // 
-            // coSoBoiDuongDataSet1
-            // 
-            this.coSoBoiDuongDataSet1.DataSetName = "coSoBoiDuongDataSet";
-            this.coSoBoiDuongDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // fieldID1
             // 
             this.fieldID1.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.fieldID1.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID1.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID1.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID1.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID1.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID1.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldID1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldID1.AreaIndex = 0;
             this.fieldID1.Caption = "ID";
             this.fieldID1.FieldName = "ID";
             this.fieldID1.MinWidth = 0;
             this.fieldID1.Name = "fieldID1";
+       //     this.fieldID1.Options.ShowInFilter = true;
             this.fieldID1.Width = 0;
             // 
             // fieldNgy1
@@ -234,15 +208,13 @@
             this.fieldNgy1.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
             this.fieldNgy1.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldNgy1.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.fieldNgy1.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldNgy1.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldNgy1.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldNgy1.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldNgy1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldNgy1.AreaIndex = 0;
             this.fieldNgy1.Caption = "Ngày";
             this.fieldNgy1.FieldName = "Ngày";
             this.fieldNgy1.Name = "fieldNgy1";
+      //      this.fieldNgy1.Options.ShowInFilter = true;
             this.fieldNgy1.ValueFormat.FormatString = "dd/MM";
             this.fieldNgy1.ValueFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.fieldNgy1.Width = 60;
@@ -252,15 +224,12 @@
             this.fieldKimtra1.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
             this.fieldKimtra1.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldKimtra1.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.fieldKimtra1.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra1.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra1.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra1.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldKimtra1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldKimtra1.AreaIndex = 1;
             this.fieldKimtra1.Caption = "Kiểm tra";
             this.fieldKimtra1.FieldName = "Kiểm tra";
             this.fieldKimtra1.Name = "fieldKimtra1";
+        //    this.fieldKimtra1.Options.ShowInFilter = true;
             this.fieldKimtra1.Width = 60;
             // 
             // xrLabel9
@@ -645,20 +614,10 @@
             // 
             // xrPivotGrid3
             // 
-            this.xrPivotGrid3.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGrid3.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid3.Appearance.FieldValue.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid3.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid3.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.Lines.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid3.DataAdapter = this.chamTapTableAdapter;
             this.xrPivotGrid3.DataMember = "chamTap";
-            this.xrPivotGrid3.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid3.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.xrPivotGridField5,
             this.xrPivotGridField1,
@@ -684,17 +643,12 @@
             // xrPivotGridField5
             // 
             this.xrPivotGridField5.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.xrPivotGridField5.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField5.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField5.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField5.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField5.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField5.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGridField5.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.xrPivotGridField5.AreaIndex = 0;
             this.xrPivotGridField5.FieldName = "ID";
             this.xrPivotGridField5.MinWidth = 0;
             this.xrPivotGridField5.Name = "xrPivotGridField5";
+        //    this.xrPivotGridField5.Options.ShowInFilter = true;
             this.xrPivotGridField5.Width = 0;
             // 
             // xrPivotGridField1
@@ -702,35 +656,25 @@
             this.xrPivotGridField1.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGridField1.Appearance.Cell.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGridField1.Appearance.Cell.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGridField1.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGridField1.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGridField1.Appearance.FieldHeader.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGridField1.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGridField1.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField1.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField1.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField1.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGridField1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.xrPivotGridField1.AreaIndex = 0;
             this.xrPivotGridField1.FieldName = "Ngày";
             this.xrPivotGridField1.Name = "xrPivotGridField1";
+   //         this.xrPivotGridField1.Options.ShowInFilter = true;
             this.xrPivotGridField1.ValueFormat.FormatString = "dd/MM";
             this.xrPivotGridField1.ValueFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.xrPivotGridField1.Width = 60;
             // 
             // xrPivotGridField2
             // 
-            this.xrPivotGridField2.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGridField2.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGridField2.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.xrPivotGridField2.AreaIndex = 1;
             this.xrPivotGridField2.FieldName = "Kiểm tra";
             this.xrPivotGridField2.Name = "xrPivotGridField2";
+       //     this.xrPivotGridField2.Options.ShowInFilter = true;
             this.xrPivotGridField2.Width = 60;
             // 
             // xrPivotGrid2
@@ -738,19 +682,10 @@
             this.xrPivotGrid2.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid2.Appearance.Cell.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid2.Appearance.Cell.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid2.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrPivotGrid2.Appearance.FieldValue.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrPivotGrid2.Appearance.FieldValue.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.xrPivotGrid2.Appearance.FieldValue.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.xrPivotGrid2.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.Appearance.Lines.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrPivotGrid2.DataAdapter = this.chamTapTableAdapter;
             this.xrPivotGrid2.DataMember = "chamTap";
-            this.xrPivotGrid2.DataSource = this.coSoBoiDuongDataSet1;
             this.xrPivotGrid2.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
             this.fieldID,
             this.fieldKimtra,
@@ -776,17 +711,12 @@
             // fieldID
             // 
             this.fieldID.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.fieldID.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldID.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldID.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldID.AreaIndex = 0;
             this.fieldID.FieldName = "ID";
             this.fieldID.MinWidth = 0;
             this.fieldID.Name = "fieldID";
+ //           this.fieldID.Options.ShowInFilter = true;
             this.fieldID.Width = 0;
             // 
             // fieldKimtra
@@ -794,18 +724,14 @@
             this.fieldKimtra.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldKimtra.Appearance.Cell.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.fieldKimtra.Appearance.Cell.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.fieldKimtra.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldKimtra.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldKimtra.Appearance.FieldHeader.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.fieldKimtra.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.fieldKimtra.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldKimtra.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldKimtra.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldKimtra.AreaIndex = 1;
             this.fieldKimtra.FieldName = "Kiểm tra";
             this.fieldKimtra.Name = "fieldKimtra";
+    //        this.fieldKimtra.Options.ShowInFilter = true;
             this.fieldKimtra.Width = 60;
             // 
             // fieldNgy
@@ -813,18 +739,14 @@
             this.fieldNgy.Appearance.Cell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldNgy.Appearance.Cell.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.fieldNgy.Appearance.Cell.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.fieldNgy.Appearance.CustomTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldNgy.Appearance.FieldHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
             this.fieldNgy.Appearance.FieldHeader.TextHorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.fieldNgy.Appearance.FieldHeader.TextVerticalAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.fieldNgy.Appearance.FieldValueGrandTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldNgy.Appearance.FieldValueTotal.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldNgy.Appearance.GrandTotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.fieldNgy.Appearance.TotalCell.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.fieldNgy.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldNgy.AreaIndex = 0;
             this.fieldNgy.FieldName = "Ngày";
             this.fieldNgy.Name = "fieldNgy";
+    //        this.fieldNgy.Options.ShowInFilter = true;
             this.fieldNgy.ValueFormat.FormatString = "dd/MM";
             this.fieldNgy.ValueFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.fieldNgy.Width = 60;
@@ -875,6 +797,7 @@
             // 
             // BottomMargin
             // 
+            this.BottomMargin.HeightF = 100F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -1018,7 +941,7 @@
             this.xrLabel16.Multiline = true;
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(165.625F, 37.58333F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(165.625F, 50.08332F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "Ý kiến phụ huynh\r\n(Ký tên)";
@@ -1064,18 +987,6 @@
             // 
             this.ketQuaHocTapAdapter.ClearBeforeFill = true;
             // 
-            // dataTable2TableAdapter
-            // 
-            this.dataTable2TableAdapter.ClearBeforeFill = true;
-            // 
-            // ketQuaHocTapTableAdapter
-            // 
-            this.ketQuaHocTapTableAdapter.ClearBeforeFill = true;
-            // 
-            // baiTapTableAdapter
-            // 
-            this.baiTapTableAdapter.ClearBeforeFill = true;
-            // 
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -1094,14 +1005,42 @@
             // GroupFooter3
             // 
             this.GroupFooter3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblnhanxet3,
+            this.lblnhanxet2,
             this.xrLabel10,
             this.xrTable1,
             this.lbnx2,
             this.xrLabel11,
             this.xrTable2});
-            this.GroupFooter3.HeightF = 200.1667F;
+            this.GroupFooter3.HeightF = 262.6667F;
             this.GroupFooter3.Level = 2;
             this.GroupFooter3.Name = "GroupFooter3";
+            // 
+            // lblnhanxet3
+            // 
+            this.lblnhanxet3.AutoWidth = true;
+            this.lblnhanxet3.Font = new System.Drawing.Font("Arial", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnhanxet3.LocationFloat = new DevExpress.Utils.PointFloat(101.6667F, 229.3333F);
+            this.lblnhanxet3.Multiline = true;
+            this.lblnhanxet3.Name = "lblnhanxet3";
+            this.lblnhanxet3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblnhanxet3.SizeF = new System.Drawing.SizeF(613.5418F, 29.16666F);
+            this.lblnhanxet3.StylePriority.UseFont = false;
+            this.lblnhanxet3.StylePriority.UseTextAlignment = false;
+            this.lblnhanxet3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lblnhanxet2
+            // 
+            this.lblnhanxet2.AutoWidth = true;
+            this.lblnhanxet2.Font = new System.Drawing.Font("Arial", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnhanxet2.LocationFloat = new DevExpress.Utils.PointFloat(101.6669F, 200.1666F);
+            this.lblnhanxet2.Multiline = true;
+            this.lblnhanxet2.Name = "lblnhanxet2";
+            this.lblnhanxet2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblnhanxet2.SizeF = new System.Drawing.SizeF(613.5418F, 29.16666F);
+            this.lblnhanxet2.StylePriority.UseFont = false;
+            this.lblnhanxet2.StylePriority.UseTextAlignment = false;
+            this.lblnhanxet2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // phieuBaoHocTap
             // 
@@ -1115,8 +1054,7 @@
             this.GroupFooter2,
             this.GroupFooter3});
             this.Margins = new System.Drawing.Printing.Margins(32, 59, 81, 100);
-            this.Version = "13.2";
-            ((System.ComponentModel.ISupportInitialize)(this.coSoBoiDuongDataSet1)).EndInit();
+            this.Version = "17.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -1151,14 +1089,14 @@
         private DevExpress.XtraReports.UI.XRLabel lbgiaovien;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
-        private coSoBoiDuongDataSetTableAdapters.DataTable2TableAdapter dataTable2TableAdapter;
-        private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
+      //  private coSoBoiDuongDataSetTableAdapters.DataTable2TableAdapter dataTable2TableAdapter;
+   //     private coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter ketQuaHocTapTableAdapter;
         private testTableAdapters.ketQuaHocTapAdapter ketQuaHocTapAdapter;
         private DevExpress.XtraReports.UI.XRLabel lbkop;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
-        private coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter chamTapTableAdapter;
-        private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
-        private coSoBoiDuongDataSetTableAdapters.baiTapTableAdapter baiTapTableAdapter;
+   //     private coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter chamTapTableAdapter;
+ //       private coSoBoiDuongDataSet coSoBoiDuongDataSet1;
+ //       private coSoBoiDuongDataSetTableAdapters.baiTapTableAdapter baiTapTableAdapter;
         private DevExpress.XtraReports.UI.XRPivotGrid xrPivotGrid3;
         private DevExpress.XtraReports.UI.XRPivotGrid xrPivotGrid2;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
@@ -1207,5 +1145,7 @@
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField xrPivotGridField2;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldKimtra;
         private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField fieldNgy;
+        private DevExpress.XtraReports.UI.XRLabel lblnhanxet3;
+        private DevExpress.XtraReports.UI.XRLabel lblnhanxet2;
     }
 }

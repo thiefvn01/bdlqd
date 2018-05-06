@@ -8,7 +8,8 @@ namespace boiduongLeQuyDon.GUI
     public partial class changPass : SplashScreen
     {
         BUSgiaoVien bus = new BUSgiaoVien();
-        coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter da = new coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter qu = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+    //    coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter da = new coSoBoiDuongDataSetTableAdapters.nhanVienTableAdapter();
         public changPass(string uname)
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace boiduongLeQuyDon.GUI
                 lblbao.Visible = true;
             else  if (pw1.Text == pw2.Text)
             {
-                da.UpdateQuery(pw1.Text, uname);
+                qu.UpdatePassword(pw1.Text, uname);
                 MessageBox.Show("Cập nhật thành công");
             }
             else

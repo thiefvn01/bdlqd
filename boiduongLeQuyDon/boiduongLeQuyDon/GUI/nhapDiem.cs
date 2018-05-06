@@ -13,11 +13,28 @@ namespace boiduongLeQuyDon.GUI
         BUSChiTietTKB ck = new BUSChiTietTKB();
         BUSDiemDanh bus = new BUSDiemDanh();
         BUSHocVien hv = new BUSHocVien();
-        coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dt4 = new coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
-        coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.deTableAdapter de = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kt = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
-        coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dt3 = new coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTraTableAdapter getkiemtra = new bdlqdDataSet1TableAdapters.getKiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTra3TableAdapter getkiemtra3 = new bdlqdDataSet1TableAdapters.getKiemTra3TableAdapter();
+        bdlqdDataSet1TableAdapters.getKiemTra1TableAdapter getkiemtra1 = new bdlqdDataSet1TableAdapters.getKiemTra1TableAdapter();
+        bdlqdDataSet1TableAdapters.getDe3TableAdapter getde3 = new bdlqdDataSet1TableAdapters.getDe3TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetqua17TableAdapter getketqua17 = new bdlqdDataSet1TableAdapters.getKetqua17TableAdapter();
+        bdlqdDataSet1TableAdapters.getSoCauTableAdapter getsocau = new bdlqdDataSet1TableAdapters.getSoCauTableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua1TableAdapter getketqua1 = new bdlqdDataSet1TableAdapters.getKetQua1TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua9TableAdapter getketqua9 = new bdlqdDataSet1TableAdapters.getKetQua9TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua11TableAdapter getketqua11 = new bdlqdDataSet1TableAdapters.getKetQua11TableAdapter();
+        //  bdlqdDataSet1TableAdapters.getKetqua17TableAdapter getketqua17 = new bdlqdDataSet1TableAdapters.getKetqua17TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua18TableAdapter getketqua18 = new bdlqdDataSet1TableAdapters.getKetQua18TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua19TableAdapter getketqua19 = new bdlqdDataSet1TableAdapters.getKetQua19TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua20TableAdapter getketqua20 = new bdlqdDataSet1TableAdapters.getKetQua20TableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua21TableAdapter getketqua21 = new bdlqdDataSet1TableAdapters.getKetQua21TableAdapter();
+        bdlqdDataSet1TableAdapters.getDe11TableAdapter getde11 = new bdlqdDataSet1TableAdapters.getDe11TableAdapter();
+        bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+        bdlqdDataSet1TableAdapters.getKetQua4TableAdapter getketqua4 = new bdlqdDataSet1TableAdapters.getKetQua4TableAdapter();
+        //  coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter dt4 = new coSoBoiDuongDataSetTableAdapters.DataTable4TableAdapter();
+        // coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
+        //  coSoBoiDuongDataSetTableAdapters.deTableAdapter de = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
+        //   coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kt = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
+        //   coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dt3 = new coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
         string dang = "";
         DataTable dt = new DataTable();
         public nhapDiem()
@@ -33,7 +50,7 @@ namespace boiduongLeQuyDon.GUI
             //lkLop.Properties.DataSource = ck.get().Tables[0];
             //lkLop.Properties.DisplayMember = "Lớp";
             //lkLop.Properties.ValueMember = "ID";
-            lkdotkiemtra.Properties.DataSource = kt.GetData();
+            lkdotkiemtra.Properties.DataSource = getkiemtra.GetData() ;
             lkdotkiemtra.Properties.DisplayMember = "Mã đề";
             lkdotkiemtra.Properties.ValueMember = "ID";
         }
@@ -52,7 +69,7 @@ namespace boiduongLeQuyDon.GUI
                 lkPhep.Properties.DataSource = hv.getdiemdanh(lkLop.EditValue.ToString()).Tables[0];
                 lkPhep.Properties.DisplayMember = "Họ tên";
                 lkPhep.Properties.ValueMember = "ID";
-                lkdotkiemtra.Properties.DataSource = kt.GetDataBy4(int.Parse(lkLop.EditValue.ToString()));
+                lkdotkiemtra.Properties.DataSource = getkiemtra3.GetData(int.Parse(lkLop.EditValue.ToString()));
                 lkdotkiemtra.Properties.DisplayMember = "Mã đề";
                 lkdotkiemtra.Properties.ValueMember = "ID";
             }
@@ -65,13 +82,13 @@ namespace boiduongLeQuyDon.GUI
         {
             try
             {
-                gridControl1.DataSource = da.GetDataBy6(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+                gridControl1.DataSource = getketqua17.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
                 //lkde.Properties.DataSource = de.GetDataBy3(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()));
                 //lkde.Properties.DisplayMember = "Mã đề";
                 //lkde.Properties.ValueMember = "ID";
-                this.dang = kt.GetDataBy3(Convert.ToInt32(lkdotkiemtra.EditValue.ToString())).Rows[0]["dang"].ToString();
-                this.dt = de.GetDataBy3(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()));
-                this.tmp = Convert.ToInt32(dt3.GetDataBy(Convert.ToInt32(lkdotkiemtra.EditValue.ToString())).Rows[0]["dem"].ToString());
+                this.dang = getkiemtra1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString())).Rows[0]["dang"].ToString();
+                this.dt = getde3.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()));
+                this.tmp = Convert.ToInt32(getsocau.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString())).Rows[0]["dem"].ToString());
             }
             catch
             {
@@ -111,8 +128,8 @@ namespace boiduongLeQuyDon.GUI
             DataView dv = new DataView();
             DataView dvs = new DataView();
        //     DataView dvs = new DataView();
-            dvs = dataTable3TableAdapter.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
-            dv = ketQuaHocTapTableAdapter.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()),Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
+            dvs = getketqua1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
+            dv = getketqua9.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()),Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
             dv.Sort = "Câu";
             dvs.Sort = "Cau";
             DataTable sortedDT = dv.ToTable();            
@@ -251,8 +268,8 @@ namespace boiduongLeQuyDon.GUI
             try
             {
                 if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                da.DeleteQuery(Convert.ToInt32(lblID.Text));
-                gridControl1.DataSource = da.GetDataBy6(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+                queries.deleteKetqua(Convert.ToInt32(lblID.Text));
+                gridControl1.DataSource =getketqua17.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
 
             }
             catch
@@ -267,9 +284,9 @@ namespace boiduongLeQuyDon.GUI
             cau = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Câu").ToString();
             txtdiem.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Điểm").ToString();
             lbdiem.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Điểm").ToString();
-            idbaitap = Convert.ToInt32(da.getidbaitap(Convert.ToInt32(lblID.Text)).Rows[0]["idBaiTap"].ToString());
-            nhomcau = da.getnhomcau(idbaitap).Rows[0]["nhomcau"].ToString();
-            idhocvien = Convert.ToInt32(da.getidbaitap(Convert.ToInt32(lblID.Text)).Rows[0]["idHocVien"].ToString());
+            idbaitap = Convert.ToInt32(getketqua18.GetData(Convert.ToInt32(lblID.Text)).Rows[0]["idBaiTap"].ToString());
+            nhomcau = getketqua18.GetData(idbaitap).Rows[0]["nhomcau"].ToString();
+            idhocvien = Convert.ToInt32(getketqua18.GetData(Convert.ToInt32(lblID.Text)).Rows[0]["idHocVien"].ToString());
             tenhocvien = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Họ tên").ToString();
         }
         string tenhocvien;
@@ -283,49 +300,49 @@ namespace boiduongLeQuyDon.GUI
             deid = Convert.ToInt32(lkdotkiemtra.EditValue.ToString());
             //if (cau == "   Tổng")
             //{
-            //    da.UpdateQuery(Convert.ToDecimal(txtdiem.Text), Convert.ToInt32(lblID.Text));
+            //    da.UpdateQuery(Convert.ToDouble(txtdiem.Text), Convert.ToInt32(lblID.Text));
             // //   c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), "  Tổng").Rows[0]["id"].ToString());
-            //  //  da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
+            //  //  da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
             //}
             
              try
             {
-                da.UpdateQuery(Convert.ToDecimal(txtdiem.Text),Convert.ToInt32(lblID.Text));
-            //    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text));
+               queries.UpdateKetQua(Convert.ToDouble(txtdiem.Text),Convert.ToInt32(lblID.Text));
+            //    da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text));
                 if (cau != "   Tổng")
                 {
-                    c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), "  Tổng").Rows[0]["id"].ToString());
-                    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
+                    c = Convert.ToInt32(getketqua20.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), "  Tổng").Rows[0]["id"].ToString());
+                   queries.updateKetQua2(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
                 }
 
                 if(nhomcau=="Đại số")
                 {
-                    c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Đại").Rows[0]["id"].ToString());
-                    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
-                 //   da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text),idhocvien, deid, "  Đại");
+                    c = Convert.ToInt32(getketqua20.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Đại").Rows[0]["id"].ToString());
+                    queries.updateKetQua2(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
+                 //   da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text),idhocvien, deid, "  Đại");
                 }
                 if (nhomcau == "Hình học")
                 {
-                    c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Hình").Rows[0]["id"].ToString());
-             //       c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Hình"));
-                    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
-                 //    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text),idhocvien, deid, " Hình");
+                    c = Convert.ToInt32(getketqua20.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Hình").Rows[0]["id"].ToString());
+                    //       c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " Hình"));
+                    queries.updateKetQua2(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
+                 //    da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text),idhocvien, deid, " Hình");
                 }
                 if (nhomcau == "Tự luận")
                 {
-                    c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TL").Rows[0]["id"].ToString());
-             //       c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TL"));
-                    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
-                  //   da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text),idhocvien, deid, " TL");
+                    c = Convert.ToInt32(getketqua20.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TL").Rows[0]["id"].ToString());
+                    //       c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TL"));
+                    queries.updateKetQua2(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
+                  //   da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text),idhocvien, deid, " TL");
                 }
                 if (nhomcau == "Trắc nghiệm")
                 {
-                    c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TN").Rows[0]["id"].ToString());
-            //        c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TN"));
-                    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text), c, idhocvien);
-                 //    da.updatespencial(Convert.ToDecimal(txtdiem.Text), Convert.ToDecimal(lbdiem.Text),idhocvien, deid, "TN");
+                    c = Convert.ToInt32(getketqua20.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TN").Rows[0]["id"].ToString());
+                    //        c = Convert.ToInt32(da.getid(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), " TN"));
+                    queries.updateKetQua2(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text), c, idhocvien);
+                 //    da.updatespencial(Convert.ToDouble(txtdiem.Text), Convert.ToDouble(lbdiem.Text),idhocvien, deid, "TN");
                 }
-                gridControl1.DataSource = da.GetDataBy6(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+                gridControl1.DataSource = getketqua17.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
             }
             catch
             {
@@ -334,7 +351,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            gridControl1.DataSource = da.GetDataBy6(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+            gridControl1.DataSource = getketqua17.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
 
         }
 
@@ -355,8 +372,8 @@ namespace boiduongLeQuyDon.GUI
             try
             {
                 if (MessageBox.Show("Bạn có thật sự muốn xóa điểm của học viên " + tenhocvien + " ?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    da.DeleteQuery1(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), idhocvien);
-                gridControl1.DataSource = da.GetDataBy6(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+                    queries.deleteKetQua1(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), idhocvien);
+                gridControl1.DataSource = getketqua17.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
 
             }
             catch
@@ -380,7 +397,7 @@ namespace boiduongLeQuyDon.GUI
             string[] cau=new string[100];
             DataTable dtde = new DataTable();
             DataView dv = new DataView();
-            dv=dt4.GetData(Convert.ToInt32(lkLop.EditValue.ToString()),Convert.ToInt32(lkPhep.EditValue.ToString())).AsDataView();
+            dv=getketqua4.GetData(Convert.ToInt32(lkLop.EditValue.ToString()),Convert.ToInt32(lkPhep.EditValue.ToString())).AsDataView();
             dv.Sort = "Câu";
       //      int hv = dv.ToTable(true, "maDe").Rows.Count;
             DataTable sortedDT = dv.ToTable();
@@ -587,10 +604,10 @@ namespace boiduongLeQuyDon.GUI
             string path = "";
          //   DataTable dt = new DataTable();
             DataTable dtde = new DataTable();
-            coSoBoiDuongDataSetTableAdapters.deTableAdapter de=new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
-            dtde = de.getcautheode(int.Parse(lkdotkiemtra.EditValue.ToString()));
+          //  coSoBoiDuongDataSetTableAdapters.deTableAdapter de=new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
+            dtde = getde11.GetData(int.Parse(lkdotkiemtra.EditValue.ToString()));
             SaveFileDialog savaFileDialog1 = new SaveFileDialog();
-            dt = da.Getdataby8(Convert.ToInt32(lkLop.EditValue.ToString()));
+            dt = getketqua21.GetData(Convert.ToInt32(lkLop.EditValue.ToString()));
             savaFileDialog1.FileName = "";
             savaFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
             if (savaFileDialog1.ShowDialog() == DialogResult.OK)
@@ -655,7 +672,7 @@ namespace boiduongLeQuyDon.GUI
             {
                    try
                     {
-                      trung =  da.trungget(int.Parse(dtdocde.Rows[i][1].ToString()), int.Parse(dtdocde.Rows[1][0].ToString())).Rows[0]["kq"].ToString();
+                      trung =  getketqua11.GetData(int.Parse(dtdocde.Rows[i][1].ToString()), int.Parse(dtdocde.Rows[1][0].ToString())).Rows[0]["kq"].ToString();
                     }
                     catch
                    {
@@ -664,10 +681,10 @@ namespace boiduongLeQuyDon.GUI
                     try
                     {
                     if( trung == "1")
-                        da.DeleteQuery1(int.Parse(dtdocde.Rows[1][0].ToString()), int.Parse(dtdocde.Rows[i][1].ToString()));
+                        queries.deleteKetQua1(int.Parse(dtdocde.Rows[1][0].ToString()), int.Parse(dtdocde.Rows[i][1].ToString()));
                     for (int j = 5; j < dtdocde.Columns.Count; j++)
                        {                                    
-                           da.InsertQuery(int.Parse(dtdocde.Rows[i][1].ToString()), int.Parse(dtdocde.Rows[i][2].ToString()), int.Parse(dtdocde.Rows[1][j].ToString()), decimal.Parse(dtdocde.Rows[i][j].ToString()), int.Parse(dtdocde.Rows[1][0].ToString()));
+                           queries.InsertKetQua(int.Parse(dtdocde.Rows[i][1].ToString()), int.Parse(dtdocde.Rows[i][2].ToString()), int.Parse(dtdocde.Rows[1][j].ToString()), double.Parse(dtdocde.Rows[i][j].ToString()));
                         // tt.InsertQuery(Convert.ToInt32(dtdocde.Rows[i]["idhocvien"].ToString()), Convert.ToInt32(dt1.Rows[i]["idlop"].ToString()), dt1.Rows[i]["Tên giáo viên"].ToString(), dt1.Rows[i]["Nhận xét"].ToString());
                         }
                     }
