@@ -35,6 +35,12 @@ namespace boiduongLeQuyDon.GUI
         //  coSoBoiDuongDataSetTableAdapters.deTableAdapter de = new coSoBoiDuongDataSetTableAdapters.deTableAdapter();
         //   coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter kt = new coSoBoiDuongDataSetTableAdapters.kiemTraTableAdapter();
         //   coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter dt3 = new coSoBoiDuongDataSetTableAdapters.DataTable3TableAdapter();
+        bdlqdDataSet1TableAdapters.getDeHVKhongKiemTraTableAdapter khongktra = new bdlqdDataSet1TableAdapters.getDeHVKhongKiemTraTableAdapter();
+        bdlqdDataSet1TableAdapters.getCauThieuDiemTableAdapter thieudiem = new bdlqdDataSet1TableAdapters.getCauThieuDiemTableAdapter();
+        bdlqdDataSet1TableAdapters.gethocvienthuocLopTableAdapter hvthuoclop = new bdlqdDataSet1TableAdapters.gethocvienthuocLopTableAdapter();
+        bdlqdDataSet1TableAdapters.getCauThuocDeTableAdapter cauthuocde = new bdlqdDataSet1TableAdapters.getCauThuocDeTableAdapter();
+        //   bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
+        bdlqdDataSet1TableAdapters.getDeThieuDiemTableAdapter dethieudiem = new bdlqdDataSet1TableAdapters.getDeThieuDiemTableAdapter();
         string dang = "";
         DataTable dt = new DataTable();
         public nhapDiem()
@@ -113,6 +119,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void bntIn_Click(object sender, EventArgs e)
         {
+            string tam = "";
             int tmp = 0;
             XtraReport dummyReport = new XtraReport();
             //code mới
@@ -127,7 +134,41 @@ namespace boiduongLeQuyDon.GUI
             string[] cau = new string[100];
             DataView dv = new DataView();
             DataView dvs = new DataView();
-       //     DataView dvs = new DataView();
+            //     DataView dvs = new DataView();
+            //kiểm tra ràng buộc chưa kiểm tra
+            //kiểm tra ràng buộc chưa có điểm
+            //chưa kiểm tra: lấy idlop, idhocvien chưa kiểm tra
+            //id lớp đã có
+            //idhocvien và đề chưa kiểm tra: cho mỗi idlop được chọn, get tất cả học viên thuộc lớp đó,
+            //cho mỗi học viên get được, check với lớp ra đề chưa kiểm tra
+            //cho mỗi câu thuộc đề chưa kiểm tra => insert 0 điểm
+            DataTable dt_hv = hvthuoclop.GetData(Convert.ToInt32(lkLop.EditValue.ToString()));
+           // DataTable dt_khongktra = new DataTable();
+            foreach (DataRow r in dt_hv.Rows)
+            {
+                //if học viên chưa kiểm tra =>get id để chưa kiểm tra
+                DataTable dt_khongktra = khongktra.GetData(Convert.ToInt32(r[0].ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+                foreach (DataRow r1 in dt_khongktra.Rows)
+                {
+                    //nếu không kiểm tra
+                    //insert điểm vào cho người không ktra
+                    DataTable dtcauthuocde = cauthuocde.GetData(Convert.ToInt32(r1[0].ToString()));
+                    foreach (DataRow r2 in dtcauthuocde.Rows)
+                    {
+                        queries.InsertKetQua(Convert.ToInt32(r[0].ToString()), Convert.ToInt32(lkLop.EditValue.ToString()), Convert.ToInt32(r2[0].ToString()), 0);
+                    }
+                }
+                //nếu học viên thiếu điểm => get câu chưa có điểm
+                //đặt sai tên, đề thiếu điểm chính xác là lấy câu thuộc đề nhưng chưa có điểm
+                DataTable dt_dethieudiem = dethieudiem.GetData(Convert.ToInt32(r[0].ToString()), Convert.ToInt32(lkdotkiemtra.EditValue.ToString()));
+                foreach (DataRow r3 in dt_dethieudiem.Rows)
+                {
+                    queries.InsertKetQua(Convert.ToInt32(r[0].ToString()), Convert.ToInt32(lkLop.EditValue.ToString()), Convert.ToInt32(r3[0].ToString()), 0);
+                }
+
+            }
+            //xong học viên không kiểm tra
+           // DataTable dt_diemthieu = thieudiem.GetData()
             dvs = getketqua1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
             dv = getketqua9.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()),Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
             dv.Sort = "Câu";
@@ -178,9 +219,11 @@ namespace boiduongLeQuyDon.GUI
                  dtmp1 = dv.ToTable();
                //  DataRow[] r1 = coSoBoiDuongDataSet.ketQuaHocTap.NewketQuaHocTapRow[100];
                  for (int i = 0; i < dtmps1.Rows.Count; i++)
-                 {                   
-                     dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                     dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                 {
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                     dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                  }
                  boiduongLeQuyDon.GUI.Report.getTheoDe report = new boiduongLeQuyDon.GUI.Report.getTheoDe(lkLop.EditValue.ToString(), lkLop.Text, Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), lkdotkiemtra.Text, dtmp1, dtmp2, dtmp3,  1);
                  report.ShowPreviewDialog();
@@ -198,8 +241,10 @@ namespace boiduongLeQuyDon.GUI
                 }
                 for (int i = 0; i <20; i++)
                 {
-                    dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                    dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                    dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                 }
                 tmp = 0;
                 while (tmp < vitri11)
@@ -209,8 +254,10 @@ namespace boiduongLeQuyDon.GUI
                 }
                 for (int i = 20; i < dtmps1.Rows.Count; i++)
                 {
-                    dtmp2.Rows.Add("9998", "Trung bình", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                    dtmp2.Rows.Add("9999", "Phần trăm", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp2.Rows.Add("9998", "Trung bình", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                    dtmp2.Rows.Add("9999", "Phần trăm", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                 }
                 boiduongLeQuyDon.GUI.Report.getTheoDe report = new boiduongLeQuyDon.GUI.Report.getTheoDe(lkLop.EditValue.ToString(), lkLop.Text, Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), lkdotkiemtra.Text, dtmp1, dtmp2, dtmp3, 2);
                 report.ShowPreviewDialog();
@@ -228,8 +275,10 @@ namespace boiduongLeQuyDon.GUI
                 }
                 for (int i = 0; i < 20; i++)
                 {
-                    dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                    dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp1.Rows.Add("9998", "Trung bình", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                    dtmp1.Rows.Add("9999", "Phần trăm", dtmp1.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                 }
                 tmp = vitri3 -1;
                 for (int i = tmp; i > vitri22-1; i--)
@@ -243,8 +292,10 @@ namespace boiduongLeQuyDon.GUI
                 }
                 for (int i = 20; i < 40; i++)
                 {
-                    dtmp2.Rows.Add("9998", "Trung bình", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                    dtmp2.Rows.Add("9999", "Phần trăm", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp2.Rows.Add("9998", "Trung bình", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                    dtmp2.Rows.Add("9999", "Phần trăm", dtmp2.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                 }
                 tmp = 0;
                 while (tmp < vitri22)
@@ -254,8 +305,10 @@ namespace boiduongLeQuyDon.GUI
                 }
                 for (int i = 40; i < dtmps1.Rows.Count; i++)
                 {
-                    dtmp3.Rows.Add("9998", "Trung bình", dtmp3.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], dtmps1.Rows[i]["Cau"], "Zzy", dtmps1.Rows[i]["diemToiDa"]);
-                    dtmp3.Rows.Add("9999", "Phần trăm", dtmp3.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], dtmps1.Rows[i]["Cau"], "Zzz", dtmps1.Rows[i]["diemToiDa"]);
+                    tam = dtmps1.Rows[i]["Cau"].ToString();
+                    tam.Replace('.', '-').Replace("a", "a-");
+                    dtmp3.Rows.Add("9998", "Trung bình", dtmp3.Rows[5]["Lớp"], dtmps1.Rows[i]["trungbinh"], tam, "Zzy", dtmps1.Rows[i]["diemToiDa"]);
+                    dtmp3.Rows.Add("9999", "Phần trăm", dtmp3.Rows[5]["Lớp"], dtmps1.Rows[i]["phantram"], tam, "Zzz", dtmps1.Rows[i]["diemToiDa"]);
                 }
                 boiduongLeQuyDon.GUI.Report.getTheoDe report = new boiduongLeQuyDon.GUI.Report.getTheoDe(lkLop.EditValue.ToString(), lkLop.Text, Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), lkdotkiemtra.Text, dtmp1, dtmp2, dtmp3, 3);
                  report.ShowPreviewDialog();          

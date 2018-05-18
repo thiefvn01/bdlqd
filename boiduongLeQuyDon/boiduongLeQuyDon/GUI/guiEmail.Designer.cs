@@ -36,13 +36,14 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdlqdDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.cbDanhsach = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.checkedComboBoxEdit2 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -56,23 +57,19 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
-            this.bdlqdDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhsach.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textEdit1
@@ -134,6 +131,21 @@
             this.lookUpEdit1.TabIndex = 6;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1BindingSource;
+            // 
+            // bdlqdDataSet1BindingSource
+            // 
+            this.bdlqdDataSet1BindingSource.DataSource = this.bdlqdDataSet1;
+            this.bdlqdDataSet1BindingSource.Position = 0;
+            // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(256, 35);
@@ -158,6 +170,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit2.Size = new System.Drawing.Size(100, 20);
             this.lookUpEdit2.TabIndex = 9;
+            this.lookUpEdit2.EditValueChanged += new System.EventHandler(this.lookUpEdit2_EditValueChanged);
             // 
             // cbDanhsach
             // 
@@ -183,28 +196,6 @@
             this.labelControl6.Size = new System.Drawing.Size(66, 13);
             this.labelControl6.TabIndex = 11;
             this.labelControl6.Text = "Danh sách HV";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(410, 76);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(93, 13);
-            this.labelControl7.TabIndex = 12;
-            this.labelControl7.Text = "Đối tượng gửi Email";
-            // 
-            // checkedComboBoxEdit2
-            // 
-            this.checkedComboBoxEdit2.EditValue = "";
-            this.checkedComboBoxEdit2.Location = new System.Drawing.Point(512, 73);
-            this.checkedComboBoxEdit2.Name = "checkedComboBoxEdit2";
-            this.checkedComboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Cha"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Mẹ"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Người nuôi dưỡng")});
-            this.checkedComboBoxEdit2.Size = new System.Drawing.Size(100, 20);
-            this.checkedComboBoxEdit2.TabIndex = 13;
             // 
             // labelControl8
             // 
@@ -304,21 +295,6 @@
             this.labelControl11.TabIndex = 30;
             this.labelControl11.Text = "Tên hiển thị";
             // 
-            // bdlqdDataSet1
-            // 
-            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
-            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdlqdDataSet1BindingSource
-            // 
-            this.bdlqdDataSet1BindingSource.DataSource = this.bdlqdDataSet1;
-            this.bdlqdDataSet1BindingSource.Position = 0;
-            // 
-            // getKhoaHocBindingSource
-            // 
-            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
-            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1BindingSource;
-            // 
             // getKhoaHocTableAdapter
             // 
             this.getKhoaHocTableAdapter.ClearBeforeFill = true;
@@ -339,8 +315,6 @@
             this.Controls.Add(this.textEdit3);
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.labelControl8);
-            this.Controls.Add(this.checkedComboBoxEdit2);
-            this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.cbDanhsach);
             this.Controls.Add(this.lookUpEdit2);
@@ -358,16 +332,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhsach.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,8 +360,6 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
         private DevExpress.XtraEditors.CheckedComboBoxEdit cbDanhsach;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit2;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit textEdit3;

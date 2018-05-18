@@ -30,7 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.getLopHienTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.getLop5BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.cbTrangThai = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
@@ -50,12 +53,26 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.upTKB = new DevExpress.XtraEditors.LookUpEdit();
-            this.upLop = new DevExpress.XtraEditors.LookUpEdit();
-            this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
             this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.upLop = new DevExpress.XtraEditors.LookUpEdit();
             this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
+            this.getLop5TableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getLop5TableAdapter();
+            this.getLopHienTaiTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getLopHienTaiTableAdapter();
+            this.colIDlớp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIDHọcsinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọtên = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLớp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBiênlai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrạngthái = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGhichú = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphíphảiđóng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphíđãđóng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphícònlại = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getLopHienTaiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getLop5BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTrangThai.Properties)).BeginInit();
@@ -64,15 +81,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupGC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upTKB.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.upLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upLop.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl2
             // 
             this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl2.DataSource = this.getLopHienTaiBindingSource;
             this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
@@ -81,14 +98,41 @@
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
+            // getLopHienTaiBindingSource
+            // 
+            this.getLopHienTaiBindingSource.DataMember = "getLopHienTai";
+            this.getLopHienTaiBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
+            // bdlqdDataSet1
+            // 
+            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
+            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIDlớp,
+            this.colIDHọcsinh,
+            this.colHọtên,
+            this.colLớp,
+            this.colBiênlai,
+            this.colHọcphíphảiđóng,
+            this.colHọcphíđãđóng,
+            this.colHọcphícònlại,
+            this.colTrạngthái,
+            this.colGhichú});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "")});
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView2.OptionsFind.FindFilterColumns = "Họ tên lót";
+            this.gridView2.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView2_RowCellClick);
+            // 
+            // getLop5BindingSource
+            // 
+            this.getLop5BindingSource.DataMember = "getLop5";
+            this.getLop5BindingSource.DataSource = this.bdlqdDataSet1;
             // 
             // groupControl4
             // 
@@ -121,7 +165,7 @@
             // 
             // cbTrangThai
             // 
-            this.cbTrangThai.Location = new System.Drawing.Point(708, 74);
+            this.cbTrangThai.Location = new System.Drawing.Point(706, 78);
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -140,6 +184,7 @@
             this.checkEdit1.Properties.Caption = "Tất cả các lớp";
             this.checkEdit1.Size = new System.Drawing.Size(99, 19);
             this.checkEdit1.TabIndex = 18;
+            this.checkEdit1.CheckStateChanged += new System.EventHandler(this.checkEdit1_CheckStateChanged);
             // 
             // lblLC
             // 
@@ -209,7 +254,7 @@
             // 
             // bntXoa
             // 
-            this.bntXoa.Location = new System.Drawing.Point(507, 180);
+            this.bntXoa.Location = new System.Drawing.Point(415, 180);
             this.bntXoa.Name = "bntXoa";
             this.bntXoa.Size = new System.Drawing.Size(75, 23);
             this.bntXoa.TabIndex = 11;
@@ -242,7 +287,7 @@
             // 
             // bntUpdate
             // 
-            this.bntUpdate.Location = new System.Drawing.Point(387, 180);
+            this.bntUpdate.Location = new System.Drawing.Point(298, 180);
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.Size = new System.Drawing.Size(75, 23);
             this.bntUpdate.TabIndex = 10;
@@ -280,6 +325,11 @@
             this.upTKB.TabIndex = 7;
             this.upTKB.EditValueChanged += new System.EventHandler(this.upTKB_EditValueChanged);
             // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
             // upLop
             // 
             this.upLop.Location = new System.Drawing.Point(114, 120);
@@ -291,19 +341,87 @@
             this.upLop.Size = new System.Drawing.Size(100, 20);
             this.upLop.TabIndex = 8;
             // 
-            // bdlqdDataSet1
-            // 
-            this.bdlqdDataSet1.DataSetName = "bdlqdDataSet1";
-            this.bdlqdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // getKhoaHocBindingSource
-            // 
-            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
-            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
-            // 
             // getKhoaHocTableAdapter
             // 
             this.getKhoaHocTableAdapter.ClearBeforeFill = true;
+            // 
+            // getLop5TableAdapter
+            // 
+            this.getLop5TableAdapter.ClearBeforeFill = true;
+            // 
+            // getLopHienTaiTableAdapter
+            // 
+            this.getLopHienTaiTableAdapter.ClearBeforeFill = true;
+            // 
+            // colIDlớp
+            // 
+            this.colIDlớp.FieldName = "ID lớp";
+            this.colIDlớp.Name = "colIDlớp";
+            this.colIDlớp.Visible = true;
+            this.colIDlớp.VisibleIndex = 0;
+            // 
+            // colIDHọcsinh
+            // 
+            this.colIDHọcsinh.FieldName = "ID Học sinh";
+            this.colIDHọcsinh.Name = "colIDHọcsinh";
+            this.colIDHọcsinh.Visible = true;
+            this.colIDHọcsinh.VisibleIndex = 1;
+            // 
+            // colHọtên
+            // 
+            this.colHọtên.FieldName = "Họ tên";
+            this.colHọtên.Name = "colHọtên";
+            this.colHọtên.Visible = true;
+            this.colHọtên.VisibleIndex = 2;
+            // 
+            // colLớp
+            // 
+            this.colLớp.FieldName = "Lớp";
+            this.colLớp.Name = "colLớp";
+            this.colLớp.Visible = true;
+            this.colLớp.VisibleIndex = 3;
+            // 
+            // colBiênlai
+            // 
+            this.colBiênlai.FieldName = "Biên lai";
+            this.colBiênlai.Name = "colBiênlai";
+            this.colBiênlai.Visible = true;
+            this.colBiênlai.VisibleIndex = 4;
+            // 
+            // colTrạngthái
+            // 
+            this.colTrạngthái.FieldName = "Trạng thái";
+            this.colTrạngthái.Name = "colTrạngthái";
+            this.colTrạngthái.Visible = true;
+            this.colTrạngthái.VisibleIndex = 8;
+            // 
+            // colGhichú
+            // 
+            this.colGhichú.FieldName = "Ghi chú";
+            this.colGhichú.Name = "colGhichú";
+            this.colGhichú.Visible = true;
+            this.colGhichú.VisibleIndex = 9;
+            // 
+            // colHọcphíphảiđóng
+            // 
+            this.colHọcphíphảiđóng.FieldName = "Học phí phải đóng";
+            this.colHọcphíphảiđóng.Name = "colHọcphíphảiđóng";
+            this.colHọcphíphảiđóng.Visible = true;
+            this.colHọcphíphảiđóng.VisibleIndex = 5;
+            // 
+            // colHọcphíđãđóng
+            // 
+            this.colHọcphíđãđóng.FieldName = "Học phí đã đóng";
+            this.colHọcphíđãđóng.Name = "colHọcphíđãđóng";
+            this.colHọcphíđãđóng.Visible = true;
+            this.colHọcphíđãđóng.VisibleIndex = 6;
+            // 
+            // colHọcphícònlại
+            // 
+            this.colHọcphícònlại.FieldName = "Học phí còn lại";
+            this.colHọcphícònlại.Name = "colHọcphícònlại";
+            this.colHọcphícònlại.Visible = true;
+            this.colHọcphícònlại.VisibleIndex = 7;
             // 
             // QLHocPhi
             // 
@@ -315,7 +433,10 @@
             this.Size = new System.Drawing.Size(935, 494);
             this.Load += new System.EventHandler(this.QLHocPhi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getLopHienTaiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getLop5BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
@@ -325,9 +446,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupGC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upTKB.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.upLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upLop.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +480,19 @@
         private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
         private bdlqdDataSet1 bdlqdDataSet1;
         private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
+        private System.Windows.Forms.BindingSource getLop5BindingSource;
+        private bdlqdDataSet1TableAdapters.getLop5TableAdapter getLop5TableAdapter;
+        private System.Windows.Forms.BindingSource getLopHienTaiBindingSource;
+        private bdlqdDataSet1TableAdapters.getLopHienTaiTableAdapter getLopHienTaiTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDlớp;
+        private DevExpress.XtraGrid.Columns.GridColumn colIDHọcsinh;
+        private DevExpress.XtraGrid.Columns.GridColumn colHọtên;
+        private DevExpress.XtraGrid.Columns.GridColumn colLớp;
+        private DevExpress.XtraGrid.Columns.GridColumn colBiênlai;
+        private DevExpress.XtraGrid.Columns.GridColumn colHọcphíphảiđóng;
+        private DevExpress.XtraGrid.Columns.GridColumn colHọcphíđãđóng;
+        private DevExpress.XtraGrid.Columns.GridColumn colHọcphícònlại;
+        private DevExpress.XtraGrid.Columns.GridColumn colTrạngthái;
+        private DevExpress.XtraGrid.Columns.GridColumn colGhichú;
     }
 }

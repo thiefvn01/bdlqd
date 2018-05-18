@@ -518,5 +518,21 @@ namespace boiduongLeQuyDon
             ucMain.Controls.Add(xs);
             this.Text = "Gửi Email";
         }
+
+        private void barButtonItem32_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GUI.QLCaBiet xs = new GUI.QLCaBiet();
+            //      GUI.QuanLyHocPhi quanLyHocPhi = new QuanLyHocPhi();
+            try
+            {
+                ucMain.Controls.RemoveAt(0);
+            }
+            catch
+            {
+            }
+            //      quanLyHocPhi.Dock = DockStyle.Fill;
+            ucMain.Controls.Add(xs);
+            this.Text = "Quản lý học sinh đặc biệt";
+        }
     }
 }

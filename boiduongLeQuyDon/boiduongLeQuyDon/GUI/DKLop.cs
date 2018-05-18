@@ -77,7 +77,7 @@ namespace boiduongLeQuyDon.GUI
            //     MessageBox.Show(item.ToString());
                 //try
                 //{
-                    lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, dtngay.Text);
+                    lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, dtngay.Text, Convert.ToInt32(textEdit1.Text));
                     DataSet ds3 = new DataSet();
                     ds3 = lop.getlg();
                     lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString(),"Bình thường");

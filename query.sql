@@ -1103,3 +1103,163 @@ create procedure deletekinhnghiemnhanvien
 @id int
 as 
 delete KinhNghiemNhanVien where id=@id
+----
+drop procedure getLopHienTai
+----
+create procedure getLopHienTai
+as
+select l.id as 'ID lớp', v.ID as 'ID Học sinh', Hotenlot + ' ' + Ten as N'Họ tên', c.Lop as 'Lớp', l.sbl as 'Biên lai', c.HocPhi as 'Học phí phải đóng', sum(l.sotien) as 'Học phí đã đóng', c.HocPhi-sum(l.sotien) as 'Học phí còn lại', l.TrangThai as N'Trạng thái', l.GhiChu as 'Ghi chú'
+from hocvien v inner join lop l on v.ID=l.idHocVien inner join ChiTietTKB c on c.ID=l.idLop inner join ThoiKhoaBieu k on k.id=c.idTKB
+where k.Ngayketthuc>=GETDATE()
+group by l.id, v.id, Hotenlot, ten, c.Lop,l.sbl, l.GhiChu, l.TrangThai, c.HocPhi
+----
+drop procedure getTatCaCacLop
+----
+create procedure getTatCaCacLop
+as
+select l.id as 'ID lớp', v.ID as 'ID Học sinh', Hotenlot + ' ' + Ten as N'Họ tên', c.Lop as 'Lớp', l.sbl as 'Biên lai', c.HocPhi as 'Học phí phải đóng', sum(l.sotien) as 'Học phí đã đóng', c.HocPhi-sum(l.sotien) as 'Học phí còn lại', l.TrangThai as N'Trạng thái', l.GhiChu as 'Ghi chú'
+from hocvien v inner join lop l on v.ID=l.idHocVien inner join ChiTietTKB c on c.ID=l.idLop inner join ThoiKhoaBieu k on k.id=c.idTKB
+group by l.id, v.id, Hotenlot, ten, c.Lop,l.sbl, l.GhiChu, l.TrangThai, c.HocPhi
+----
+create procedure insertLop
+@idhocvien int,
+@idlop int,
+@sbl nvarchar,
+@lophientai int,
+@lopcu int,
+@lopgoc int,
+@trangthai nvarchar,
+@sotien int,
+@ghichu nvarchar
+as
+insert into Lop (idHocVien, idLop, sbl, lophientai, lopcu,	lopgoc, TrangThai, sotien, ghichu)
+values (@idhocvien,@idlop, @sbl,@lophientai, @lopcu, @lopgoc, @trangthai, @sotien, @ghichu)
+---
+create procedure updateDoiLop
+@idhocvien int,
+@idlop int
+as
+update lop set lophientai=0 where idHocVien=@idhocvien and idLop=@idlop
+----
+create procedure getHocPhi
+@idlop int
+as
+select HocPhi
+from ChiTietTKB
+where id=@idlop
+---
+create procedure  getTatCaLop1HocVien
+@idhocvien int
+as
+select ID
+from Lop
+where idHocVien=@idhocvien and lophientai=1
+----
+drop procedure getHocPhiHocVien
+go
+create procedure getHocPhiHocVien
+@idhocvien int
+as
+select h.Hotenlot + ' ' + h.Ten as 'Họ tên', c.Lop as 'Lớp', c.HocPhi as 'Học phí phải đóng', sum(l.sotien) as 'Học phí đã đóng', c.HocPhi-sum(l.sotien) as 'Học phí còn lại'
+from hocVien h inner join lop l on h.id=l.idHocVien inner join ChiTietTKB c on c.ID=l.idLop
+ inner join ThoiKhoaBieu k on c.idTKB=k.ID
+where lophientai=1 and k.Ngayketthuc>=GETDATE() and idHocVien=@idhocvien
+group by h.Hotenlot, h.ten, c.Lop, c.HocPhi
+----
+create procedure updateLopNghiHoc
+@idhocvien int,
+@idlop int
+as
+update Lop set TrangThai=N'Nghỉ học' where idLop=@idlop and idHocVien=@idhocvien
+---
+create procedure updateLopNghiHocTatCa
+@idhocvien int,
+@idlop int
+as
+update Lop set TrangThai=N'Nghỉ học' where idLop=@idlop and lophientai=1
+----
+drop procedure updateLopHocPhi
+go
+create procedure updateLopHocPhi
+@idhocvien int,
+@idlop int,
+@sbl nvarchar,
+@sotien int
+as
+update lop set sbl=@sbl, sotien=@sotien where idHocVien=@idhocvien and idlop=@idlop
+----
+--getnhanvienchuanghi
+create procedure [dbo].[getNhanVienchuanghi]
+as
+SELECT        ID, Hotenlot + ' ' + Ten AS N'Họ tên'
+FROM            nhanVien
+where DaNghi=0
+--gettrogiangid
+create procedure getTroGiang
+@id int
+as
+select trogiang
+from PhuDao where id=@id
+----
+create procedure getHocVienDangHoc
+as
+select h.id, Hotenlot + ' ' + Ten as 'Họ tên'
+from hocVien h inner join Lop l on h.id=l.idHocVien inner join ChiTietTKB c on c.id=l.idLop inner join ThoiKhoaBieu k on k.id=c.idTKB
+where k.Ngayketthuc>=GETDATE()
+----
+create procedure getNhanVienMoiNhap
+as
+select max(id)
+from nhanVien
+---
+create procedure getNhanVien2
+@id int
+as
+select * from nhanVien where id=@id
+----lấy mã đề học viên không thực hiện
+---- lấy số câu học viên không có điểm
+drop procedure getDeHVKhongKiemTra
+go
+create procedure getDeHVKhongKiemTra
+@idhocvien int,
+@idlop int
+as
+select distinct x.ID
+from ketQuaHocTap k inner join de d on k.idBaiTap=d.id inner join kiemTra x on d.deID=x.ID
+where idlop=@idlop and idhocvien not in (select distinct k.ID
+from ketQuaHocTap k inner join de d on k.idBaiTap=d.ID inner join kiemTra x on d.deID=x.ID
+where x.idLop=@idlop)
+-----
+drop procedure getCauThieuDiem
+go
+create procedure getCauThieuDiem
+@idhocvien int,
+@deid int
+as
+select d.ID
+from ketQuaHocTap k inner join de d on k.idBaiTap=d.id inner join kiemTra x on d.deID=x.ID
+where idHocVien=@idhocvien and idBaiTap not in (select distinct d.id from ketQuaHocTap k inner join de d on k.idBaiTap=d.ID inner join kiemTra x on d.deID=x.ID
+where x.id=@deid)
+---
+create procedure gethocvienthuocLop
+@idlop int
+as
+select distinct idHocVien
+from lop 
+where id=@idlop and lophientai=1
+----
+create procedure getCauThuocDe
+@id int
+as
+select d.id
+from de d inner join kiemtra k on d.deID=k.id
+where k.ID=@id
+---
+create procedure getDeThieuDiem
+@idhocvien int,
+@idde int
+as
+select d.id
+from de d  inner join kiemtra x on x.id=d.deID left outer join ketQuaHocTap k on k.idBaiTap=d.ID
+where idHocVien=@idhocvien and x.id=@idde and  k.idBaiTap not in (select d.ID from de d inner join kiemtra k on k.id=d.deID)
+---

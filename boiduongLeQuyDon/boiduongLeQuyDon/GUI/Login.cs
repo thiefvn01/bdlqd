@@ -5,6 +5,9 @@ using System.Windows.Forms;
 using boiduongLeQuyDon.BUS;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
+using System.Linq;
+using System.Xml.Linq;
+using System.Configuration;
 //using ICSharpCode.SharpZipLib.Core;
 //using ICSharpCode.SharpZipLib.Zip;
 namespace boiduongLeQuyDon.GUI
@@ -15,6 +18,7 @@ namespace boiduongLeQuyDon.GUI
         public Login()
         {
             InitializeComponent();
+            load();
         }
 
         #region Overrides
@@ -23,7 +27,38 @@ namespace boiduongLeQuyDon.GUI
         {
             base.ProcessCommand(cmd, arg);
         }
-
+        void load()
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString;
+            int temp = 0;
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                try
+                {
+                    conn.Open();
+                    temp = 1;
+                }
+                catch (SqlException)
+                {
+                    temp = 0;
+                }
+            }
+            string d1, d2, d3, d4;
+            if (temp == 0)
+            {
+                XDocument doc = XDocument.Load("app.xml");
+                d1 = doc.Element("sets").Elements("IP").FirstOrDefault().Value.ToString();
+                d2 = doc.Element("sets").Elements("USER").FirstOrDefault().Value.ToString();
+                d3 = doc.Element("sets").Elements("PASS").FirstOrDefault().Value.ToString();
+                d4 = doc.Element("sets").Elements("cat").FirstOrDefault().Value.ToString();
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
+                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source="+d1 + ";Initial Catalog="+d4+";UID="+d2+";password="+d3 + "Integrated Security=True";
+                config.Save();
+                ConfigurationManager.RefreshSection("connectionStrings");
+            }
+                    
+        }
         #endregion
         
         public enum SplashScreenCommand

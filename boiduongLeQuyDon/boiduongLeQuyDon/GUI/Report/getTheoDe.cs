@@ -16,6 +16,8 @@ namespace boiduongLeQuyDon.GUI.Report
         public getTheoDe(string lop, string tenlop, int de, string made, DataTable data1, DataTable data2, DataTable data3, int sotrang)
         {
             InitializeComponent();
+            //kiểm tra học viên thiếu điểm thành phần
+            //kiểm tra học viên thiếu điểm môn
 
             lbtende.Text = made;
             this.de = de;

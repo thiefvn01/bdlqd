@@ -25,9 +25,9 @@ namespace boiduongLeQuyDon.BUS
         {
             return dal.delete(id);
         }
-        public int insert(string idHV, string lop, string ghiChu,string sbl, string ngaydk)
+        public int insert(string idHV, string lop, string ghiChu,string sbl, string ngaydk, int sotien)
         {
-            return dal.insert(idHV,lop,ghiChu,sbl, ngaydk);
+            return dal.insert(idHV,lop,ghiChu,sbl, ngaydk, sotien);
         }
         public int insert(string idHV, string lop, string ghiChu, string sbl,string lopcu, string lopgoc)
         {

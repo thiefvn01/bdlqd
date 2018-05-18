@@ -240,6 +240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="bdlqdDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdlqdDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BUS\BUSChiTietTKB.cs" />
     <Compile Include="BUS\BUSDiemDanh.cs" />
     <Compile Include="BUS\BUSDongTien.cs" />
@@ -394,6 +399,12 @@
     </Compile>
     <Compile Include="GUI\phieuBao.Designer.cs">
       <DependentUpon>phieuBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QLCaBiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QLCaBiet.Designer.cs">
+      <DependentUpon>QLCaBiet.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\QLHocPhi.cs">
       <SubType>UserControl</SubType>
@@ -625,6 +636,9 @@
     <EmbeddedResource Include="GUI\phieuBao.resx">
       <DependentUpon>phieuBao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QLCaBiet.resx">
+      <DependentUpon>QLCaBiet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QLHocPhi.resx">
       <DependentUpon>QLHocPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -720,6 +734,17 @@
     </None>
     <None Include="bdlqdDataSet1.xss">
       <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="bdlqdDataSet2.xsc">
+      <DependentUpon>bdlqdDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="bdlqdDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdlqdDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bdlqdDataSet2.xss">
+      <DependentUpon>bdlqdDataSet2.xsd</DependentUpon>
     </None>
     <None Include="ds.xsc">
       <DependentUpon>ds.xsd</DependentUpon>
@@ -844,6 +869,7 @@
     </Content>
     <Content Include="GUI\Robinweatherall-Library-Book-open.ico" />
     <Content Include="Robinweatherall-Library-Book-open.ico" />
+    <Content Include="App.xml" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

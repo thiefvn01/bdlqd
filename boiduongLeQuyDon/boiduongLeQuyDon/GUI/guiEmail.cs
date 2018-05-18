@@ -17,7 +17,9 @@ namespace boiduongLeQuyDon.GUI
         List<int> danhsach = new List<int>();
         List<int> danhsach_ten = new List<int>();
         List<string> email = new List<string>();
-        List<string> doituong = new List<string>();
+        List<string> tenhocsinh = new List<string>();
+        bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter emailph = new bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter();
+        bdlqdDataSet1TableAdapters.getHocVien5TableAdapter hocvien = new bdlqdDataSet1TableAdapters.getHocVien5TableAdapter();
         public GuiEmail()
         {
             InitializeComponent();
@@ -48,8 +50,13 @@ namespace boiduongLeQuyDon.GUI
             string split12 = from.Substring(from.Length - 12, 12);
             //gửi chưa có custom nội dung
             MailMessage mail = new MailMessage();
-            foreach (string a in email)
+            foreach (string b in email)
             {
+                string a = "";
+                if (checkBox1.CheckState == CheckState.Checked)
+                    a = textEdit3.Text;
+                else
+                    a = b;
                 if (split8 == "gmail.com")
                 {
                     server = "smpt.gmail.com";
@@ -133,31 +140,23 @@ namespace boiduongLeQuyDon.GUI
                     if (item.CheckState == CheckState.Checked)
                     {
                         danhsach.Add(Convert.ToInt32(item.Value.ToString()));
-                      //  danhsach_ten.Add(item.)
+                        
+                        //  danhsach_ten.Add(item.)
                         count++;
                     }
                 }
                 daxuly = true;
             }
             //lấy ds đối tượng
-            for (int i = 0; i < checkedComboBoxEdit2.Properties.Items.Count; i++)
-            {
-               
-                var item = checkedComboBoxEdit2.Properties.Items[i];
-                if (item.CheckState == CheckState.Checked)
-                {
-                    for(int j = 0; j < count; j++)
-                    {
-                        doituong.Add(item.Value.ToString());
-                    }
-                }
-            }
+         
             //lấy email
             for(int i=0;i<count;i++)
             {
                 //query lấy email
-                //select doituong from hocvien where id = danhsach[i]
-                email.Add("");
+                //select tenhocsinh from hocvien where id = danhsach[i]
+               // emailph.GetData(Convert.ToInt32(danhsach[i].ToString())).Rows[0][1].ToString();
+                tenhocsinh.Add(emailph.GetData(Convert.ToInt32(danhsach[i].ToString())).Rows[0][0].ToString());
+                email.Add(emailph.GetData(Convert.ToInt32(danhsach[i].ToString())).Rows[0][1].ToString());
             }
             //set count = 0 để có thể add liên tục
             count = 0;
@@ -165,7 +164,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            doituong.Clear();
+            tenhocsinh.Clear();
             danhsach.Clear();
             email.Clear();
         }
@@ -177,16 +176,16 @@ namespace boiduongLeQuyDon.GUI
          //   dt.DataSet.DataSetName = "DSEmail";
             dt.Columns.Add("Thứ tự");
             dt.Columns.Add("Học viên");
-            dt.Columns.Add("Người nhận");
+            //dt.Columns.Add("Người nhận");
             dt.Columns.Add("Email nhận");
-            for (int i = 0; i < doituong.Count; i++)
+            for (int i = 0; i < danhsach.Count; i++)
             {
                 DataRow r = dt.NewRow();
                 r.SetField("Thứ tự", i + 1);
                 //query get ten hoc vien tai day
-                string ten = "";
-                r.SetField("Học viên", ten);
-                r.SetField("Người nhận", doituong[i]);
+               // string ten = "";
+                r.SetField("Học viên", tenhocsinh[i]);
+             //   r.SetField("Người nhận", tenhocsinh[i]);
                 r.SetField("Email nhận", email[i]);
                 dt.Rows.Add(r);
             }
@@ -199,6 +198,13 @@ namespace boiduongLeQuyDon.GUI
             lookUpEdit2.Properties.DataSource = ck.get(lookUpEdit1.EditValue.ToString()).Tables[0];
             lookUpEdit2.Properties.DisplayMember = "Lớp";
             lookUpEdit2.Properties.ValueMember = "ID";
+        }
+
+        private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            cbDanhsach.Properties.DataSource = hocvien.GetData(Convert.ToInt32(lookUpEdit2.EditValue.ToString()));
+            cbDanhsach.Properties.DisplayMember = "Họ tên";
+            cbDanhsach.Properties.ValueMember = "ID";
         }
     }
 }

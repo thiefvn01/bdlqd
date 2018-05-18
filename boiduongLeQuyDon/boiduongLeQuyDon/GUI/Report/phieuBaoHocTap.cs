@@ -20,6 +20,7 @@ namespace boiduongLeQuyDon.GUI.Report
         public phieuBaoHocTap(string idhocvien, string idlop, string tenlop, string tengv, string nx2, string nx3, string nx4, string idtkb, DateTime dtfrom, DateTime dtto)
         {
             InitializeComponent();
+            
             this.idhocvien = idhocvien;
             this.idlop = idlop;
             this.dtfrom = dtfrom;
