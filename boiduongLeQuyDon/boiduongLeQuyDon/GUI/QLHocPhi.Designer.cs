@@ -33,6 +33,16 @@
             this.getLopHienTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colIDlớp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIDHọcsinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọtên = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLớp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBiênlai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrạngthái = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGhichú = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphíphảiđóng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphíđãđóng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọcphícònlại = new DevExpress.XtraGrid.Columns.GridColumn();
             this.getLop5BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.cbTrangThai = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -58,16 +68,6 @@
             this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             this.getLop5TableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getLop5TableAdapter();
             this.getLopHienTaiTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getLopHienTaiTableAdapter();
-            this.colIDlớp = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIDHọcsinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHọtên = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLớp = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBiênlai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTrạngthái = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGhichú = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHọcphíphảiđóng = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHọcphíđãđóng = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHọcphícònlại = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getLopHienTaiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
@@ -116,11 +116,11 @@
             this.colHọtên,
             this.colLớp,
             this.colBiênlai,
+            this.colTrạngthái,
+            this.colGhichú,
             this.colHọcphíphảiđóng,
             this.colHọcphíđãđóng,
-            this.colHọcphícònlại,
-            this.colTrạngthái,
-            this.colGhichú});
+            this.colHọcphícònlại});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "")});
@@ -128,6 +128,86 @@
             this.gridView2.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView2.OptionsFind.FindFilterColumns = "Họ tên lót";
             this.gridView2.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView2_RowCellClick);
+            // 
+            // colIDlớp
+            // 
+            this.colIDlớp.FieldName = "ID lớp";
+            this.colIDlớp.Name = "colIDlớp";
+            this.colIDlớp.Visible = true;
+            this.colIDlớp.VisibleIndex = 0;
+            this.colIDlớp.Width = 86;
+            // 
+            // colIDHọcsinh
+            // 
+            this.colIDHọcsinh.FieldName = "ID Học sinh";
+            this.colIDHọcsinh.Name = "colIDHọcsinh";
+            this.colIDHọcsinh.Visible = true;
+            this.colIDHọcsinh.VisibleIndex = 1;
+            this.colIDHọcsinh.Width = 86;
+            // 
+            // colHọtên
+            // 
+            this.colHọtên.FieldName = "Họ tên";
+            this.colHọtên.Name = "colHọtên";
+            this.colHọtên.Visible = true;
+            this.colHọtên.VisibleIndex = 2;
+            this.colHọtên.Width = 86;
+            // 
+            // colLớp
+            // 
+            this.colLớp.FieldName = "Lớp";
+            this.colLớp.Name = "colLớp";
+            this.colLớp.Visible = true;
+            this.colLớp.VisibleIndex = 3;
+            this.colLớp.Width = 86;
+            // 
+            // colBiênlai
+            // 
+            this.colBiênlai.FieldName = "Biên lai";
+            this.colBiênlai.Name = "colBiênlai";
+            this.colBiênlai.Visible = true;
+            this.colBiênlai.VisibleIndex = 4;
+            this.colBiênlai.Width = 86;
+            // 
+            // colTrạngthái
+            // 
+            this.colTrạngthái.FieldName = "Trạng thái";
+            this.colTrạngthái.Name = "colTrạngthái";
+            this.colTrạngthái.Visible = true;
+            this.colTrạngthái.VisibleIndex = 5;
+            this.colTrạngthái.Width = 86;
+            // 
+            // colGhichú
+            // 
+            this.colGhichú.FieldName = "Ghi chú";
+            this.colGhichú.Name = "colGhichú";
+            this.colGhichú.Visible = true;
+            this.colGhichú.VisibleIndex = 6;
+            this.colGhichú.Width = 86;
+            // 
+            // colHọcphíphảiđóng
+            // 
+            this.colHọcphíphảiđóng.FieldName = "Học phí phải đóng";
+            this.colHọcphíphảiđóng.Name = "colHọcphíphảiđóng";
+            this.colHọcphíphảiđóng.Visible = true;
+            this.colHọcphíphảiđóng.VisibleIndex = 7;
+            this.colHọcphíphảiđóng.Width = 86;
+            // 
+            // colHọcphíđãđóng
+            // 
+            this.colHọcphíđãđóng.FieldName = "Học phí đã đóng";
+            this.colHọcphíđãđóng.Name = "colHọcphíđãđóng";
+            this.colHọcphíđãđóng.Visible = true;
+            this.colHọcphíđãđóng.VisibleIndex = 8;
+            this.colHọcphíđãđóng.Width = 86;
+            // 
+            // colHọcphícònlại
+            // 
+            this.colHọcphícònlại.FieldName = "Học phí còn lại";
+            this.colHọcphícònlại.Name = "colHọcphícònlại";
+            this.colHọcphícònlại.Visible = true;
+            this.colHọcphícònlại.VisibleIndex = 9;
+            this.colHọcphícònlại.Width = 89;
             // 
             // getLop5BindingSource
             // 
@@ -340,6 +420,7 @@
             this.upLop.Properties.NullText = "";
             this.upLop.Size = new System.Drawing.Size(100, 20);
             this.upLop.TabIndex = 8;
+            this.upLop.EditValueChanged += new System.EventHandler(this.upLop_EditValueChanged);
             // 
             // getKhoaHocTableAdapter
             // 
@@ -352,76 +433,6 @@
             // getLopHienTaiTableAdapter
             // 
             this.getLopHienTaiTableAdapter.ClearBeforeFill = true;
-            // 
-            // colIDlớp
-            // 
-            this.colIDlớp.FieldName = "ID lớp";
-            this.colIDlớp.Name = "colIDlớp";
-            this.colIDlớp.Visible = true;
-            this.colIDlớp.VisibleIndex = 0;
-            // 
-            // colIDHọcsinh
-            // 
-            this.colIDHọcsinh.FieldName = "ID Học sinh";
-            this.colIDHọcsinh.Name = "colIDHọcsinh";
-            this.colIDHọcsinh.Visible = true;
-            this.colIDHọcsinh.VisibleIndex = 1;
-            // 
-            // colHọtên
-            // 
-            this.colHọtên.FieldName = "Họ tên";
-            this.colHọtên.Name = "colHọtên";
-            this.colHọtên.Visible = true;
-            this.colHọtên.VisibleIndex = 2;
-            // 
-            // colLớp
-            // 
-            this.colLớp.FieldName = "Lớp";
-            this.colLớp.Name = "colLớp";
-            this.colLớp.Visible = true;
-            this.colLớp.VisibleIndex = 3;
-            // 
-            // colBiênlai
-            // 
-            this.colBiênlai.FieldName = "Biên lai";
-            this.colBiênlai.Name = "colBiênlai";
-            this.colBiênlai.Visible = true;
-            this.colBiênlai.VisibleIndex = 4;
-            // 
-            // colTrạngthái
-            // 
-            this.colTrạngthái.FieldName = "Trạng thái";
-            this.colTrạngthái.Name = "colTrạngthái";
-            this.colTrạngthái.Visible = true;
-            this.colTrạngthái.VisibleIndex = 8;
-            // 
-            // colGhichú
-            // 
-            this.colGhichú.FieldName = "Ghi chú";
-            this.colGhichú.Name = "colGhichú";
-            this.colGhichú.Visible = true;
-            this.colGhichú.VisibleIndex = 9;
-            // 
-            // colHọcphíphảiđóng
-            // 
-            this.colHọcphíphảiđóng.FieldName = "Học phí phải đóng";
-            this.colHọcphíphảiđóng.Name = "colHọcphíphảiđóng";
-            this.colHọcphíphảiđóng.Visible = true;
-            this.colHọcphíphảiđóng.VisibleIndex = 5;
-            // 
-            // colHọcphíđãđóng
-            // 
-            this.colHọcphíđãđóng.FieldName = "Học phí đã đóng";
-            this.colHọcphíđãđóng.Name = "colHọcphíđãđóng";
-            this.colHọcphíđãđóng.Visible = true;
-            this.colHọcphíđãđóng.VisibleIndex = 6;
-            // 
-            // colHọcphícònlại
-            // 
-            this.colHọcphícònlại.FieldName = "Học phí còn lại";
-            this.colHọcphícònlại.Name = "colHọcphícònlại";
-            this.colHọcphícònlại.Visible = true;
-            this.colHọcphícònlại.VisibleIndex = 7;
             // 
             // QLHocPhi
             // 
@@ -489,10 +500,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHọtên;
         private DevExpress.XtraGrid.Columns.GridColumn colLớp;
         private DevExpress.XtraGrid.Columns.GridColumn colBiênlai;
+        private DevExpress.XtraGrid.Columns.GridColumn colTrạngthái;
+        private DevExpress.XtraGrid.Columns.GridColumn colGhichú;
         private DevExpress.XtraGrid.Columns.GridColumn colHọcphíphảiđóng;
         private DevExpress.XtraGrid.Columns.GridColumn colHọcphíđãđóng;
         private DevExpress.XtraGrid.Columns.GridColumn colHọcphícònlại;
-        private DevExpress.XtraGrid.Columns.GridColumn colTrạngthái;
-        private DevExpress.XtraGrid.Columns.GridColumn colGhichú;
     }
 }

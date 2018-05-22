@@ -56,7 +56,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = gv.getpq().Tables[0];
-            gridView1.PopulateColumns();
+          //  gridView1.PopulateColumns();
             gridView1.OptionsBehavior.Editable = false;
             gridView1.OptionsBehavior.ReadOnly = true;
         }
@@ -65,7 +65,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = gv.getpq().Tables[0];
-            gridView1.PopulateColumns();
+         //   gridView1.PopulateColumns();
         }
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)

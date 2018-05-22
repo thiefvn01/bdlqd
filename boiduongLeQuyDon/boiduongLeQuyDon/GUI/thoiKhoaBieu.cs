@@ -80,7 +80,7 @@ namespace boiduongLeQuyDon.GUI
             txtMonHoc.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Môn học").ToString();
          //   txtGhiChu.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Ghi chú").ToString();
             lblID.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString();
-            txtGiaoVien.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Giáo Viên").ToString();
+            txtGiaoVien.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Giáo viên").ToString();
             txtThu.Text=gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Thứ").ToString();
             txtThoiGian.Text=gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Thời gian").ToString();
             txtHocPhi.Text=gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Học phí").ToString();

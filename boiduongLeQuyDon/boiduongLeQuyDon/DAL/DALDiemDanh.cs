@@ -36,7 +36,7 @@ namespace boiduongLeQuyDon.DAL
         {
             SqlConnection conn = access.AccessData();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT diemDanh.ID, mahv as [Mã học viên], hotenlot +' ' +ten AS [Họ tên], cophep as [Có phép], khongphep as[Không phép], tre as 'Trễ', diemDanh.ghichu as N'Ghi chú'FROM diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id WHERE tkbID=" + id + " and( [Có phép]=#" + ngay + "# OR [Không phép]=#" + ngay + "# OR [Ngày]=#" + ngay + "#)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT diemDanh.ID, mahv as [Mã học viên], hotenlot +' ' +ten AS [Họ tên], cophep as [Có phép], khongphep as[Không phép], tre as 'Trễ', diemDanh.ghichu as N'Ghi chú'FROM diemDanh inner join hocVien on diemDanh.idHocVien=hocVien.id WHERE tkbID=" + id + " and( cophep=" + ngay + " OR khongphep=" + ngay + " OR ngay=" + ngay + ")", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
@@ -76,7 +76,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, cophep, ghichu,tkbID) values ('" + idhocvien + "','" + cophep + "','" + ghiChu + "'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, cophep, ghichu,tkbID) values ('" + idhocvien + ", CONVERT(smalldatetime, '" + cophep + "', 103)," + ghiChu + "'," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -92,7 +92,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, khongphep, ghichu,tkbID) values ('" + idhocvien + "','" + kphep + "','" + ghiChu + "'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, khongphep, ghichu,tkbID) values (" + idhocvien + ", CONVERT(smalldatetime, '" + kphep + "', 103),'" + ghiChu + "'," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -108,7 +108,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, tre, ghichu,ngay,tkbID) values ('" + idhocvien + "','" + tre + "','" + ghiChu + "','"+ngay+"'," + lop + ")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO diemDanh (idHocVien, tre, ghichu,ngay,tkbID) values (" + idhocvien + ",'" + tre + "','" + ghiChu + "', CONVERT(smalldatetime, '" + ngay + "', 103)," + lop + ")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

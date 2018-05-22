@@ -51,8 +51,8 @@ namespace boiduongLeQuyDon.GUI
        //     gridControl1.DataSource = hv.getTKB().Tables[0];
       //      gridView1.PopulateColumns();
             gridControl2.RefreshDataSource();
-            gridControl2.DataSource = lop.get().Tables[0];
-            gridView2.PopulateColumns();
+            gridControl2.DataSource = lop.get(id).Tables[0];
+       //     gridView2.PopulateColumns();
             dkTKB.Properties.DataSource = tkb.gettt().Tables[0];
             dkTKB.Properties.DisplayMember = "Tên TKB";
             dkTKB.Properties.ValueMember = "ID";
@@ -77,7 +77,7 @@ namespace boiduongLeQuyDon.GUI
            //     MessageBox.Show(item.ToString());
                 //try
                 //{
-                    lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, dtngay.Text, Convert.ToInt32(textEdit1.Text));
+                    lop.insert(id, item.ToString(), txtadGC.Text,txtsbl.Text, "", Convert.ToInt32(textEdit1.Text));
                     DataSet ds3 = new DataSet();
                     ds3 = lop.getlg();
                     lop.updatenew(ds3.Tables[0].Rows[0]["idLop"].ToString(), ds3.Tables[0].Rows[0]["idlop"].ToString(),"Bình thường");
@@ -116,7 +116,7 @@ namespace boiduongLeQuyDon.GUI
       //      gridView1.PopulateColumns();
             gridControl2.RefreshDataSource();
             gridControl2.DataSource = lop.get().Tables[0];
-            gridView2.PopulateColumns(); 
+        //    gridView2.PopulateColumns(); 
       //      gridView1.PopulateColumns();
         }
 

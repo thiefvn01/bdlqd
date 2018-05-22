@@ -22,6 +22,8 @@ namespace boiduongLeQuyDon.GUI
         public QLHocPhi()
         {
             InitializeComponent();
+            gridView2.OptionsBehavior.ReadOnly = true;
+            gridView2.OptionsBehavior.Editable = false;
         }
         string idlop = "";
         private void QLHocPhi_Load(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace boiduongLeQuyDon.GUI
         {
             bdlqdDataSet1TableAdapters.getLop1TableAdapter getlopgoc = new bdlqdDataSet1TableAdapters.getLop1TableAdapter();
             //insert vào 1 lớp
-            if (idlop != upLop.EditValue.ToString())
+            if (checkchange!=0)
             {
                 //trường hợp đổi lớp
 
@@ -48,6 +50,7 @@ namespace boiduongLeQuyDon.GUI
                 queries.insertLop(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text), txtusbl.Text, Convert.ToInt32(upLop.EditValue), 1 , lopgoc, "N'Chuyển lớp'", Convert.ToInt32(textEdit2.Text), txtupGC.Text);
                 //cập nhật lớp gốc
                 queries.updateDoiLop(Convert.ToInt32(lblID.Text), Convert.ToInt32(idlop));
+                checkchange = 0;
             }
             else
             {
@@ -74,6 +77,7 @@ namespace boiduongLeQuyDon.GUI
                 else if(cbTrangThai.Text!= "Nghỉ tất cả cả lớp" && cbTrangThai.Text!= "Nghỉ học")
                 {
                     //trưởng hợp cập nhật số tiền đã đóng
+                    if(textEdit2.Text!="")
                     queries.updateLopHocPhi(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text), txtusbl.Text, Convert.ToInt32(textEdit2.Text));
                 }
                 load();
@@ -101,15 +105,19 @@ namespace boiduongLeQuyDon.GUI
             upLop.Properties.DisplayMember = "Lớp";
             upLop.Properties.ValueMember = "ID";
         }
-
+        int checkchange = 0;
+        int lopcc = 0;
         private void gridView2_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
+           
             lblID.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID Học sinh").ToString();
-            lblLC.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID Lớp").ToString();
+            lblLC.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID lớp").ToString();
             txtupGC.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Ghi chú").ToString();
             txtusbl.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Biên lai").ToString();
             textEdit2.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Học phí đã đóng").ToString();
             cbTrangThai.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "Trạng thái").ToString();
+            //upLop.EditValue=gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID lớp").ToString();
+            lopcc = Convert.ToInt32(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID lớp").ToString());
             idlop = lblLC.Text;
         }
 
@@ -117,16 +125,29 @@ namespace boiduongLeQuyDon.GUI
         {
             if (checkEdit1.CheckState == CheckState.Checked)
             {
-                gridControl2.RefreshDataSource();
+          //      gridControl2.RefreshDataSource();
                 gridControl2.DataSource=tatcalop.GetData();
                 gridView2.PopulateColumns();
+                upTKB.Properties.DataSource = tkb.get(1).Tables[0];
+                upTKB.Properties.DisplayMember = "Ten TKB";
+                upTKB.Properties.ValueMember = "ID";
             }
             else
             {
-                gridControl2.RefreshDataSource();
+              //  gridControl2.RefreshDataSource();
                 gridControl2.DataSource = lophientai.GetData();
                 gridView2.PopulateColumns();
+                upTKB.Properties.DataSource = tkb.gettt().Tables[0];
+                upTKB.Properties.DisplayMember = "Ten TKB";
+                upTKB.Properties.ValueMember = "ID";
             }
+        }
+
+        private void upLop_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lopcc != 0 && Convert.ToInt32(upLop.EditValue.ToString()) != lopcc)
+                checkchange = 1;
+            checkchange = 0;
         }
     }
 }

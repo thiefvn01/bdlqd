@@ -26,7 +26,7 @@ namespace boiduongLeQuyDon.DAL
         {
             SqlConnection conn = access.AccessData();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT  v.ID,MaHV, hotenlot as N'Họ tên lót', ten as N'Tên' ,hotenlot +' ' + ten as [Họ và tên],ngaysinh as N'Ngày sinh', truong as N'Trường',dienthoai as N'Điện thoại',email, diachi as N'Địa chỉ',v.ghichu as N'Ghi chú' from hocvien v ORDER BY v.ngayDK DESC", conn);
+            SqlCommand cmd = new SqlCommand("SELECT  v.ID,MaHV as 'Mã HV', hotenlot as N'Họ tên lót', ten as N'Tên' ,hotenlot +' ' + ten as [Họ và tên],ngaysinh as N'Ngày sinh', truong as N'Trường',dienthoai as N'Điện thoại',email, diachi as N'Địa chỉ',v.ghichu as N'Ghi chú' from hocvien v ORDER BY v.ngayDK DESC", conn);
          //   string sql = "SELECT * from ((hocvien v inner join lop l on l.idhocvien=v.id) inner join chitiettkb c on c.id=l.idlop) inner join thoikhoabieu t on t.id=c.idTKB where [Ngày kết thúc] >=now()";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
@@ -38,7 +38,7 @@ namespace boiduongLeQuyDon.DAL
         {
             SqlConnection conn = access.AccessData();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT hocVien.ID,hotenlot + ' ' + ten as \"Họ tên\"  FROM HocVien inner join Lop on hocVien.id=Lop.idHocVien WHERE lophientai=1 and Lop.idLop=" + id, conn);
+            SqlCommand cmd = new SqlCommand("SELECT hocVien.ID,hotenlot + ' ' + ten as 'Họ tên' FROM HocVien inner join Lop on hocVien.id=Lop.idHocVien WHERE lophientai=1 and Lop.idLop=" + id, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);

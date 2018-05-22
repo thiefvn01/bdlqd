@@ -36,7 +36,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get(id).Tables[0];
-            gridView1.PopulateColumns();
+         //   gridView1.PopulateColumns();
             //lkTruong.Properties.DataSource = tr.get().Tables[0];
             //lkTruong.Properties.DisplayMember = "Tên trường";
             //lkTruong.Properties.ValueMember = "ID";
@@ -94,7 +94,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get(id).Tables[0];
-            gridView1.PopulateColumns();
+       //     gridView1.PopulateColumns();
             //  txtNgayKetThuc.Text = Convert.ToDateTime(txtNgayKetThuc.Text).ToShortDateString();
         }
 

@@ -13,6 +13,10 @@ namespace boiduongLeQuyDon.BUS
         {
             return dal.get();
         }
+        public DataSet get(string id)
+        {
+            return dal.get(id);
+        }
         public DataSet getlg(string id)
         {
             return dal.getlg(id);

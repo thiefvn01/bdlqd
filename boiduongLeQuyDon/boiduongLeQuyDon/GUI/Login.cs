@@ -53,7 +53,7 @@ namespace boiduongLeQuyDon.GUI
                 d4 = doc.Element("sets").Elements("cat").FirstOrDefault().Value.ToString();
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source="+d1 + ";Initial Catalog="+d4+";UID="+d2+";password="+d3 + "Integrated Security=True";
+                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source="+d1 + ";Initial Catalog="+d4+";UID="+d2+";password="+d3 + ";Integrated Security=True";
                 config.Save();
                 ConfigurationManager.RefreshSection("connectionStrings");
             }
@@ -94,25 +94,25 @@ namespace boiduongLeQuyDon.GUI
         string filein;
         private void Login_Load(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = @"Data Source=KURT;Initial Catalog=bdlqd;User ID=sa;Password=Expelliarmus@1;";
-                conn.Open();
-                conn.Close();
-            }
-            catch
-            {
-                if (MessageBox.Show("Hệ thống chưa có cơ sở dữ liệu, bạn có muốn import từ file Back up", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
+            //try
+            //{
+            //    SqlConnection conn = new SqlConnection();
+            //    conn.ConnectionString = @"Data Source=KURT;Initial Catalog=bdlqd;User ID=sa;Password=Expelliarmus@1;";
+            //    conn.Open();
+            //    conn.Close();
+            //}
+            //catch
+            //{
+            //    if (MessageBox.Show("Hệ thống chưa có cơ sở dữ liệu, bạn có muốn import từ file Back up", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            //    {
                 
-                }
-                else
-                {
-                    MessageBox.Show("Hệ thống chưa có dữ liệu, phải đóng lại");
-                this.Close();
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Hệ thống chưa có dữ liệu, phải đóng lại");
+            //    this.Close();
+            //    }
+            //}
             txtUname.Focus();
             this.TopLevel = true;
         }

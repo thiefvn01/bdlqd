@@ -20,9 +20,13 @@ namespace boiduongLeQuyDon.GUI
         List<string> tenhocsinh = new List<string>();
         bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter emailph = new bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter();
         bdlqdDataSet1TableAdapters.getHocVien5TableAdapter hocvien = new bdlqdDataSet1TableAdapters.getHocVien5TableAdapter();
+        bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter tkb = new bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
         public GuiEmail()
         {
             InitializeComponent();
+            lookUpEdit1.Properties.DataSource = tkb.GetData();
+            lookUpEdit1.Properties.DisplayMember = "tenTKB";
+            lookUpEdit1.Properties.ValueMember = "id";
         }
         List<MyObject> GetData(int count)
         {
@@ -45,7 +49,7 @@ namespace boiduongLeQuyDon.GUI
         {
             string server = "";
             string from = textEdit1.Text.Trim();
-            string split8 = from.Substring(from.Length - 8, 8);
+           // string split8 = from.Substring(from.Length - 8, 8);
             string split9 = from.Substring(from.Length - 9, 9);
             string split12 = from.Substring(from.Length - 12, 12);
             //gửi chưa có custom nội dung
@@ -57,18 +61,21 @@ namespace boiduongLeQuyDon.GUI
                     a = textEdit3.Text;
                 else
                     a = b;
-                if (split8 == "gmail.com")
+                //9 =gmail.com
+                if (split9 == "gmail.com")
                 {
-                    server = "smpt.gmail.com";
+                    server = "smtp.gmail.com";
                     SmtpClient smtpsvr = new SmtpClient(server);
                     mail.From = new MailAddress(from, textEdit4.Text);
                     mail.Subject = textEdit2.Text;
                   //  mail.To = new MailAddress(;
-                    smtpsvr.Port = 465;
-                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    smtpsvr.Port = 587;
+                    smtpsvr.Credentials = new NetworkCredential(mail.From.Address, textBox1.Text);
                     smtpsvr.EnableSsl = true;
                     mail.BodyEncoding = System.Text.Encoding.UTF8;
                     mail.IsBodyHtml = true;
+                    smtpsvr.UseDefaultCredentials = false;
+                    smtpsvr.DeliveryMethod = SmtpDeliveryMethod.Network;
                     mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
                     mail.To.Add(new MailAddress(a));
                     smtpsvr.Send(mail);
@@ -85,21 +92,23 @@ namespace boiduongLeQuyDon.GUI
                     smtpsvr.EnableSsl = true;
                     mail.BodyEncoding = System.Text.Encoding.UTF8;
                     mail.IsBodyHtml = true;
+                    smtpsvr.UseDefaultCredentials = false;
                     mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
                     mail.To.Add(new MailAddress(a));
                     smtpsvr.Send(mail);
                 }
                 else if (split12 == "yahoo.com.vn")
                 {
-                    server = "smtp.mail.yahoo.com.vn";
+                    server = "smtp.mail.yahoo.com";
                     SmtpClient smtpsvr = new SmtpClient(server);
                     mail.From = new MailAddress(from, textEdit4.Text);
                     mail.Subject = textEdit2.Text;
-                    smtpsvr.Port = 465;
+                    smtpsvr.Port = 587;
                     smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
                     smtpsvr.EnableSsl = true;
                     mail.BodyEncoding = System.Text.Encoding.UTF8;
                     mail.IsBodyHtml = true;
+                    smtpsvr.UseDefaultCredentials = false;
                     mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
                     mail.To.Add(new MailAddress(a));
                     smtpsvr.Send(mail);

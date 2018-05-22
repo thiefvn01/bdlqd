@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using boiduongLeQuyDon.BUS;
 using DevExpress.XtraReports.UI;
+using boiduongLeQuyDon.BUS;
 
 namespace boiduongLeQuyDon.GUI
 {
     public partial class QuanLyPhuDao : DevExpress.XtraEditors.XtraUserControl
     {
+        BUSThoiKhoaBieu tkb = new BUSThoiKhoaBieu();
+        bdlqdDataSet1TableAdapters.getNhanVienchuanghiTableAdapter nvchuanghi = new bdlqdDataSet1TableAdapters.getNhanVienchuanghiTableAdapter();
         bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
         bdlqdDataSet1TableAdapters.getPhuDao1TableAdapter phudao = new bdlqdDataSet1TableAdapters.getPhuDao1TableAdapter();
         bdlqdDataSet1TableAdapters.getPhuDao_AllTableAdapter phudaoall = new bdlqdDataSet1TableAdapters.getPhuDao_AllTableAdapter();
@@ -22,7 +25,15 @@ namespace boiduongLeQuyDon.GUI
         public QuanLyPhuDao()
         {
             InitializeComponent();
-            
+            gridView1.OptionsBehavior.ReadOnly = true;
+            gridView1.OptionsBehavior.Editable = false;
+            lkKhoa.Properties.DataSource = tkb.gettt().Tables[0];
+            lkKhoa.Properties.DisplayMember = "Tên TKB";
+            lkKhoa.Properties.ValueMember = "ID";
+            lkTroGiang.Properties.DataSource = nvchuanghi.GetData();
+            lkTroGiang.Properties.DisplayMember = "Họ tên";
+            lkTroGiang.Properties.ValueMember = "ID";
+            load();
         }
 
         private void labelControl1_Click(object sender, EventArgs e)
@@ -64,9 +75,9 @@ namespace boiduongLeQuyDon.GUI
 
         private void lkLop_EditValueChanged(object sender, EventArgs e)
         {
-            lkLop.Properties.DataSource = gethocvientheolop.GetData(Convert.ToInt32(lkLop.EditValue));
-            lkLop.Properties.DisplayMember = "Họ tên";
-            lkLop.Properties.ValueMember = "ID";
+            lkHocVien.Properties.DataSource = gethocvientheolop.GetData(Convert.ToInt32(lkLop.EditValue));
+            lkHocVien.Properties.DisplayMember = "Họ tên";
+            lkHocVien.Properties.ValueMember = "ID";
         }
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
@@ -87,7 +98,12 @@ namespace boiduongLeQuyDon.GUI
         {
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = phudao.GetData();
-            gridView1.PopulateColumns();
+         //   gridView1.PopulateColumns();
+        }
+
+        private void QuanLyPhuDao_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
         }
     }
 }

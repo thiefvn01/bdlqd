@@ -29,10 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.getPhuDao1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHọvàtên = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLớp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrợgiảng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLýdo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colThờilượng = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colThờigian = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNộidung = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colÝkiến = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKếtquả = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNhậnxét = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSốtiền = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -69,18 +82,6 @@
             this.getNhanVien1TableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getNhanVien1TableAdapter();
             this.getNhanVienchuanghiTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getNhanVienchuanghiTableAdapter();
             this.getPhuDao1TableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getPhuDao1TableAdapter();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHọvàtên = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLớp = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTrợgiảng = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLýdo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colThờilượng = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colThờigian = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNộidung = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colÝkiến = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colKếtquả = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNhậnxét = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSốtiền = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getPhuDao1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
@@ -104,7 +105,12 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.getPhuDao1BindingSource;
+            gridLevelNode2.RelationName = "Level1";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -142,6 +148,102 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            this.colid.Width = 38;
+            // 
+            // colHọvàtên
+            // 
+            this.colHọvàtên.FieldName = "Họ và tên";
+            this.colHọvàtên.Name = "colHọvàtên";
+            this.colHọvàtên.Visible = true;
+            this.colHọvàtên.VisibleIndex = 1;
+            this.colHọvàtên.Width = 143;
+            // 
+            // colLớp
+            // 
+            this.colLớp.FieldName = "Lớp";
+            this.colLớp.Name = "colLớp";
+            this.colLớp.Visible = true;
+            this.colLớp.VisibleIndex = 2;
+            this.colLớp.Width = 90;
+            // 
+            // colTrợgiảng
+            // 
+            this.colTrợgiảng.FieldName = "Trợ giảng";
+            this.colTrợgiảng.Name = "colTrợgiảng";
+            this.colTrợgiảng.Visible = true;
+            this.colTrợgiảng.VisibleIndex = 3;
+            this.colTrợgiảng.Width = 90;
+            // 
+            // colLýdo
+            // 
+            this.colLýdo.FieldName = "Lý do";
+            this.colLýdo.Name = "colLýdo";
+            this.colLýdo.Visible = true;
+            this.colLýdo.VisibleIndex = 4;
+            this.colLýdo.Width = 90;
+            // 
+            // colThờilượng
+            // 
+            this.colThờilượng.FieldName = "Thời lượng";
+            this.colThờilượng.Name = "colThờilượng";
+            this.colThờilượng.Visible = true;
+            this.colThờilượng.VisibleIndex = 5;
+            this.colThờilượng.Width = 90;
+            // 
+            // colThờigian
+            // 
+            this.colThờigian.FieldName = "Thời gian";
+            this.colThờigian.Name = "colThờigian";
+            this.colThờigian.Visible = true;
+            this.colThờigian.VisibleIndex = 6;
+            this.colThờigian.Width = 90;
+            // 
+            // colNộidung
+            // 
+            this.colNộidung.FieldName = "Nội dung";
+            this.colNộidung.Name = "colNộidung";
+            this.colNộidung.Visible = true;
+            this.colNộidung.VisibleIndex = 7;
+            this.colNộidung.Width = 90;
+            // 
+            // colÝkiến
+            // 
+            this.colÝkiến.FieldName = "Ý kiến";
+            this.colÝkiến.Name = "colÝkiến";
+            this.colÝkiến.Visible = true;
+            this.colÝkiến.VisibleIndex = 8;
+            this.colÝkiến.Width = 90;
+            // 
+            // colKếtquả
+            // 
+            this.colKếtquả.FieldName = "Kết quả";
+            this.colKếtquả.Name = "colKếtquả";
+            this.colKếtquả.Visible = true;
+            this.colKếtquả.VisibleIndex = 9;
+            this.colKếtquả.Width = 90;
+            // 
+            // colNhậnxét
+            // 
+            this.colNhậnxét.FieldName = "Nhận xét";
+            this.colNhậnxét.Name = "colNhậnxét";
+            this.colNhậnxét.Visible = true;
+            this.colNhậnxét.VisibleIndex = 10;
+            this.colNhậnxét.Width = 90;
+            // 
+            // colSốtiền
+            // 
+            this.colSốtiền.FieldName = "Số tiền";
+            this.colSốtiền.Name = "colSốtiền";
+            this.colSốtiền.Visible = true;
+            this.colSốtiền.VisibleIndex = 11;
+            this.colSốtiền.Width = 112;
             // 
             // labelControl1
             // 
@@ -427,102 +529,6 @@
             // 
             this.getPhuDao1TableAdapter.ClearBeforeFill = true;
             // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
-            this.colid.Width = 38;
-            // 
-            // colHọvàtên
-            // 
-            this.colHọvàtên.FieldName = "Họ và tên";
-            this.colHọvàtên.Name = "colHọvàtên";
-            this.colHọvàtên.Visible = true;
-            this.colHọvàtên.VisibleIndex = 1;
-            this.colHọvàtên.Width = 143;
-            // 
-            // colLớp
-            // 
-            this.colLớp.FieldName = "Lớp";
-            this.colLớp.Name = "colLớp";
-            this.colLớp.Visible = true;
-            this.colLớp.VisibleIndex = 2;
-            this.colLớp.Width = 90;
-            // 
-            // colTrợgiảng
-            // 
-            this.colTrợgiảng.FieldName = "Trợ giảng";
-            this.colTrợgiảng.Name = "colTrợgiảng";
-            this.colTrợgiảng.Visible = true;
-            this.colTrợgiảng.VisibleIndex = 3;
-            this.colTrợgiảng.Width = 90;
-            // 
-            // colLýdo
-            // 
-            this.colLýdo.FieldName = "Lý do";
-            this.colLýdo.Name = "colLýdo";
-            this.colLýdo.Visible = true;
-            this.colLýdo.VisibleIndex = 4;
-            this.colLýdo.Width = 90;
-            // 
-            // colThờilượng
-            // 
-            this.colThờilượng.FieldName = "Thời lượng";
-            this.colThờilượng.Name = "colThờilượng";
-            this.colThờilượng.Visible = true;
-            this.colThờilượng.VisibleIndex = 5;
-            this.colThờilượng.Width = 90;
-            // 
-            // colThờigian
-            // 
-            this.colThờigian.FieldName = "Thời gian";
-            this.colThờigian.Name = "colThờigian";
-            this.colThờigian.Visible = true;
-            this.colThờigian.VisibleIndex = 6;
-            this.colThờigian.Width = 90;
-            // 
-            // colNộidung
-            // 
-            this.colNộidung.FieldName = "Nội dung";
-            this.colNộidung.Name = "colNộidung";
-            this.colNộidung.Visible = true;
-            this.colNộidung.VisibleIndex = 7;
-            this.colNộidung.Width = 90;
-            // 
-            // colÝkiến
-            // 
-            this.colÝkiến.FieldName = "Ý kiến";
-            this.colÝkiến.Name = "colÝkiến";
-            this.colÝkiến.Visible = true;
-            this.colÝkiến.VisibleIndex = 8;
-            this.colÝkiến.Width = 90;
-            // 
-            // colKếtquả
-            // 
-            this.colKếtquả.FieldName = "Kết quả";
-            this.colKếtquả.Name = "colKếtquả";
-            this.colKếtquả.Visible = true;
-            this.colKếtquả.VisibleIndex = 9;
-            this.colKếtquả.Width = 90;
-            // 
-            // colNhậnxét
-            // 
-            this.colNhậnxét.FieldName = "Nhận xét";
-            this.colNhậnxét.Name = "colNhậnxét";
-            this.colNhậnxét.Visible = true;
-            this.colNhậnxét.VisibleIndex = 10;
-            this.colNhậnxét.Width = 90;
-            // 
-            // colSốtiền
-            // 
-            this.colSốtiền.FieldName = "Số tiền";
-            this.colSốtiền.Name = "colSốtiền";
-            this.colSốtiền.Visible = true;
-            this.colSốtiền.VisibleIndex = 11;
-            this.colSốtiền.Width = 112;
-            // 
             // QuanLyPhuDao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,6 +565,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "QuanLyPhuDao";
             this.Size = new System.Drawing.Size(1127, 438);
+            this.Load += new System.EventHandler(this.QuanLyPhuDao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getPhuDao1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();

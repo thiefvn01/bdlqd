@@ -1263,3 +1263,9 @@ select d.id
 from de d  inner join kiemtra x on x.id=d.deID left outer join ketQuaHocTap k on k.idBaiTap=d.ID
 where idHocVien=@idhocvien and x.id=@idde and  k.idBaiTap not in (select d.ID from de d inner join kiemtra k on k.id=d.deID)
 ---
+create procedure getHocVienEmail
+@idhocvien int
+as
+select Hotenlot + ' ' + Ten as 'Họ và tên', emailPhuHuynh
+from hocvien
+where id=@idhocvien

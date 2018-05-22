@@ -14,7 +14,7 @@ namespace boiduongLeQuyDon.DAL
         {
             SqlConnection conn = access.AccessData();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ThoiKhoaBieu WHERE ngayketthuc IS NULL OR ngayketthuc >=getdate()", conn);
+            SqlCommand cmd = new SqlCommand("SELECT id, tentkb 'Tên TKB', lop 'Lớp', namhoc 'Năm học', khaigiang 'Khai giảng', ghichu 'Ghi chú', ngayketthuc 'Ngày kết thúc' FROM ThoiKhoaBieu WHERE ngayketthuc IS NULL OR ngayketthuc >=getdate()", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
@@ -71,7 +71,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb='" + ten + "',lop='" + lop + "',namhoc='" + namhoc + "',khaigiang='" + khaigiang + "',ngayketthuc='"+ngayketthuc+"'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb=N'" + ten + "',lop=N'" + lop + "',namhoc=N'" + namhoc + "',khaigiang='" + khaigiang + "',ngayketthuc='"+ngayketthuc+"'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -87,7 +87,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb='" + ten + "',lop='" + lop + "',namhoc='" + namhoc + "',khaigiang='" + khaigiang + "'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ThoiKhoaBieu SET tentkb=N'" + ten + "',lop=N'" + lop + "',namhoc=N'" + namhoc + "',khaigiang='" + khaigiang + "'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -103,7 +103,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO ThoiKhoaBieu (tentkb, lop,namhoc,khaigiang,ngayketthuc) values ('" + ten + "','" + lop + "','" + namhoc + "','" + khaigiang + "','"+ngayketthuc+"')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO ThoiKhoaBieu (tentkb, lop,namhoc,khaigiang,ngayketthuc) values (N'" + ten + "',N'" + lop + "',N'" + namhoc + "',CONVERT(smalldatetime,'" + khaigiang + "', 103), CONVERT(smalldatetime,'" + ngayketthuc+"', 103))", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

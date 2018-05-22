@@ -22,6 +22,17 @@ namespace boiduongLeQuyDon.DAL
             conn.Close();
             return dt;
         }
+        public DataSet get(string id)
+        {
+            SqlConnection conn = access.AccessData();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT Lop.ID,ChiTietTKB.STT AS [STT TKB], hotenlot + ' ' + ten as [Họ và tên],ChiTietTKB.lop as N'Lớp', SBL, trangthai as N'Trạng thái' FROM Lop INNER JOIN hocVien on Lop.idHocVien=hocVien.ID, ChiTietTKB WHERE ChiTietTKB.ID=Lop.idLop and lophientai=1 and idhocvien =" + id + " ORDER BY ChiTietTKB.IDTKB, ChiTietTKB.STT", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
         public DataSet getlg(string id)
         {
             SqlConnection conn = access.AccessData();
@@ -114,7 +125,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai, ngayDK, sotien, trangthai) values ('" + idHV + "','" + lop + "','" + ghichu + "','"+sbl+"',1, '" + sotien + ","+ngaydk +"', N'Bình thường')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Lop(idHocVien, idLop,ghichu,SBL, lophientai, ngayDK, sotien, trangthai) values (" + idHV + "," + lop + ",'" + ghichu + "','"+sbl+"',1,  getdate() ,"+ sotien + ", N'Bình thường')", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

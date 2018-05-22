@@ -126,7 +126,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE ChiTietTKB SET STT=" + stt + ",monhoc='" + monhoc + "',lop='" + lop + "',giaovien='" + giaovien + "',thu='" + thu + "',thoigian='"+thoigian+"',hocphi='"+hocphi+"'  WHERE id=" + id, conn);
+                SqlCommand cmd = new SqlCommand("UPDATE ChiTietTKB SET STT=" + stt + ",monhoc=N'" + monhoc + "',lop=N'" + lop + "',giaovien=N'" + giaovien + "',thu=N'" + thu + "',thoigian=N'"+thoigian+"',hocphi='"+hocphi+"'  WHERE id=" + id, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;
@@ -142,7 +142,7 @@ namespace boiduongLeQuyDon.DAL
             {
                 SqlConnection conn = access.AccessData();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO ChiTietTKB (STT, monhoc,lop,giaovien,thu,thoigian,hocphi,idTKB) values (" + stt + ",'" + monhoc + "','" + lop + "','" + giaovien + "','" + thu + "','"+thoigian+"','"+hocphi+"',"+idTKB+")", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO ChiTietTKB (STT, monhoc,lop,giaovien,thu,thoigian,hocphi,idTKB) values (" + stt + ",N'" + monhoc + "',N'" + lop + "',N'" + giaovien + "',N'" + thu + "',N'"+thoigian+"','"+hocphi+"',"+idTKB+")", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

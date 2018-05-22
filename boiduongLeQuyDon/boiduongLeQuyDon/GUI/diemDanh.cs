@@ -23,7 +23,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get().Tables[0];
-            gridView1.PopulateColumns();
+       //     gridView1.PopulateColumns();
             lkKhoa.Properties.DataSource = tkb.gettt().Tables[0];
             lkKhoa.Properties.DisplayMember = "Tên TKB";
             lkKhoa.Properties.ValueMember = "ID";
@@ -37,7 +37,7 @@ namespace boiduongLeQuyDon.GUI
         {
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get().Tables[0];
-            gridView1.PopulateColumns();
+        //    gridView1.PopulateColumns();
         }
         private void lkKhoa_EditValueChanged(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace boiduongLeQuyDon.GUI
         {
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get(lkLop.EditValue.ToString()).Tables[0];
-            gridView1.PopulateColumns();
+       //     gridView1.PopulateColumns();
         }
 
         private void bntThem_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace boiduongLeQuyDon.GUI
         {
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get(lkLop.EditValue.ToString(), dtngay.Text.ToString()).Tables[0];
-            gridView1.PopulateColumns();
+    //        gridView1.PopulateColumns();
         }
 
         private void bntRf_Click(object sender, EventArgs e)

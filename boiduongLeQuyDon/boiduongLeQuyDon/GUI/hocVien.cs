@@ -19,7 +19,7 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.get("1").Tables[0];
-            gridView1.PopulateColumns();
+       //     gridView1.PopulateColumns();
        ////     lkTruong.Properties.DataSource = tr.get().Tables[0];
         ////    lkTruong.Properties.DisplayMember = "Tên trường";
         //    lkTruong.Properties.ValueMember = "ID";
@@ -84,12 +84,12 @@ namespace boiduongLeQuyDon.GUI
             this.Dock = DockStyle.Fill;
             gridControl1.RefreshDataSource();
             gridControl1.DataSource = bus.getcurr().Tables[0];
-            gridView1.PopulateColumns();
+          //  gridView1.PopulateColumns();
         }
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            txtMaHV.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Mã học viên").ToString();
+            txtMaHV.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Mã HV").ToString();
             txtHo.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Họ tên lót").ToString();
             txtTen.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Tên").ToString();
             dtNgaySinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Ngày sinh").ToString();
@@ -98,7 +98,7 @@ namespace boiduongLeQuyDon.GUI
             txtDienThoai.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Điện thoại").ToString();
             txtDiaChi.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Địa chỉ").ToString();
             lkTruong.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Trường").ToString();
-            txtEmail.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Email").ToString();
+            txtEmail.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "email").ToString();
             DataSet ds = new DataSet();
             ds = bus.get1(lblID.Text);
             txtTenCha.Text = ds.Tables[0].Rows[0]["hoTenCha"].ToString();
@@ -149,14 +149,14 @@ namespace boiduongLeQuyDon.GUI
                 this.Dock = DockStyle.Fill;
                 gridControl1.RefreshDataSource();
                 gridControl1.DataSource = bus.get("1").Tables[0];
-                gridView1.PopulateColumns();
+            //    gridView1.PopulateColumns();
             }
             else {
 
                 this.Dock = DockStyle.Fill;
                 gridControl1.RefreshDataSource();
                 gridControl1.DataSource = bus.getcurr().Tables[0];
-                gridView1.PopulateColumns();
+            //    gridView1.PopulateColumns();
             }
 
         }

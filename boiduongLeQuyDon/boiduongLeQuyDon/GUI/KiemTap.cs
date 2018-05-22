@@ -29,6 +29,7 @@ namespace boiduongLeQuyDon.GUI
             lkKhoa.Properties.DataSource = tkb.gettt().Tables[0];
             lkKhoa.Properties.DisplayMember = "Tên TKB";
             lkKhoa.Properties.ValueMember = "ID";
+            
             //lkLop.Properties.DataSource = ck.get().Tables[0];
             //lkLop.Properties.DisplayMember = "Lớp";
             //lkLop.Properties.ValueMember = "ID";
@@ -78,7 +79,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            txtGhichu.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Kiểm tra").ToString();
+            txtGhichu.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ktra").ToString();
           //  txtMon.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Môn chuyên").ToString();
           //  txtGhiChu.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Ghi chú").ToString();
             lblID.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString();

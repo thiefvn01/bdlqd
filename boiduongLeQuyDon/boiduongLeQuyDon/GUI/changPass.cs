@@ -40,7 +40,7 @@ namespace boiduongLeQuyDon.GUI
                 lblbao.Visible = true;
             else  if (pw1.Text == pw2.Text)
             {
-                qu.UpdatePassword(pw1.Text, uname);
+                qu.UpdatePassword(pw1.Text, Convert.ToInt32(uname));
                 MessageBox.Show("Cập nhật thành công");
             }
             else
