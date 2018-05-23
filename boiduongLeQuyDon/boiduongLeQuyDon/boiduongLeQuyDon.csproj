@@ -579,6 +579,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>test.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TKB.cs" />
+    <Compile Include="TKB.Designer.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -832,6 +834,17 @@
     </None>
     <None Include="test.xss">
       <DependentUpon>test.xsd</DependentUpon>
+    </None>
+    <None Include="TKB.xsc">
+      <DependentUpon>TKB.xsd</DependentUpon>
+    </None>
+    <None Include="TKB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TKB1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TKB.xss">
+      <DependentUpon>TKB.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

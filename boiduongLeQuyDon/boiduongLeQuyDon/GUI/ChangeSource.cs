@@ -63,7 +63,8 @@ namespace boiduongLeQuyDon.GUI
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString;
+
+            var connection = "Data Source=" + txtIP.Text + ";Initial Catalog= bdlqd ;UID=" + txtUname.Text + ";password=" + txtPasswd.Text + ";Integrated Security=True";
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 try

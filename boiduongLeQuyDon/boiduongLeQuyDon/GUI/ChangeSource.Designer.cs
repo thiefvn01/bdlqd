@@ -130,6 +130,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Name = "ChangeSource";
             this.Text = "Form1";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ChangeSource_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtIP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUname.Properties)).EndInit();
