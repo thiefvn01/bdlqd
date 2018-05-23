@@ -6,8 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Net.Mail;
-using System.Net;
+//using System.Net.Mail;
+//using System.Net;
+using Limilabs.Mail;
+using Limilabs.Mail.MIME;
+using Limilabs.Mail.Headers;
+using Limilabs.Client.SMTP;
 using boiduongLeQuyDon.BUS;
 
 namespace boiduongLeQuyDon.GUI
@@ -25,7 +29,7 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
             lookUpEdit1.Properties.DataSource = tkb.GetData();
-            lookUpEdit1.Properties.DisplayMember = "tenTKB";
+            lookUpEdit1.Properties.DisplayMember = "Ten TKB";
             lookUpEdit1.Properties.ValueMember = "id";
         }
         List<MyObject> GetData(int count)
@@ -53,7 +57,7 @@ namespace boiduongLeQuyDon.GUI
             string split9 = from.Substring(from.Length - 9, 9);
             string split12 = from.Substring(from.Length - 12, 12);
             //gửi chưa có custom nội dung
-            MailMessage mail = new MailMessage();
+           // MailMessage mail = new MailMessage();
             foreach (string b in email)
             {
                 string a = "";
@@ -64,54 +68,93 @@ namespace boiduongLeQuyDon.GUI
                 //9 =gmail.com
                 if (split9 == "gmail.com")
                 {
-                    server = "smtp.gmail.com";
-                    SmtpClient smtpsvr = new SmtpClient(server);
-                    mail.From = new MailAddress(from, textEdit4.Text);
-                    mail.Subject = textEdit2.Text;
-                  //  mail.To = new MailAddress(;
-                    smtpsvr.Port = 587;
-                    smtpsvr.Credentials = new NetworkCredential(mail.From.Address, textBox1.Text);
-                    smtpsvr.EnableSsl = true;
-                    mail.BodyEncoding = System.Text.Encoding.UTF8;
-                    mail.IsBodyHtml = true;
-                    smtpsvr.UseDefaultCredentials = false;
-                    smtpsvr.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
-                    mail.To.Add(new MailAddress(a));
-                    smtpsvr.Send(mail);
+                    MailBuilder mailbuilder = new MailBuilder();
+                    mailbuilder.From.Add(new MailBox (from, textEdit4.Text));
+                    mailbuilder.To.Add(new MailBox(a));
+                    mailbuilder.Subject = textEdit2.Text;
+                    mailbuilder.Html = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    IMail email = mailbuilder.Create();
+                    using (Smtp smtp = new Smtp())
+                    {
+                        smtp.Connect("smtp.gmail.com");
+                        smtp.UseBestLogin(from, textBox1.Text);
+                        smtp.SendMessage(email);
+                        smtp.Close();
+                    }
+                    //  server = "smtp.gmail.com";
+                    //  SmtpClient smtpsvr = new SmtpClient(server);
+                    //  mail.From = new MailAddress(from, textEdit4.Text);
+                    //  mail.Subject = textEdit2.Text;
+                    ////  mail.To = new MailAddress(;
+                    //  smtpsvr.Port = 25;
+                    //  smtpsvr.Credentials = new NetworkCredential(mail.From.Address, textBox1.Text);
+                    //  smtpsvr.EnableSsl = true;
+                    //  mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    //  mail.IsBodyHtml = true;
+                    //  smtpsvr.UseDefaultCredentials = false;
+                    //  smtpsvr.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    //  mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    //  mail.To.Add(new MailAddress(a));
+                    //  smtpsvr.Send(mail);
                 }
                 else if (split9 == "yahoo.com")
                 {
-                    server = "smtp.mail.yahoo.com";
-                    SmtpClient smtpsvr = new SmtpClient(server);
-                    //  SmtpClient smtpsvr = new SmtpClient(server);
-                    mail.From = new MailAddress(from, textEdit4.Text);
-                    mail.Subject = textEdit2.Text;
-                    smtpsvr.Port = 587;
-                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
-                    smtpsvr.EnableSsl = true;
-                    mail.BodyEncoding = System.Text.Encoding.UTF8;
-                    mail.IsBodyHtml = true;
-                    smtpsvr.UseDefaultCredentials = false;
-                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
-                    mail.To.Add(new MailAddress(a));
-                    smtpsvr.Send(mail);
+                    MailBuilder mailbuilder = new MailBuilder();
+                    mailbuilder.From.Add(new MailBox(from, textEdit4.Text));
+                    mailbuilder.To.Add(new MailBox(a));
+                    mailbuilder.Subject = textEdit2.Text;
+                    mailbuilder.Html = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    IMail email = mailbuilder.Create();
+                    using (Smtp smtp = new Smtp())
+                    {
+                        smtp.Connect("smtp.mail.yahoo.com");
+                        smtp.UseBestLogin(from, textBox1.Text);
+                        smtp.SendMessage(email);
+                        smtp.Close();
+                    }
+                    //server = "smtp.mail.yahoo.com";
+                    //SmtpClient smtpsvr = new SmtpClient(server);
+                    ////  SmtpClient smtpsvr = new SmtpClient(server);
+                    //mail.From = new MailAddress(from, textEdit4.Text);
+                    //mail.Subject = textEdit2.Text;
+                    //smtpsvr.Port = 587;
+                    //smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    //smtpsvr.EnableSsl = true;
+                    //mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    //mail.IsBodyHtml = true;
+                    //smtpsvr.UseDefaultCredentials = false;
+                    //mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    //mail.To.Add(new MailAddress(a));
+                    //smtpsvr.Send(mail);
                 }
                 else if (split12 == "yahoo.com.vn")
                 {
-                    server = "smtp.mail.yahoo.com";
-                    SmtpClient smtpsvr = new SmtpClient(server);
-                    mail.From = new MailAddress(from, textEdit4.Text);
-                    mail.Subject = textEdit2.Text;
-                    smtpsvr.Port = 587;
-                    smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
-                    smtpsvr.EnableSsl = true;
-                    mail.BodyEncoding = System.Text.Encoding.UTF8;
-                    mail.IsBodyHtml = true;
-                    smtpsvr.UseDefaultCredentials = false;
-                    mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
-                    mail.To.Add(new MailAddress(a));
-                    smtpsvr.Send(mail);
+                    MailBuilder mailbuilder = new MailBuilder();
+                    mailbuilder.From.Add(new MailBox(from, textEdit4.Text));
+                    mailbuilder.To.Add(new MailBox(a));
+                    mailbuilder.Subject = textEdit2.Text;
+                    mailbuilder.Html = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    IMail email = mailbuilder.Create();
+                    using (Smtp smtp = new Smtp())
+                    {
+                        smtp.Connect("smtp.mail.yahoo.com");
+                        smtp.UseBestLogin(from, textBox1.Text);
+                        smtp.SendMessage(email);
+                        smtp.Close();
+                    }
+                    //server = "smtp.mail.yahoo.com";
+                    //SmtpClient smtpsvr = new SmtpClient(server);
+                    //mail.From = new MailAddress(from, textEdit4.Text);
+                    //mail.Subject = textEdit2.Text;
+                    //smtpsvr.Port = 587;
+                    //smtpsvr.Credentials = new NetworkCredential(from, textBox1.Text);
+                    //smtpsvr.EnableSsl = true;
+                    //mail.BodyEncoding = System.Text.Encoding.UTF8;
+                    //mail.IsBodyHtml = true;
+                    //smtpsvr.UseDefaultCredentials = false;
+                    //mail.Body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                    //mail.To.Add(new MailAddress(a));
+                    //smtpsvr.Send(mail);
                 }
             }
         }

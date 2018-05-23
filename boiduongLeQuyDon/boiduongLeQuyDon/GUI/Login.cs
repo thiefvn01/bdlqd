@@ -29,22 +29,9 @@ namespace boiduongLeQuyDon.GUI
         }
         void load()
         {
-            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString;
-            int temp = 0;
-            using (SqlConnection conn = new SqlConnection(connection))
-            {
-                try
-                {
-                    conn.Open();
-                    temp = 1;
-                }
-                catch (SqlException)
-                {
-                    temp = 0;
-                }
-            }
             string d1, d2, d3, d4;
-            if (temp == 0)
+            int temp = 0;
+            try
             {
                 XDocument doc = XDocument.Load("app.xml");
                 d1 = doc.Element("sets").Elements("IP").FirstOrDefault().Value.ToString();
@@ -53,10 +40,37 @@ namespace boiduongLeQuyDon.GUI
                 d4 = doc.Element("sets").Elements("cat").FirstOrDefault().Value.ToString();
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source="+d1 + ";Initial Catalog="+d4+";UID="+d2+";password="+d3 + ";Integrated Security=True";
+                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source=" + d1 + ";Initial Catalog=" + d4 + ";UID=" + d2 + ";password=" + d3 + ";Integrated Security=True";
                 config.Save();
                 ConfigurationManager.RefreshSection("connectionStrings");
+                
+                var connection = System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connection))
+                {
+                    try
+                    {
+                        conn.Open();
+                        temp = 1;
+                        conn.Close();
+                    }
+                    catch (SqlException)
+                    {
+                        temp = 0;
+                    }
+                }
             }
+            catch 
+            {
+                XtraMessageBox.Show("Có lỗi dữ liệu, vui lòng cập nhật");
+
+                
+            }
+            if (temp == 0)
+            {
+                ChangeSource s = new ChangeSource();
+                s.Show();
+            }
+        //  
                     
         }
         #endregion
