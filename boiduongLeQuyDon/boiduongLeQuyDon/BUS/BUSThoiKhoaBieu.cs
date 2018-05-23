@@ -29,6 +29,10 @@ namespace boiduongLeQuyDon.BUS
         {
             return dal.get(id);
         }
+        public DataSet get1(string id)
+        {
+            return dal.get1(id);
+        }
         public int delete(string id)
         {
             return dal.delete(id);

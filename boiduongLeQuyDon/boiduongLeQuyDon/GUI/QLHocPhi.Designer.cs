@@ -242,6 +242,7 @@
             this.groupControl4.Size = new System.Drawing.Size(915, 236);
             this.groupControl4.TabIndex = 9;
             this.groupControl4.Text = "Cập nhật";
+ //           this.groupControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl4_Paint);
             // 
             // cbTrangThai
             // 

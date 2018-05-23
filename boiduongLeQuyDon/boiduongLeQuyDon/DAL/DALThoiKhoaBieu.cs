@@ -65,6 +65,17 @@ namespace boiduongLeQuyDon.DAL
             conn.Close();
             return dt;
         }
+        public DataSet get1(string id)
+        {
+            SqlConnection conn = access.AccessData();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT id, tentkb as 'Tên TKB', lop as 'Lớp', namhoc as 'Năm học' FROM ThoiKhoaBieu WHERE ID=" + id, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
         public int update(string ten, string lop, string namhoc, string khaigiang,string ngayketthuc, string id)
         {
             try

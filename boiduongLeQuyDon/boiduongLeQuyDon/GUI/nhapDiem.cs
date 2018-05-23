@@ -134,6 +134,7 @@ namespace boiduongLeQuyDon.GUI
             string[] cau = new string[100];
             DataView dv = new DataView();
             DataView dvs = new DataView();
+            
             //     DataView dvs = new DataView();
             //kiểm tra ràng buộc chưa kiểm tra
             //kiểm tra ràng buộc chưa có điểm
@@ -168,8 +169,12 @@ namespace boiduongLeQuyDon.GUI
 
             }
             //xong học viên không kiểm tra
-           // DataTable dt_diemthieu = thieudiem.GetData()
-            dvs = getketqua1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
+            // DataTable dt_diemthieu = thieudiem.GetData()
+            //DataSet ds1 = new DataSet();
+            //ds1.EnforceConstraints = true;
+            //getketqua1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString()));
+            
+            dvs = getketqua1.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()), Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView(); 
             dv = getketqua9.GetData(Convert.ToInt32(lkdotkiemtra.EditValue.ToString()),Convert.ToInt32(lkLop.EditValue.ToString())).AsDataView();
             dv.Sort = "Câu";
             dvs.Sort = "Cau";
@@ -472,6 +477,7 @@ namespace boiduongLeQuyDon.GUI
                 newRow["diemtoida"] = dtde.Rows[i]["diemtoida"];
                 newRow["maDe"] = ""; ///dtde.Rows[i]["maDe"];
                 newRow["ngayLam"] = dtde.Rows[i]["ngayLam"];
+                newRow["id"] = i;
                 newRow.EndEdit();
             }
             dv.Sort = "Câu";

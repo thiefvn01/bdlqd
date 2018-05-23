@@ -29,6 +29,10 @@ namespace boiduongLeQuyDon.GUI
         private void QLHocPhi_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
+            gridControl2.DataSource = lophientai.GetData();
+            upTKB.Properties.DataSource = tkb.gettt().Tables[0];
+            upTKB.Properties.DisplayMember = "Tên TKB";
+            upTKB.Properties.ValueMember = "ID";
         }
 
         private void bntDK_Click(object sender, EventArgs e)
@@ -38,18 +42,25 @@ namespace boiduongLeQuyDon.GUI
 
         private void bntUpdate_Click(object sender, EventArgs e)
         {
+           /// lopcc = Convert.ToInt32(lblLC.Text);
+         //   if (lopcc != 0 && Convert.ToInt32(upLop.EditValue.ToString()) != lopcc)
+            //    checkchange = 1;
+            //else
+            //checkchange = 0;
             bdlqdDataSet1TableAdapters.getLop1TableAdapter getlopgoc = new bdlqdDataSet1TableAdapters.getLop1TableAdapter();
+            DataTable dt1 = getlopgoc.GetData(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text));
+            int lopgoc = Convert.ToInt32(dt1.Rows[0][0].ToString());
+            int idlop = Convert.ToInt32(dt1.Rows[0][1].ToString());
             //insert vào 1 lớp
             if (checkchange!=0)
             {
                 //trường hợp đổi lớp
 
-                DataTable dt1 = getlopgoc.GetData(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text));
-                int lopgoc = Convert.ToInt32(dt1.Rows[0][0].ToString());
+               
                 //insert vào 1 dòng mới
-                queries.insertLop(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text), txtusbl.Text, Convert.ToInt32(upLop.EditValue), 1 , lopgoc, "N'Chuyển lớp'", Convert.ToInt32(textEdit2.Text), txtupGC.Text);
+                queries.insertLop(Convert.ToInt32(lblID.Text), Convert.ToInt32(upLop.EditValue.ToString()), txtusbl.Text, 1, idlop , lopgoc, "'Chuyển lớp'", Convert.ToInt32(textEdit2.Text), txtupGC.Text);
                 //cập nhật lớp gốc
-                queries.updateDoiLop(Convert.ToInt32(lblID.Text), Convert.ToInt32(idlop));
+                queries.updateDoiLop(Convert.ToInt32(lblID.Text), idlop);
                 checkchange = 0;
             }
             else
@@ -65,7 +76,7 @@ namespace boiduongLeQuyDon.GUI
                     //trường hợp nghỉ của lớp đó
                     //cập nhật lại lớp đó với trạng thái = đã nghỉ
                     //tính số tiền còn lại của học viên đó để trả lại
-                    queries.updateLopNghiHoc(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text));
+                    queries.updateLopNghiHoc(Convert.ToInt32(lblID.Text), idlop);
                 }
                 else if(cbTrangThai.Text== "Nghỉ tất cả cả lớp")
                 {
@@ -78,7 +89,7 @@ namespace boiduongLeQuyDon.GUI
                 {
                     //trưởng hợp cập nhật số tiền đã đóng
                     if(textEdit2.Text!="")
-                    queries.updateLopHocPhi(Convert.ToInt32(lblID.Text), Convert.ToInt32(lblLC.Text), txtusbl.Text, Convert.ToInt32(textEdit2.Text));
+                    queries.updateLopHocPhi(Convert.ToInt32(lblID.Text), idlop, txtusbl.Text, Convert.ToInt32(textEdit2.Text));
                 }
                 load();
             }
@@ -129,7 +140,7 @@ namespace boiduongLeQuyDon.GUI
                 gridControl2.DataSource=tatcalop.GetData();
                 gridView2.PopulateColumns();
                 upTKB.Properties.DataSource = tkb.get(1).Tables[0];
-                upTKB.Properties.DisplayMember = "Ten TKB";
+                upTKB.Properties.DisplayMember = "Tên TKB";
                 upTKB.Properties.ValueMember = "ID";
             }
             else
@@ -138,7 +149,7 @@ namespace boiduongLeQuyDon.GUI
                 gridControl2.DataSource = lophientai.GetData();
                 gridView2.PopulateColumns();
                 upTKB.Properties.DataSource = tkb.gettt().Tables[0];
-                upTKB.Properties.DisplayMember = "Ten TKB";
+                upTKB.Properties.DisplayMember = "Tên TKB";
                 upTKB.Properties.ValueMember = "ID";
             }
         }
@@ -147,7 +158,10 @@ namespace boiduongLeQuyDon.GUI
         {
             if (lopcc != 0 && Convert.ToInt32(upLop.EditValue.ToString()) != lopcc)
                 checkchange = 1;
+            else
             checkchange = 0;
         }
+
+
     }
 }

@@ -49,7 +49,7 @@ namespace boiduongLeQuyDon.GUI
             catch
             {
             }
-            Report.phieuBaoHocTap rp = new Report.phieuBaoHocTap(lkPhep.EditValue.ToString(), lkLop.EditValue.ToString(),lkLop.Text, txtnx1.Text,txtnx2.Text,txtnx3.Text, txtnx4.Text, lkKhoa.EditValue.ToString(), Convert.ToDateTime(dtFrom.Text), Convert.ToDateTime(dtTo.Text));
+            Report.phieuBaoHocTap rp = new Report.phieuBaoHocTap(lkPhep.Text, lkPhep.EditValue.ToString(), lkLop.EditValue.ToString(),lkLop.Text, txtnx1.Text,txtnx2.Text,txtnx3.Text, txtnx4.Text, lkKhoa.EditValue.ToString(), Convert.ToDateTime(dtFrom.Text), Convert.ToDateTime(dtTo.Text));
             rp.ShowPreview();
         }
 

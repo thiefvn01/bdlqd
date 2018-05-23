@@ -10,14 +10,15 @@ namespace boiduongLeQuyDon.GUI.Report
     
     public partial class phieuBaoHocTap : DevExpress.XtraReports.UI.XtraReport
     {
-        static string connstring = "Data Source=kurt;Initial Catalog=bdlqd;Integrated Security=True";
+      //  static string connstring = "Data Source=kurt;Initial Catalog=bdlqd;Integrated Security=True";
         SqlDataAdapter loptb = new SqlDataAdapter();
         BUSChiTietTKB bus = new BUSChiTietTKB();
         BUSThoiKhoaBieu tkb = new BUSThoiKhoaBieu();
         DateTime dtfrom, dtto;
+        string hoten;
         
       //  coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter hv = new coSoBoiDuongDataSetTableAdapters.hocVienTableAdapter();
-        public phieuBaoHocTap(string idhocvien, string idlop, string tenlop, string tengv, string nx2, string nx3, string nx4, string idtkb, DateTime dtfrom, DateTime dtto)
+        public phieuBaoHocTap(string hoten, string idhocvien, string idlop, string tenlop, string tengv, string nx2, string nx3, string nx4, string idtkb, DateTime dtfrom, DateTime dtto)
         {
             InitializeComponent();
             
@@ -25,6 +26,7 @@ namespace boiduongLeQuyDon.GUI.Report
             this.idlop = idlop;
             this.dtfrom = dtfrom;
             this.dtto = dtto;
+            this.hoten = hoten;
             //xrPivotGrid1.OptionsView.ShowColumnGrandTotalHeader = false;
             //xrPivotGrid1.OptionsView.ShowColumnGrandTotals = false;
             ////xrPivotGrid1.OptionsView.ShowRowGrandTotals = false;
@@ -60,7 +62,7 @@ namespace boiduongLeQuyDon.GUI.Report
         //    string strlop = "-2";
 
         bdlqdDataSet1TableAdapters.getHocVien2TableAdapter hv = new bdlqdDataSet1TableAdapters.getHocVien2TableAdapter();
-        bdlqdDataSet1TableAdapters.getLop1TableAdapter loptb1 = new bdlqdDataSet1TableAdapters.getLop1TableAdapter();
+        bdlqdDataSet1TableAdapters.getlopgocTableAdapter loptb1 = new bdlqdDataSet1TableAdapters.getlopgocTableAdapter();
         bdlqdDataSet1TableAdapters.getDiemDanh5TableAdapter diemdanh5 = new bdlqdDataSet1TableAdapters.getDiemDanh5TableAdapter();
         bdlqdDataSet1TableAdapters.getDiemDanh3TableAdapter diemdanh3 = new bdlqdDataSet1TableAdapters.getDiemDanh3TableAdapter();
         bdlqdDataSet1TableAdapters.getDiemDanh4TableAdapter diemdanh4 = new bdlqdDataSet1TableAdapters.getDiemDanh4TableAdapter();
@@ -73,13 +75,13 @@ namespace boiduongLeQuyDon.GUI.Report
      //   coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter kq = new coSoBoiDuongDataSetTableAdapters.ketQuaHocTapTableAdapter();
         void load()
         {
-            string tentkb = tkb.get(idtkb).Tables[0].Rows[0]["Tên TKB"].ToString().ToLower().Replace("thời khóa biểu", "").ToUpper();
-            string nh = tkb.get(idtkb).Tables[0].Rows[0]["Năm học"].ToString();
+            string tentkb = tkb.get1(idtkb).Tables[0].Rows[0]["Tên TKB"].ToString().ToLower().Replace("thời khóa biểu", "").ToUpper();
+            string nh = tkb.get1(idtkb).Tables[0].Rows[0]["Năm học"].ToString();
             lbtenp.Text = tentkb.ToUpper();
             int tmp = 0;
             try
             {
-                lbhotenhs.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["ho ten"].ToString();
+                lbhotenhs.Text = hoten;
                 if (hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim() != "")
                     lbdienthoai.Text = hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiMe"].ToString().Trim();
                 else if (hv.GetData(Convert.ToInt32(idhocvien)).Rows[0]["dienThoaiCha"].ToString().Trim() != "")
