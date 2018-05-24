@@ -56,10 +56,6 @@
     <ApplicationIcon>Robinweatherall-Library-Book-open.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Email, Version=18.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.Email.18.4.0\lib\net40\Aspose.Email.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -172,9 +168,6 @@
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>C:\Users\Dell N3543\Desktop\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Mail, Version=3.0.18141.1056, Culture=neutral, PublicKeyToken=6dc438ab78a525b3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mail.dll.3.0.18141.1056\lib\net20\Mail.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -200,6 +193,8 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services">
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
@@ -881,7 +876,9 @@
     </Content>
     <Content Include="GUI\Robinweatherall-Library-Book-open.ico" />
     <Content Include="Robinweatherall-Library-Book-open.ico" />
-    <Content Include="App.xml" />
+    <Content Include="App.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -914,6 +911,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

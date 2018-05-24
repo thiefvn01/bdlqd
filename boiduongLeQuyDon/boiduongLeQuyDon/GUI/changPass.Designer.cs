@@ -84,7 +84,7 @@
             this.pw1.Name = "pw1";
             this.pw1.Properties.UseSystemPasswordChar = true;
             this.pw1.Size = new System.Drawing.Size(173, 20);
-            this.pw1.TabIndex = 1;
+            this.pw1.TabIndex = 2;
             // 
             // pw2
             // 
@@ -92,7 +92,7 @@
             this.pw2.Name = "pw2";
             this.pw2.Properties.UseSystemPasswordChar = true;
             this.pw2.Size = new System.Drawing.Size(173, 20);
-            this.pw2.TabIndex = 2;
+            this.pw2.TabIndex = 3;
             // 
             // labelControl4
             // 

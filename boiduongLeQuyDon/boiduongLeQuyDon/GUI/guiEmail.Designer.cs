@@ -101,7 +101,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 2;
             // 
             // labelControl3
             // 
@@ -116,7 +116,7 @@
             this.textEdit2.Location = new System.Drawing.Point(106, 129);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(397, 20);
-            this.textEdit2.TabIndex = 5;
+            this.textEdit2.TabIndex = 6;
             // 
             // lookUpEdit1
             // 
@@ -132,7 +132,7 @@
             this.lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookUpEdit1.Properties.ValueMember = "id";
             this.lookUpEdit1.Size = new System.Drawing.Size(100, 20);
-            this.lookUpEdit1.TabIndex = 6;
+            this.lookUpEdit1.TabIndex = 3;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
             // getKhoaHocBindingSource
@@ -173,7 +173,7 @@
             this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit2.Size = new System.Drawing.Size(100, 20);
-            this.lookUpEdit2.TabIndex = 9;
+            this.lookUpEdit2.TabIndex = 4;
             this.lookUpEdit2.EditValueChanged += new System.EventHandler(this.lookUpEdit2_EditValueChanged);
             // 
             // cbDanhsach
@@ -191,7 +191,7 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("456"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Tất cả")});
             this.cbDanhsach.Size = new System.Drawing.Size(100, 20);
-            this.cbDanhsach.TabIndex = 10;
+            this.cbDanhsach.TabIndex = 5;
             // 
             // labelControl6
             // 
@@ -246,7 +246,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(568, 409);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 25;
+            this.simpleButton1.TabIndex = 11;
             this.simpleButton1.Text = "Gửi";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -255,14 +255,14 @@
             this.txtNoiDung.Location = new System.Drawing.Point(106, 173);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(799, 198);
-            this.txtNoiDung.TabIndex = 26;
+            this.txtNoiDung.TabIndex = 8;
             // 
             // simpleButton2
             // 
             this.simpleButton2.Location = new System.Drawing.Point(399, 409);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 27;
+            this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "Xem DS Gửi";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -271,7 +271,7 @@
             this.simpleButton3.Location = new System.Drawing.Point(233, 409);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton3.TabIndex = 28;
+            this.simpleButton3.TabIndex = 9;
             this.simpleButton3.Text = "Cập nhật DS";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
@@ -289,7 +289,7 @@
             this.textEdit4.Location = new System.Drawing.Point(610, 130);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(196, 20);
-            this.textEdit4.TabIndex = 31;
+            this.textEdit4.TabIndex = 7;
             // 
             // labelControl11
             // 

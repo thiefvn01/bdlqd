@@ -271,8 +271,4 @@ C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.deXuatPhuDao.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.QuanLyPhuDao.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.QLCaBiet.resources
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\Aspose.Email.dll
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\Mail.dll
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\Aspose.Email.xml
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\Mail.xml
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.ChangeSource.resources

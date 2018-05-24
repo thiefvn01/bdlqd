@@ -242,7 +242,6 @@
             this.groupControl4.Size = new System.Drawing.Size(915, 236);
             this.groupControl4.TabIndex = 9;
             this.groupControl4.Text = "Cập nhật";
- //           this.groupControl4.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl4_Paint);
             // 
             // cbTrangThai
             // 
@@ -256,7 +255,7 @@
             "Nghỉ học",
             "Nghỉ tất cả cả lớp"});
             this.cbTrangThai.Size = new System.Drawing.Size(100, 20);
-            this.cbTrangThai.TabIndex = 19;
+            this.cbTrangThai.TabIndex = 5;
             // 
             // checkEdit1
             // 
@@ -299,7 +298,7 @@
             this.txtusbl.Location = new System.Drawing.Point(415, 120);
             this.txtusbl.Name = "txtusbl";
             this.txtusbl.Size = new System.Drawing.Size(100, 20);
-            this.txtusbl.TabIndex = 14;
+            this.txtusbl.TabIndex = 4;
             // 
             // lblID
             // 
@@ -324,14 +323,14 @@
             this.textEdit2.Location = new System.Drawing.Point(708, 120);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(100, 20);
-            this.textEdit2.TabIndex = 9;
+            this.textEdit2.TabIndex = 6;
             // 
             // txtupGC
             // 
             this.txtupGC.Location = new System.Drawing.Point(415, 74);
             this.txtupGC.Name = "txtupGC";
             this.txtupGC.Size = new System.Drawing.Size(100, 20);
-            this.txtupGC.TabIndex = 9;
+            this.txtupGC.TabIndex = 3;
             // 
             // bntXoa
             // 
@@ -371,7 +370,7 @@
             this.bntUpdate.Location = new System.Drawing.Point(298, 180);
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.Size = new System.Drawing.Size(75, 23);
-            this.bntUpdate.TabIndex = 10;
+            this.bntUpdate.TabIndex = 7;
             this.bntUpdate.Text = "Cập nhật";
             this.bntUpdate.Click += new System.EventHandler(this.bntUpdate_Click);
             // 
@@ -403,7 +402,7 @@
             this.upTKB.Properties.NullText = "";
             this.upTKB.Properties.ValueMember = "id";
             this.upTKB.Size = new System.Drawing.Size(100, 20);
-            this.upTKB.TabIndex = 7;
+            this.upTKB.TabIndex = 1;
             this.upTKB.EditValueChanged += new System.EventHandler(this.upTKB_EditValueChanged);
             // 
             // getKhoaHocBindingSource
@@ -420,7 +419,7 @@
             this.upLop.Properties.DropDownRows = 15;
             this.upLop.Properties.NullText = "";
             this.upLop.Size = new System.Drawing.Size(100, 20);
-            this.upLop.TabIndex = 8;
+            this.upLop.TabIndex = 2;
             this.upLop.EditValueChanged += new System.EventHandler(this.upLop_EditValueChanged);
             // 
             // getKhoaHocTableAdapter

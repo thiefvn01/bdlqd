@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.getPhuDao1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdlqdDataSet1 = new boiduongLeQuyDon.bdlqdDataSet1();
@@ -108,9 +108,9 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.getPhuDao1BindingSource;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -358,7 +358,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(311, 375);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.TabIndex = 13;
             this.simpleButton1.Text = "Thêm";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -367,7 +367,7 @@
             this.simpleButton2.Location = new System.Drawing.Point(476, 375);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 2;
+            this.simpleButton2.TabIndex = 14;
             this.simpleButton2.Text = "Sửa";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -376,7 +376,7 @@
             this.simpleButton3.Location = new System.Drawing.Point(651, 375);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton3.TabIndex = 2;
+            this.simpleButton3.TabIndex = 15;
             this.simpleButton3.Text = "Xóa";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
@@ -385,7 +385,7 @@
             this.simpleButton4.Location = new System.Drawing.Point(795, 375);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton4.TabIndex = 2;
+            this.simpleButton4.TabIndex = 16;
             this.simpleButton4.Text = "In phiếu";
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
@@ -399,7 +399,7 @@
             this.lkKhoa.Properties.DisplayMember = "TenTKB";
             this.lkKhoa.Properties.ValueMember = "id";
             this.lkKhoa.Size = new System.Drawing.Size(100, 20);
-            this.lkKhoa.TabIndex = 3;
+            this.lkKhoa.TabIndex = 1;
             this.lkKhoa.EditValueChanged += new System.EventHandler(this.lkKhoa_EditValueChanged);
             // 
             // getKhoaHocBindingSource
@@ -414,7 +414,7 @@
             this.lkLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkLop.Size = new System.Drawing.Size(100, 20);
-            this.lkLop.TabIndex = 3;
+            this.lkLop.TabIndex = 2;
             this.lkLop.EditValueChanged += new System.EventHandler(this.lkLop_EditValueChanged);
             // 
             // lkHocVien
@@ -438,49 +438,49 @@
             this.txtThoiLuong.Location = new System.Drawing.Point(307, 276);
             this.txtThoiLuong.Name = "txtThoiLuong";
             this.txtThoiLuong.Size = new System.Drawing.Size(100, 20);
-            this.txtThoiLuong.TabIndex = 4;
+            this.txtThoiLuong.TabIndex = 5;
             // 
             // txtYKien
             // 
             this.txtYKien.Location = new System.Drawing.Point(307, 310);
             this.txtYKien.Name = "txtYKien";
             this.txtYKien.Size = new System.Drawing.Size(100, 20);
-            this.txtYKien.TabIndex = 4;
+            this.txtYKien.TabIndex = 9;
             // 
             // txtThoiGian
             // 
             this.txtThoiGian.Location = new System.Drawing.Point(500, 272);
             this.txtThoiGian.Name = "txtThoiGian";
             this.txtThoiGian.Size = new System.Drawing.Size(100, 20);
-            this.txtThoiGian.TabIndex = 4;
+            this.txtThoiGian.TabIndex = 6;
             // 
             // txtKetQua
             // 
             this.txtKetQua.Location = new System.Drawing.Point(500, 306);
             this.txtKetQua.Name = "txtKetQua";
             this.txtKetQua.Size = new System.Drawing.Size(100, 20);
-            this.txtKetQua.TabIndex = 4;
+            this.txtKetQua.TabIndex = 10;
             // 
             // txtNoiDung
             // 
             this.txtNoiDung.Location = new System.Drawing.Point(771, 276);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(100, 20);
-            this.txtNoiDung.TabIndex = 4;
+            this.txtNoiDung.TabIndex = 7;
             // 
             // txtNhanXet
             // 
             this.txtNhanXet.Location = new System.Drawing.Point(771, 310);
             this.txtNhanXet.Name = "txtNhanXet";
             this.txtNhanXet.Size = new System.Drawing.Size(100, 20);
-            this.txtNhanXet.TabIndex = 4;
+            this.txtNhanXet.TabIndex = 11;
             // 
             // txtThuPhi
             // 
             this.txtThuPhi.Location = new System.Drawing.Point(945, 306);
             this.txtThuPhi.Name = "txtThuPhi";
             this.txtThuPhi.Size = new System.Drawing.Size(100, 20);
-            this.txtThuPhi.TabIndex = 4;
+            this.txtThuPhi.TabIndex = 12;
             // 
             // lkTroGiang
             // 
@@ -492,7 +492,7 @@
             this.lkTroGiang.Properties.DisplayMember = "Họ tên";
             this.lkTroGiang.Properties.ValueMember = "ID";
             this.lkTroGiang.Size = new System.Drawing.Size(100, 20);
-            this.lkTroGiang.TabIndex = 5;
+            this.lkTroGiang.TabIndex = 8;
             // 
             // getNhanVienchuanghiBindingSource
             // 

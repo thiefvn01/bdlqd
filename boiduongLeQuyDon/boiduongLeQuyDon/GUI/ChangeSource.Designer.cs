@@ -72,14 +72,14 @@
             this.txtUname.Location = new System.Drawing.Point(225, 82);
             this.txtUname.Name = "txtUname";
             this.txtUname.Size = new System.Drawing.Size(100, 20);
-            this.txtUname.TabIndex = 1;
+            this.txtUname.TabIndex = 2;
             // 
             // txtPasswd
             // 
             this.txtPasswd.Location = new System.Drawing.Point(225, 137);
             this.txtPasswd.Name = "txtPasswd";
             this.txtPasswd.Size = new System.Drawing.Size(100, 20);
-            this.txtPasswd.TabIndex = 1;
+            this.txtPasswd.TabIndex = 3;
             // 
             // labelControl1
             // 

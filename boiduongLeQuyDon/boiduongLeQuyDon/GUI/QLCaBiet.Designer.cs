@@ -63,9 +63,9 @@
             this.getCaBiet1TableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getCaBiet1TableAdapter();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.getKhoaHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -82,8 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckGiaiQuyet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,7 +259,7 @@
             this.lkHocVien.Properties.DisplayMember = "Họ tên";
             this.lkHocVien.Properties.ValueMember = "id";
             this.lkHocVien.Size = new System.Drawing.Size(100, 20);
-            this.lkHocVien.TabIndex = 1;
+            this.lkHocVien.TabIndex = 3;
             // 
             // getHocVienDangHocBindingSource
             // 
@@ -272,7 +272,7 @@
             this.txtDacDiem.Location = new System.Drawing.Point(87, 361);
             this.txtDacDiem.Name = "txtDacDiem";
             this.txtDacDiem.Size = new System.Drawing.Size(239, 20);
-            this.txtDacDiem.TabIndex = 2;
+            this.txtDacDiem.TabIndex = 4;
             // 
             // txtNguyenNhan
             // 
@@ -280,7 +280,7 @@
             this.txtNguyenNhan.Location = new System.Drawing.Point(87, 423);
             this.txtNguyenNhan.Name = "txtNguyenNhan";
             this.txtNguyenNhan.Size = new System.Drawing.Size(252, 20);
-            this.txtNguyenNhan.TabIndex = 5;
+            this.txtNguyenNhan.TabIndex = 7;
             // 
             // txtKhacPhuc
             // 
@@ -288,7 +288,7 @@
             this.txtKhacPhuc.Location = new System.Drawing.Point(405, 423);
             this.txtKhacPhuc.Name = "txtKhacPhuc";
             this.txtKhacPhuc.Size = new System.Drawing.Size(328, 20);
-            this.txtKhacPhuc.TabIndex = 6;
+            this.txtKhacPhuc.TabIndex = 8;
             // 
             // txtViPham
             // 
@@ -296,7 +296,7 @@
             this.txtViPham.Location = new System.Drawing.Point(422, 361);
             this.txtViPham.Name = "txtViPham";
             this.txtViPham.Size = new System.Drawing.Size(261, 20);
-            this.txtViPham.TabIndex = 3;
+            this.txtViPham.TabIndex = 5;
             // 
             // txtSoLan
             // 
@@ -304,7 +304,7 @@
             this.txtSoLan.Location = new System.Drawing.Point(798, 361);
             this.txtSoLan.Name = "txtSoLan";
             this.txtSoLan.Size = new System.Drawing.Size(100, 20);
-            this.txtSoLan.TabIndex = 4;
+            this.txtSoLan.TabIndex = 6;
             // 
             // ckGiaiQuyet
             // 
@@ -313,7 +313,7 @@
             this.ckGiaiQuyet.Name = "ckGiaiQuyet";
             this.ckGiaiQuyet.Properties.Caption = "Đã giải quyết";
             this.ckGiaiQuyet.Size = new System.Drawing.Size(162, 19);
-            this.ckGiaiQuyet.TabIndex = 7;
+            this.ckGiaiQuyet.TabIndex = 9;
             // 
             // simpleButton1
             // 
@@ -321,7 +321,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(316, 482);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.TabIndex = 10;
             this.simpleButton1.Text = "Thêm";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -331,7 +331,7 @@
             this.simpleButton2.Location = new System.Drawing.Point(443, 482);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 5;
+            this.simpleButton2.TabIndex = 11;
             this.simpleButton2.Text = "Sửa";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -376,6 +376,11 @@
             this.lookUpEdit1.TabIndex = 1;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
+            // getKhoaHocBindingSource
+            // 
+            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
+            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
+            // 
             // labelControl8
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -395,13 +400,8 @@
             this.lookUpEdit2.Properties.DisplayMember = "Họ tên";
             this.lookUpEdit2.Properties.ValueMember = "id";
             this.lookUpEdit2.Size = new System.Drawing.Size(182, 20);
-            this.lookUpEdit2.TabIndex = 1;
+            this.lookUpEdit2.TabIndex = 2;
             this.lookUpEdit2.EditValueChanged += new System.EventHandler(this.lookUpEdit2_EditValueChanged);
-            // 
-            // getKhoaHocBindingSource
-            // 
-            this.getKhoaHocBindingSource.DataMember = "getKhoaHoc";
-            this.getKhoaHocBindingSource.DataSource = this.bdlqdDataSet1;
             // 
             // getKhoaHocTableAdapter
             // 
@@ -461,8 +461,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckGiaiQuyet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
