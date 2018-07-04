@@ -247,6 +247,7 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl1.Location = new System.Drawing.Point(33, 239);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(44, 13);
@@ -256,6 +257,7 @@
             // 
             // labelControl2
             // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl2.Location = new System.Drawing.Point(251, 238);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(17, 13);
@@ -265,6 +267,7 @@
             // 
             // labelControl3
             // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl3.Location = new System.Drawing.Point(451, 238);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(41, 13);
@@ -274,6 +277,7 @@
             // 
             // labelControl4
             // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl4.Location = new System.Drawing.Point(33, 279);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(68, 13);
@@ -283,6 +287,7 @@
             // 
             // labelControl5
             // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl5.Location = new System.Drawing.Point(251, 279);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(50, 13);
@@ -292,6 +297,7 @@
             // 
             // labelControl6
             // 
+            this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl6.Location = new System.Drawing.Point(451, 279);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(43, 13);
@@ -301,6 +307,7 @@
             // 
             // labelControl7
             // 
+            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl7.Location = new System.Drawing.Point(704, 279);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(42, 13);
@@ -310,6 +317,7 @@
             // 
             // labelControl8
             // 
+            this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl8.Location = new System.Drawing.Point(33, 313);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(45, 13);
@@ -319,6 +327,7 @@
             // 
             // labelControl9
             // 
+            this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl9.Location = new System.Drawing.Point(451, 313);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(37, 13);
@@ -328,6 +337,7 @@
             // 
             // labelControl10
             // 
+            this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl10.Location = new System.Drawing.Point(704, 313);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(61, 13);
@@ -337,6 +347,7 @@
             // 
             // labelControl11
             // 
+            this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl11.Location = new System.Drawing.Point(251, 313);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(44, 13);
@@ -346,6 +357,7 @@
             // 
             // labelControl12
             // 
+            this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelControl12.Location = new System.Drawing.Point(894, 313);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(36, 13);
@@ -355,6 +367,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton1.Location = new System.Drawing.Point(311, 375);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
@@ -364,6 +377,7 @@
             // 
             // simpleButton2
             // 
+            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton2.Location = new System.Drawing.Point(476, 375);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
@@ -373,6 +387,7 @@
             // 
             // simpleButton3
             // 
+            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton3.Location = new System.Drawing.Point(651, 375);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
@@ -382,6 +397,7 @@
             // 
             // simpleButton4
             // 
+            this.simpleButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton4.Location = new System.Drawing.Point(795, 375);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(75, 23);
@@ -391,6 +407,7 @@
             // 
             // lkKhoa
             // 
+            this.lkKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lkKhoa.Location = new System.Drawing.Point(103, 239);
             this.lkKhoa.Name = "lkKhoa";
             this.lkKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -409,6 +426,7 @@
             // 
             // lkLop
             // 
+            this.lkLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lkLop.Location = new System.Drawing.Point(286, 236);
             this.lkLop.Name = "lkLop";
             this.lkLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -419,6 +437,7 @@
             // 
             // lkHocVien
             // 
+            this.lkHocVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lkHocVien.Location = new System.Drawing.Point(498, 235);
             this.lkHocVien.Name = "lkHocVien";
             this.lkHocVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -428,6 +447,7 @@
             // 
             // txtLyDo
             // 
+            this.txtLyDo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtLyDo.Location = new System.Drawing.Point(108, 271);
             this.txtLyDo.Name = "txtLyDo";
             this.txtLyDo.Size = new System.Drawing.Size(100, 20);
@@ -435,6 +455,7 @@
             // 
             // txtThoiLuong
             // 
+            this.txtThoiLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtThoiLuong.Location = new System.Drawing.Point(307, 276);
             this.txtThoiLuong.Name = "txtThoiLuong";
             this.txtThoiLuong.Size = new System.Drawing.Size(100, 20);
@@ -442,6 +463,7 @@
             // 
             // txtYKien
             // 
+            this.txtYKien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtYKien.Location = new System.Drawing.Point(307, 310);
             this.txtYKien.Name = "txtYKien";
             this.txtYKien.Size = new System.Drawing.Size(100, 20);
@@ -449,6 +471,7 @@
             // 
             // txtThoiGian
             // 
+            this.txtThoiGian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtThoiGian.Location = new System.Drawing.Point(500, 272);
             this.txtThoiGian.Name = "txtThoiGian";
             this.txtThoiGian.Size = new System.Drawing.Size(100, 20);
@@ -456,6 +479,7 @@
             // 
             // txtKetQua
             // 
+            this.txtKetQua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtKetQua.Location = new System.Drawing.Point(500, 306);
             this.txtKetQua.Name = "txtKetQua";
             this.txtKetQua.Size = new System.Drawing.Size(100, 20);
@@ -463,6 +487,7 @@
             // 
             // txtNoiDung
             // 
+            this.txtNoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNoiDung.Location = new System.Drawing.Point(771, 276);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(100, 20);
@@ -470,6 +495,7 @@
             // 
             // txtNhanXet
             // 
+            this.txtNhanXet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNhanXet.Location = new System.Drawing.Point(771, 310);
             this.txtNhanXet.Name = "txtNhanXet";
             this.txtNhanXet.Size = new System.Drawing.Size(100, 20);
@@ -477,6 +503,7 @@
             // 
             // txtThuPhi
             // 
+            this.txtThuPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtThuPhi.Location = new System.Drawing.Point(945, 306);
             this.txtThuPhi.Name = "txtThuPhi";
             this.txtThuPhi.Size = new System.Drawing.Size(100, 20);
@@ -484,6 +511,7 @@
             // 
             // lkTroGiang
             // 
+            this.lkTroGiang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lkTroGiang.Location = new System.Drawing.Point(108, 310);
             this.lkTroGiang.Name = "lkTroGiang";
             this.lkTroGiang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

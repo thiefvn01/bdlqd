@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.hocVienAdapter1 = new boiduongLeQuyDon.hvTableAdapters.hocVienAdapter();
+            this.hocVienAdapter1 = new boiduongLeQuyDon.hvTableAdapters.hocVienTableAdapter();
             this.hv1 = new boiduongLeQuyDon.hv();
             this.pageHeaderBand1 = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -387,7 +387,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
-        private hvTableAdapters.hocVienAdapter hocVienAdapter1;
+        private hvTableAdapters.hocVienTableAdapter hocVienAdapter1;
         private hv hv1;
         private DevExpress.XtraReports.UI.PageHeaderBand pageHeaderBand1;
         private DevExpress.XtraReports.UI.XRTable xrTable1;

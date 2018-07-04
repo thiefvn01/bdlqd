@@ -2,18 +2,20 @@
 <xs:schema id="sodaubai" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString1" Provider="System.Data.OleDb" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString1" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bdlqdConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bdlqdConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.bdlqdConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="soDauBaiAdapter" GeneratorDataComponentClassName="soDauBaiAdapter" Name="soDauBai" UserDataComponentName="soDauBaiAdapter">
             <MainSource>
-              <DbSource ConnectionRef="coSoBoiDuongConnectionString1 (Settings)" DbObjectName="soDauBai" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="bdlqdConnectionString2 (Settings)" DbObjectName="bdlqd.dbo.soDauBai" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, [Nội dung], [Bài tập về nhà], [Nhận xét], Ngày, idLop FROM soDauBai</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, Noidung AS [Nội dung], Baitapvenha AS [Bài tập về nhà], Nhanxet AS [Nhận xét], Ngay AS Ngày, idLop
+FROM            soDauBai</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -31,10 +33,10 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="hocVienTableAdapter" GeneratorDataComponentClassName="hocVienTableAdapter" Name="hocVien" UserDataComponentName="hocVienTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="coSoBoiDuongConnectionString (Settings)" DbObjectName="hocVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="bdlqdConnectionString2 (Settings)" DbObjectName="bdlqd.dbo.hocVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT  [Họ tên lót] + ' ' + Tên AS Tên, Trường  
+                    <CommandText>SELECT  [Hotenlot] + ' ' + Ten AS Tên, Truong as Trường  
 FROM hocVien</CommandText>
                     <Parameters />
                   </DbCommand>

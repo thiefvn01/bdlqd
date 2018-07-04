@@ -61,7 +61,8 @@ namespace boiduongLeQuyDon.GUI
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            queries.deleteCaBiet(Convert.ToInt32(lblID.Text));
+            if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Có", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                queries.deleteCaBiet(Convert.ToInt32(lblID.Text));
             load();
         }
         void load()

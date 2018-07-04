@@ -1,8 +1,18 @@
 ﻿namespace boiduongLeQuyDon
 {
+}
 
+namespace boiduongLeQuyDon
+{
+}
 
-    public partial class sodaubai
-    {
+partial class sodaubai
+{
+}
+
+namespace boiduongLeQuyDon.sodaubaiTableAdapters {
+    
+    
+    public partial class hocVienTableAdapter {
     }
 }

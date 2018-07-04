@@ -36,7 +36,7 @@ namespace boiduongLeQuyDon.DAL
         {
             SqlConnection conn = access.AccessData();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT ID, hotenlot + ' ' + ten AS [Họ tên],IIF(NV=1,'x','') as [Nhân viên],IiF(HV=1,'x','') as [Học viên],IiF(KQ=1,'x','') as [Kết quả],IiF(PQ=1,'x','') as [Phân quyền] FROM nhanVien where ID<>1 AND ID=" + id, conn);
+            SqlCommand cmd = new SqlCommand("SELECT ID, hotenlot + ' ' + ten AS [Họ tên],NV as [Nhân viên],HV as [Học viên],KQ as [Kết quả], PQ as [Phân quyền] FROM nhanVien where ID<>1 AND ID=" + id, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
             da.Fill(dt);
@@ -72,6 +72,22 @@ namespace boiduongLeQuyDon.DAL
                 SqlConnection conn = access.AccessData();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE nhanVien SET nv=" + nv + ", HV= " + hv + ",KQ=" + kq + ", PQ=" + pq + "  WHERE id=" + id, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int updatepass(string pass, string uname)
+        {
+            try
+            {
+                SqlConnection conn = access.AccessData();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE nhanVien SET password= PQ=" + pass + "  WHERE username=" + uname, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return 1;

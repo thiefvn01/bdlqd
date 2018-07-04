@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" xmlns:mstns="http://tempuri.org/nwindDataSet.xsd" id="test" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="test" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=coSoBoiDuong.mdb;Jet OLEDB:Database Password=iSolution" IsAppSettingsProperty="false" Modifier="Assembly" ParameterPrefix="@" Provider="System.Data.OleDb" Name="Connection" />
+          <Connection ConnectionStringObject="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=coSoBoiDuong.mdb;Jet OLEDB:Database Password=iSolution" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bdlqdConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bdlqdConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.bdlqdConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ketQuaHocTapAdapter" Name="ketQuaHocTap" UserDataComponentName="ketQuaHocTapAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ketQuaHocTapAdapter" GeneratorDataComponentClassName="ketQuaHocTapAdapter" Name="ketQuaHocTap" UserDataComponentName="ketQuaHocTapAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="bdlqdConnectionString2 (Settings)" DbObjectName="bdlqd.dbo.ketQuaHocTap" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, idHocVien, idLopHoc, idBaiTap, diem FROM ketQuaHocTap</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, idHocVien, idLopHoc, idBaiTap, diem
+FROM            ketQuaHocTap</CommandText>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -24,22 +27,24 @@
               <Mapping SourceColumn="idBaiTap" DataSetColumn="idBaiTap" />
               <Mapping SourceColumn="diem" DataSetColumn="diem" />
             </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="test" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+  <xs:element name="test" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="test" msprop:Generator_UserDSName="test">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ketQuaHocTap">
+        <xs:element name="ketQuaHocTap" msprop:Generator_TableClassName="ketQuaHocTapDataTable" msprop:Generator_TableVarName="tableketQuaHocTap" msprop:Generator_TablePropName="ketQuaHocTap" msprop:Generator_RowDeletingName="ketQuaHocTapRowDeleting" msprop:Generator_RowChangingName="ketQuaHocTapRowChanging" msprop:Generator_RowEvHandlerName="ketQuaHocTapRowChangeEventHandler" msprop:Generator_RowDeletedName="ketQuaHocTapRowDeleted" msprop:Generator_UserTableName="ketQuaHocTap" msprop:Generator_RowChangedName="ketQuaHocTapRowChanged" msprop:Generator_RowEvArgName="ketQuaHocTapRowChangeEvent" msprop:Generator_RowClassName="ketQuaHocTapRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" type="xs:int" />
-              <xs:element name="idHocVien" type="xs:int" minOccurs="0" />
-              <xs:element name="idLopHoc" type="xs:int" minOccurs="0" />
-              <xs:element name="idBaiTap" type="xs:int" minOccurs="0" />
-              <xs:element name="diem" type="xs:int" minOccurs="0" />
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="idHocVien" msprop:Generator_ColumnVarNameInTable="columnidHocVien" msprop:Generator_ColumnPropNameInRow="idHocVien" msprop:Generator_ColumnPropNameInTable="idHocVienColumn" msprop:Generator_UserColumnName="idHocVien" type="xs:int" minOccurs="0" />
+              <xs:element name="idLopHoc" msprop:Generator_ColumnVarNameInTable="columnidLopHoc" msprop:Generator_ColumnPropNameInRow="idLopHoc" msprop:Generator_ColumnPropNameInTable="idLopHocColumn" msprop:Generator_UserColumnName="idLopHoc" type="xs:int" minOccurs="0" />
+              <xs:element name="idBaiTap" msprop:Generator_ColumnVarNameInTable="columnidBaiTap" msprop:Generator_ColumnPropNameInRow="idBaiTap" msprop:Generator_ColumnPropNameInTable="idBaiTapColumn" msprop:Generator_UserColumnName="idBaiTap" type="xs:int" minOccurs="0" />
+              <xs:element name="diem" msprop:Generator_ColumnVarNameInTable="columndiem" msprop:Generator_ColumnPropNameInRow="diem" msprop:Generator_ColumnPropNameInTable="diemColumn" msprop:Generator_UserColumnName="diem" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

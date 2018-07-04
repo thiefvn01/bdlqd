@@ -2,23 +2,26 @@
 <xs:schema id="sdb" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&quot;coSoBoiDuong.mdb&quot;;Jet OLEDB:Database Password=iSolution" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OleDb" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString4" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString4 (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString4" Provider="System.Data.OleDb" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString" Provider="System.Data.OleDb" />
+          <Connection ConnectionStringObject="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=coSoBoiDuong.mdb;Jet OLEDB:Database Password=iSolution" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString4" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString4 (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString1" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="coSoBoiDuongConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="coSoBoiDuongConnectionString (Settings)" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.coSoBoiDuongConnectionString1" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bdlqdConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bdlqdConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.boiduongLeQuyDon.Properties.Settings.GlobalReference.Default.bdlqdConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="hocVienAdapter" GeneratorDataComponentClassName="hocVienAdapter" Name="hocVien" UserDataComponentName="hocVienAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="bdlqdConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT hocVien.[Họ tên lót] + ' ' + hocVien.Tên AS Tên, hocVien.Trường, SBL FROM (hocVien INNER JOIN Lop ON hocVien.ID = Lop.idHocVien) 
-WHERE (Lop.idLop = lop) and lophientai=1
-ORDER BY hocVien.Tên</CommandText>
+                    <CommandText>SELECT        hocVien.[HoTenLot] + ' ' + hocVien.Ten AS Tên, hocVien.Truong AS Trường, Lop.sbl
+FROM            hocVien INNER JOIN
+                         Lop ON hocVien.ID = Lop.idHocVien
+WHERE        (Lop.idLop = @parameter) AND (Lop.lophientai = 1)
+ORDER BY Tên</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="lop" Precision="0" Scale="0" Size="20" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="parameter" ColumnName="idLop" DataSourceName="bdlqd.dbo.Lop" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@parameter" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idLop" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -27,7 +30,7 @@ ORDER BY hocVien.Tên</CommandText>
             <Mappings>
               <Mapping SourceColumn="Tên" DataSetColumn="Tên" />
               <Mapping SourceColumn="Trường" DataSetColumn="Trường" />
-              <Mapping SourceColumn="SBL" DataSetColumn="SBL" />
+              <Mapping SourceColumn="sbl" DataSetColumn="sbl" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -56,7 +59,7 @@ ORDER BY hocVien.Tên</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SBL" msprop:Generator_ColumnVarNameInTable="columnSBL" msprop:Generator_ColumnPropNameInRow="SBL" msprop:Generator_ColumnPropNameInTable="SBLColumn" msprop:Generator_UserColumnName="SBL" minOccurs="0">
+              <xs:element name="sbl" msprop:Generator_ColumnVarNameInTable="columnsbl" msprop:Generator_ColumnPropNameInRow="sbl" msprop:Generator_ColumnPropNameInTable="sblColumn" msprop:Generator_UserColumnName="sbl" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

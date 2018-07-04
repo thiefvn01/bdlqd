@@ -30,6 +30,10 @@ namespace boiduongLeQuyDon.BUS
         {
             return dal.login(a);
         }
+        public int updatepass(string pass, string uname)
+        {
+            return dal.updatepass(pass, uname);
+        }
         public DataSet login1(string a)
         {
             return dal.login1(a);

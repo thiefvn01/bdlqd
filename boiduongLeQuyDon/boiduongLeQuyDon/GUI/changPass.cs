@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
 using boiduongLeQuyDon.BUS;
+using System.Data.SqlClient;
 
 namespace boiduongLeQuyDon.GUI
 {
@@ -14,6 +15,8 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
             this.uname = uname;
+            SqlConnection scon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString);
+            
         }
         string uname;
         #region Overrides
@@ -32,6 +35,7 @@ namespace boiduongLeQuyDon.GUI
         private void labelControl3_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -40,11 +44,11 @@ namespace boiduongLeQuyDon.GUI
                 lblbao.Visible = true;
             else  if (pw1.Text == pw2.Text)
             {
-                qu.UpdatePassword(pw1.Text, Convert.ToInt32(uname));
+                if(bus.updatepass(pw1.Text, uname)==1)
                 MessageBox.Show("Cập nhật thành công");
-            }
+           
             else
-            {
+            
                 MessageBox.Show("Mật khẩu nhập lại chưa chính xác, vui lòng kiểm tra lại");
             }
         }

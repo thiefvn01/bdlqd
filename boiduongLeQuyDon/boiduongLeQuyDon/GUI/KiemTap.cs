@@ -14,11 +14,13 @@ namespace boiduongLeQuyDon.GUI
         {
             InitializeComponent();
         }
+        
         bdlqdDataSet1TableAdapters.getChamTap_allTableAdapter chamtapall = new bdlqdDataSet1TableAdapters.getChamTap_allTableAdapter();
         bdlqdDataSet1TableAdapters.QueriesTableAdapter queries = new bdlqdDataSet1TableAdapters.QueriesTableAdapter();
     //    coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter da = new coSoBoiDuongDataSetTableAdapters.chamTapTableAdapter();
         private void KiemTap_Load(object sender, EventArgs e)
         {
+            
             gridControl1.RefreshDataSource();
             //coSoBoiDuongDataSet ds= new coSoBoiDuongDataSet();
           

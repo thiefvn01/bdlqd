@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using boiduongLeQuyDon.BUS;
 using System.Net;
 using System.Net.Mail;
+using System.Data.SqlClient;
 
 
 namespace boiduongLeQuyDon.GUI
@@ -28,12 +29,18 @@ namespace boiduongLeQuyDon.GUI
         bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter emailph = new bdlqdDataSet1TableAdapters.getHocVienEmailTableAdapter();
         bdlqdDataSet1TableAdapters.getHocVien5TableAdapter hocvien = new bdlqdDataSet1TableAdapters.getHocVien5TableAdapter();
         bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter tkb = new bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
+        
         public GuiEmail()
         {
             InitializeComponent();
+            SqlConnection scon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString);
+            emailph.Connection = scon;
+            tkb.Connection = scon;
+            hocvien.Connection = scon;
             lookUpEdit1.Properties.DataSource = tkb.GetData();
             lookUpEdit1.Properties.DisplayMember = "Ten TKB";
             lookUpEdit1.Properties.ValueMember = "id";
+
         }
         List<MyObject> GetData(int count)
         {
@@ -77,7 +84,8 @@ namespace boiduongLeQuyDon.GUI
                         //  var toAddress = new MailAddress("chauquangvu@gmail.com", "QCV");
                         string fromPassword = textBox1.Text;
                         string subject = textEdit2.Text;
-                        string body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                        //body = txtBody.Text.Replace("\n", "<br />")
+                        string body = txtNoiDung.Text.Replace("\r\n", "<br />");
                         var smtp = new SmtpClient
                         {
                             Host = "smtp.gmail.com",
@@ -103,7 +111,7 @@ namespace boiduongLeQuyDon.GUI
                         //  var toAddress = new MailAddress("chauquangvu@gmail.com", "QCV");
                         string fromPassword = textBox1.Text;
                         string subject = textEdit2.Text;
-                        string body = txtNoiDung.Text.Replace(Environment.NewLine, "<br>");
+                        string body = txtNoiDung.Text.Replace("\n", "<br />");
                         var smtp = new SmtpClient
                         {
                             Host = "smtp.mail.yahoo.com",

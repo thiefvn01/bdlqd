@@ -40,13 +40,13 @@ namespace boiduongLeQuyDon
                 hv = ds.Tables[0].Rows[0]["Học viên"].ToString();
                 kq = ds.Tables[0].Rows[0]["Kết quả"].ToString();
                 pq = ds.Tables[0].Rows[0]["Phân quyền"].ToString();
-                if (nv != "x")
+                if (nv != "1")
                     rbgv.Visible = false;
-                if (hv != "x")
+                if (hv != "1")
                     rbhv.Visible = false;
-                if (kq != "x")
+                if (kq != "1")
                     rbkq.Visible = false;
-                if (pq != "x")
+                if (pq != "1")
                     rbpq.Visible = false;
    
             }

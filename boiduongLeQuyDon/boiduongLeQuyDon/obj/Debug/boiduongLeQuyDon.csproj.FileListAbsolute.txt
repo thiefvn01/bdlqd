@@ -24,7 +24,6 @@ C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.GetTheoHV.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.HocVien.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.inNhan.resources
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.kqToan.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.phieuBaoHocTap.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.sdbCover.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.Report.SoDauBai.resources
@@ -41,7 +40,6 @@ C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.csproj.GenerateResource.Cache
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.exe.licenses
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\config.xml
-C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\coSoBoiDuong.mdb
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\bck\config.xml
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\boiduongLeQuyDon.exe.config
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\boiduongLeQuyDon.exe
@@ -272,3 +270,8 @@ C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.QuanLyPhuDao.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.QLCaBiet.resources
 C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.GUI.ChangeSource.resources
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\App.xml
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\boiduongLeQuyDon.exe.manifest
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\bin\Debug\boiduongLeQuyDon.application
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.exe.manifest
+C:\Users\CQV\Documents\GitHub\bdlqd\boiduongLeQuyDon\boiduongLeQuyDon\obj\Debug\boiduongLeQuyDon.application

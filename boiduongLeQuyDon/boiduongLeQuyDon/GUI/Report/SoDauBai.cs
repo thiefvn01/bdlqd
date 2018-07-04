@@ -11,7 +11,7 @@ namespace boiduongLeQuyDon.GUI.Report
         {
             InitializeComponent();
             this.lop = lop;
-            this.hocVienAdapter1.GetData(lop);
+            hocVienAdapter1.GetData(Convert.ToInt32(lop));
             this.tenlop = tenlop;
             this.idtkb = idtkb;
             this.ngay = ngay;
@@ -41,7 +41,7 @@ namespace boiduongLeQuyDon.GUI.Report
             weekStartDate = dtNow.AddDays(0 - nowdayofweek+1);
             weekEndDate = dtNow.AddDays(7 - nowdayofweek);
             //get the last day of the week
-            string ngaybd = tkb.get(idtkb).Tables[0].Rows[0]["Khai giảng"].ToString();
+            string ngaybd = tkb.get(idtkb).Tables[0].Rows[0]["KhaiGiang"].ToString();
             DateTime bd = System.DateTime.Parse(ngaybd);
             int tuan = Convert.ToInt32((weekEndDate-Convert.ToDateTime(bd)).TotalDays / 7);
             xrLabel3.Text = "TUẦN "+tuan+" (" + weekStartDate.ToShortDateString() + " - " + weekEndDate.ToShortDateString() + ")";
@@ -600,8 +600,8 @@ namespace boiduongLeQuyDon.GUI.Report
                
            ////    t1.WidthF = t1.WidthF + t2.WidthF + t3.WidthF;
            //}
-           string tentkb = tkb.get(idtkb).Tables[0].Rows[0]["Tên TKB"].ToString().ToLower().Replace("thời khóa biểu","").ToUpper();
-           string nh = tkb.get(idtkb).Tables[0].Rows[0]["Năm học"].ToString();
+           string tentkb = tkb.get(idtkb).Tables[0].Rows[0]["TenTKB"].ToString().ToLower().Replace("thời khóa biểu","").ToUpper();
+           string nh = tkb.get(idtkb).Tables[0].Rows[0]["Namhoc"].ToString();
            xrLabel1.Text = tentkb.ToUpper() + " -  NĂM HỌC " + nh;
         }
 

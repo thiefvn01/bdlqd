@@ -31,6 +31,19 @@ namespace boiduongLeQuyDon.GUI
         {
             string d1, d2, d3, d4;
             int temp = 0;
+            //int local = 0;
+            //try
+            //{
+            //    using (SqlConnection conn = new SqlConnection("DATA SOURCE=.; Initial Catalog=bdlqd; UID=sa; "))
+            //    {
+            //        try
+            //        {
+            //            conn.Open();
+            //            temp = 1;
+            //            conn.Close();
+            //        }
+            //}
+            //Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;
             try
             {
                 XDocument doc = XDocument.Load("app.xml");
@@ -39,8 +52,11 @@ namespace boiduongLeQuyDon.GUI
                 d3 = doc.Element("sets").Elements("PASS").FirstOrDefault().Value.ToString();
                 d4 = doc.Element("sets").Elements("cat").FirstOrDefault().Value.ToString();
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                string asf = "Data Source=" + d1 + "\\SQLEXPRESS;Initial Catalog=" + d4 + ";UID=" + d2 + ";password=" + d3 + "";
+                string asf1 = "Data Source= .;Initial Catalog=" + d4 + ";UID=" + d2 + ";password=" + d3 + "";
                 var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = "Data Source=" + d1 + ";Initial Catalog=" + d4 + ";UID=" + d2 + ";password=" + d3 + ";Integrated Security=True";
+                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = asf1;
+                connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString2"].ConnectionString = asf1;
                 config.Save();
                 ConfigurationManager.RefreshSection("connectionStrings");
                 
@@ -53,9 +69,30 @@ namespace boiduongLeQuyDon.GUI
                         temp = 1;
                         conn.Close();
                     }
-                    catch (SqlException)
+                    catch (SqlException s)
                     {
-                        temp = 0;
+                      //  string a1 = s.Errors.ToString();
+                       
+                        try
+                        {//boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString2
+                            connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString = asf;
+                            connectionStringsSection.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString2"].ConnectionString = asf;
+                            config.Save();
+                            ConfigurationManager.RefreshSection("connectionStrings");
+                         //   ConfigurationManager.RefreshSection("connectionStrings");
+
+                            var connection1 = System.Configuration.ConfigurationManager.ConnectionStrings["boiduongLeQuyDon.Properties.Settings.bdlqdConnectionString1"].ConnectionString;
+                            using (SqlConnection conn1 = new SqlConnection(connection1))
+                            {
+                                conn1.Open();
+                                temp = 1;
+                                conn1.Close();
+                            }
+                        }
+                        catch
+                        {
+                            temp = 0;
+                        }
                     }
                 }
             }

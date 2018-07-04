@@ -39,7 +39,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void bntThem_Click(object sender, EventArgs e)
         {
-            queries.insertnhanvien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text,txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text);
+            queries.insertnhanvien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text,txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue.ToString().Substring(0, 10)), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text);
             int id = Convert.ToInt32(nvmoi.GetData().Rows[0][0].ToString());
             if (txtBo.Text!="")
                 queries.insertquanhenhanvien(id, txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text,  "N'Bố'");
@@ -68,33 +68,48 @@ namespace boiduongLeQuyDon.GUI
         {
 
             if (ckNghi.CheckState == CheckState.Checked)
-                queries.updateNhanVien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text, txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text, true, Convert.ToInt32(lblID.Text));
+                queries.updateNhanVien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text, txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue.ToString().Substring(0, 10)), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text, true, Convert.ToInt32(lblID.Text));
             else
-                queries.updateNhanVien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text, txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text, false, Convert.ToInt32(lblID.Text));
-            if (txtBo.Text != "" && bo==1)
-              
-                    queries.updatequanhenhanvien(txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text, "Bố", Convert.ToInt32(lblID.Text));
-              else if(bo==0)
+                queries.updateNhanVien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text, txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue.ToString().Substring(0,10)), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text, false, Convert.ToInt32(lblID.Text));
+            if (txtBo.Text != "" && bo == 1)
+
+                queries.updatequanhenhanvien(txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text, "Bố", Convert.ToInt32(lblID.Text));
+            else if (bo == 0 && txtBo.Text != "")
+                try
+                {
                     queries.insertquanhenhanvien(Convert.ToInt32(lblID.Text), txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text, "Bố");
-               
+                }
+                catch { }
+
             if (txtMe.Text != "" && me == 1)
-                
-                    queries.updatequanhenhanvien(txtMe.Text, Convert.ToInt32(txtTuoiMe.Text), txtNgheMe.Text, txtDCMe.Text, "Mẹ", Convert.ToInt32(lblID.Text));
-              else if (me==0)
+
+                queries.updatequanhenhanvien(txtMe.Text, Convert.ToInt32(txtTuoiMe.Text), txtNgheMe.Text, txtDCMe.Text, "Mẹ", Convert.ToInt32(lblID.Text));
+            else if (me == 0 && txtMe.Text != "")
+                try
+                {
                     queries.insertquanhenhanvien(Convert.ToInt32(lblID.Text), txtMe.Text, Convert.ToInt32(txtTuoiMe.Text), txtNgheMe.Text, txtDCMe.Text, "Mẹ");
-                
-            if (txtAnh.Text != "" && anh==1)
-               
-                    queries.updatequanhenhanvien(txtAnh.Text, Convert.ToInt32(txtTuoiAnh.Text), txtNNAnh.Text, "", "Anh", Convert.ToInt32(lblID.Text));
-              else if(anh==0)
+                }
+                catch { }
+
+            if (txtAnh.Text != "" && anh == 1)
+
+                queries.updatequanhenhanvien(txtAnh.Text, Convert.ToInt32(txtTuoiAnh.Text), txtNNAnh.Text, "", "Anh", Convert.ToInt32(lblID.Text));
+            else if (anh == 0 && txtAnh.Text != "")
+                try
+                {
                     queries.insertquanhenhanvien(Convert.ToInt32(lblID.Text), txtAnh.Text, Convert.ToInt32(txtTuoiAnh.Text), txtNNAnh.Text, "", "Anh");
-                
-            if (txtChi.Text != "" && chi==1)
-                
-                    queries.updatequanhenhanvien(txtChi.Text, Convert.ToInt32(txtTuoiChi.Text), txtNNChi.Text, "", "Chị", Convert.ToInt32(lblID.Text));
-              else if(chi==0)
+                }
+                catch { }
+
+            if (txtChi.Text != "" && chi == 1)
+
+                queries.updatequanhenhanvien(txtChi.Text, Convert.ToInt32(txtTuoiChi.Text), txtNNChi.Text, "", "Chị", Convert.ToInt32(lblID.Text));
+            else if (chi == 0 && txtChi.Text != "")
+                try
+                {
                     queries.insertquanhenhanvien(Convert.ToInt32(lblID.Text), txtChi.Text, Convert.ToInt32(txtTuoiChi.Text), txtNNChi.Text, "", "Chị");
-              
+                }
+                catch { }
 
             if (txtMon1.Text != "" && kinhnghiem1==1)
                 
@@ -174,7 +189,7 @@ namespace boiduongLeQuyDon.GUI
             string tam = "";
             try
             {
-                tam=dtKinhnghiem.Rows[0][0].ToString();
+                tam=dtKinhnghiem.Rows[0][3].ToString();
                 kinhnghiem1 = 1;
                 lblKN1.Text = tam;
             }
@@ -199,7 +214,7 @@ namespace boiduongLeQuyDon.GUI
             }
             try
             {
-                tam = dtKinhnghiem.Rows[1][0].ToString();
+                tam = dtKinhnghiem.Rows[1][3].ToString();
                 kinhnghiem2 = 1;
                 lblKN2.Text = tam;
             }

@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>d:\BDLQD\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,9 +25,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,6 +43,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -54,6 +57,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Robinweatherall-Library-Book-open.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6A55EE90B62DEF49FCFA46889A6E59EF7DE669EA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>boiduongLeQuyDon_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -272,11 +287,6 @@
     <Compile Include="DAL\DALThoiKhoaBieu.cs" />
     <Compile Include="DAL\DALThuTien.cs" />
     <Compile Include="DAL\dataAccess.cs" />
-    <Compile Include="ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ds.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,12 +467,6 @@
     <Compile Include="GUI\Report\inNhan.Designer.cs">
       <DependentUpon>inNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Report\kqToan.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Report\kqToan.Designer.cs">
-      <DependentUpon>kqToan.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Report\phieuBaoHocTap.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -535,28 +539,14 @@
     <Compile Include="GUI\xuatLSHV.Designer.cs">
       <DependentUpon>xuatLSHV.cs</DependentUpon>
     </Compile>
-    <Compile Include="hv.cs">
-      <DependentUpon>hv.xsd</DependentUpon>
-    </Compile>
     <Compile Include="hv.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>hv.xsd</DependentUpon>
     </Compile>
-    <Compile Include="kqtoan.cs">
-      <DependentUpon>kqtoan.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="kqtoan.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kqtoan.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sdb.cs">
-      <DependentUpon>sdb.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sdb.Designer.cs">
+    <Compile Include="sdb1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>sdb.xsd</DependentUpon>
@@ -564,18 +554,21 @@
     <Compile Include="sodaubai.cs">
       <DependentUpon>sodaubai.xsd</DependentUpon>
     </Compile>
-    <Compile Include="sodaubai.Designer.cs">
+    <Compile Include="sodaubai1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>sodaubai.xsd</DependentUpon>
     </Compile>
-    <Compile Include="test.Designer.cs">
+    <Compile Include="test1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>test.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TKB.cs" />
-    <Compile Include="TKB.Designer.cs" />
+    <Compile Include="TKB1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TKB.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -666,9 +659,6 @@
     <EmbeddedResource Include="GUI\Report\inNhan.resx">
       <DependentUpon>inNhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Report\kqToan.resx">
-      <DependentUpon>kqToan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Report\phieuBaoHocTap.resx">
       <DependentUpon>phieuBaoHocTap.cs</DependentUpon>
     </EmbeddedResource>
@@ -735,8 +725,8 @@
     </None>
     <None Include="bdlqdDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bdlqdDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>bdlqdDataSet11.Designer.cs</LastGenOutput>
     </None>
     <None Include="bdlqdDataSet1.xss">
       <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
@@ -752,25 +742,26 @@
     <None Include="bdlqdDataSet2.xss">
       <DependentUpon>bdlqdDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="boiduongLeQuyDon_TemporaryKey.pfx" />
+    <Fakes Include="Fakes\DevExpress.RichEdit.v16.1.Export.fakes" />
     <None Include="ds.xsc">
       <DependentUpon>ds.xsd</DependentUpon>
     </None>
     <None Include="ds.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ds.Designer.cs</LastGenOutput>
+      <LastGenOutput>ds1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="ds.xss">
       <DependentUpon>ds.xsd</DependentUpon>
     </None>
-    <Fakes Include="Fakes\DevExpress.RichEdit.v16.1.Export.fakes" />
     <None Include="hv.xsc">
       <DependentUpon>hv.xsd</DependentUpon>
     </None>
     <None Include="hv.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>hv.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="hv.xss">
       <DependentUpon>hv.xsd</DependentUpon>
@@ -780,7 +771,7 @@
     </None>
     <None Include="kqtoan.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kqtoan.Designer.cs</LastGenOutput>
+      <LastGenOutput>kqtoan1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="kqtoan.xss">
@@ -802,7 +793,7 @@
     </None>
     <None Include="sdb.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sdb.Designer.cs</LastGenOutput>
+      <LastGenOutput>sdb1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="sdb.xss">
@@ -813,7 +804,7 @@
     </None>
     <None Include="sodaubai.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sodaubai.Designer.cs</LastGenOutput>
+      <LastGenOutput>sodaubai1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="sodaubai.xss">
@@ -824,7 +815,7 @@
     </None>
     <None Include="test.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test.Designer.cs</LastGenOutput>
+      <LastGenOutput>test1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="test.xss">
@@ -871,13 +862,11 @@
     <Content Include="config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="coSoBoiDuong.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="GUI\Robinweatherall-Library-Book-open.ico" />
     <Content Include="Robinweatherall-Library-Book-open.ico" />
     <Content Include="App.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

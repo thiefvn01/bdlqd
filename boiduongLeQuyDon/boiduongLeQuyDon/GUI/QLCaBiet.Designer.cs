@@ -293,7 +293,7 @@
             // txtViPham
             // 
             this.txtViPham.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtViPham.Location = new System.Drawing.Point(422, 361);
+            this.txtViPham.Location = new System.Drawing.Point(405, 361);
             this.txtViPham.Name = "txtViPham";
             this.txtViPham.Size = new System.Drawing.Size(261, 20);
             this.txtViPham.TabIndex = 5;
@@ -317,7 +317,7 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton1.Location = new System.Drawing.Point(316, 482);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
@@ -327,7 +327,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton2.Location = new System.Drawing.Point(443, 482);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
@@ -337,7 +337,7 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton3.Location = new System.Drawing.Point(554, 482);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
@@ -365,7 +365,7 @@
             // lookUpEdit1
             // 
             this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lookUpEdit1.Location = new System.Drawing.Point(122, 316);
+            this.lookUpEdit1.Location = new System.Drawing.Point(87, 316);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -393,7 +393,7 @@
             // lookUpEdit2
             // 
             this.lookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lookUpEdit2.Location = new System.Drawing.Point(436, 316);
+            this.lookUpEdit2.Location = new System.Drawing.Point(405, 316);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

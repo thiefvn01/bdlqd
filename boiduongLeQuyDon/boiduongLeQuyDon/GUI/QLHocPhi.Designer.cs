@@ -55,7 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.txtupGC = new DevExpress.XtraEditors.TextEdit();
-            this.bntXoa = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -216,7 +215,9 @@
             // 
             // groupControl4
             // 
-            this.groupControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.AutoSize = true;
             this.groupControl4.Controls.Add(this.cbTrangThai);
             this.groupControl4.Controls.Add(this.checkEdit1);
@@ -228,7 +229,6 @@
             this.groupControl4.Controls.Add(this.label2);
             this.groupControl4.Controls.Add(this.textEdit2);
             this.groupControl4.Controls.Add(this.txtupGC);
-            this.groupControl4.Controls.Add(this.bntXoa);
             this.groupControl4.Controls.Add(this.labelControl8);
             this.groupControl4.Controls.Add(this.labelControl7);
             this.groupControl4.Controls.Add(this.labelControl6);
@@ -237,9 +237,9 @@
             this.groupControl4.Controls.Add(this.labelControl4);
             this.groupControl4.Controls.Add(this.upTKB);
             this.groupControl4.Controls.Add(this.upLop);
-            this.groupControl4.Location = new System.Drawing.Point(17, 255);
+            this.groupControl4.Location = new System.Drawing.Point(0, 236);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(915, 236);
+            this.groupControl4.Size = new System.Drawing.Size(932, 258);
             this.groupControl4.TabIndex = 9;
             this.groupControl4.Text = "Cập nhật";
             // 
@@ -332,15 +332,6 @@
             this.txtupGC.Size = new System.Drawing.Size(100, 20);
             this.txtupGC.TabIndex = 3;
             // 
-            // bntXoa
-            // 
-            this.bntXoa.Location = new System.Drawing.Point(415, 180);
-            this.bntXoa.Name = "bntXoa";
-            this.bntXoa.Size = new System.Drawing.Size(75, 23);
-            this.bntXoa.TabIndex = 11;
-            this.bntXoa.Text = "Xóa";
-            this.bntXoa.Click += new System.EventHandler(this.bntXoa_Click);
-            // 
             // labelControl8
             // 
             this.labelControl8.Location = new System.Drawing.Point(651, 127);
@@ -367,7 +358,7 @@
             // 
             // bntUpdate
             // 
-            this.bntUpdate.Location = new System.Drawing.Point(298, 180);
+            this.bntUpdate.Location = new System.Drawing.Point(397, 176);
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.Size = new System.Drawing.Size(75, 23);
             this.bntUpdate.TabIndex = 7;
@@ -479,7 +470,6 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.TextEdit txtupGC;
-        private DevExpress.XtraEditors.SimpleButton bntXoa;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
