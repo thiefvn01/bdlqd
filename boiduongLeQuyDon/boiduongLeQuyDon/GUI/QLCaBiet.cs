@@ -27,9 +27,9 @@ namespace boiduongLeQuyDon.GUI
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             if(ckGiaiQuyet.CheckState==CheckState.Checked)
-                queries.updateCaBiet(txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text, Convert.ToInt32(txtSoLan.Text), true, Convert.ToInt32(lblID.Text));
+                queries.updateCaBiet(txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text, Convert.ToInt32(txtSoLan.Text), true, Convert.ToInt32(lblID.Text), Convert.ToDateTime(dtNgayVipham.EditValue), txtGhichu.Text);
             else
-                queries.updateCaBiet(txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text, Convert.ToInt32(txtSoLan.Text), false, Convert.ToInt32(lblID.Text));
+                queries.updateCaBiet(txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text, Convert.ToInt32(txtSoLan.Text), false, Convert.ToInt32(lblID.Text), Convert.ToDateTime(dtNgayVipham.EditValue), txtGhichu.Text);
             load();
         }
 
@@ -55,7 +55,7 @@ namespace boiduongLeQuyDon.GUI
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            queries.insertCaBiet(Convert.ToInt32(lkHocVien.EditValue), txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text);
+            queries.insertCaBiet(Convert.ToInt32(lkHocVien.EditValue), txtDacDiem.Text, txtNguyenNhan.Text, txtKhacPhuc.Text, txtViPham.Text, Convert.ToDateTime(dtNgayVipham.EditValue), txtGhichu.Text);
             load();
         }
 
@@ -114,6 +114,11 @@ namespace boiduongLeQuyDon.GUI
                 lookUpEdit1.Properties.DisplayMember = "Ten TKB";
                 lookUpEdit1.Properties.ValueMember = "ID";
             }
+        }
+
+        private void QLCaBiet_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

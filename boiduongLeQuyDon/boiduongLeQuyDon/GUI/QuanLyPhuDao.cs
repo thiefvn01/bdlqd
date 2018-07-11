@@ -63,7 +63,19 @@ namespace boiduongLeQuyDon.GUI
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            DeXuatPhuDao phieuphudao = new DeXuatPhuDao(lkHocVien.Text, lkLop.Text, txtLyDo.Text, txtThoiLuong.Text, txtNoiDung.Text, lkTroGiang.Text, txtYKien.Text, txtKetQua.Text, txtNhanXet.Text, Convert.ToInt32(txtThuPhi.Text));
+            int phi = 0;
+            if (txtThuPhi.Text != "")
+                phi = 0;
+            else
+                try
+                {
+                    phi = Convert.ToInt32(txtThuPhi.Text);
+                }
+                catch { }
+            DeXuatPhuDao phieuphudao = new DeXuatPhuDao(lkHocVien.Text, lkLop.Text, txtLyDo.Text, txtThoiLuong.Text, txtNoiDung.Text, lkTroGiang.Text, txtYKien.Text, txtKetQua.Text, txtNhanXet.Text, phi);
+        //    else
+             //   DeXuatPhuDao phieuphudao = new DeXuatPhuDao(lkHocVien.Text, lkLop.Text, txtLyDo.Text, txtThoiLuong.Text, txtNoiDung.Text, lkTroGiang.Text, txtYKien.Text, txtKetQua.Text, txtNhanXet.Text, 0);
+
             phieuphudao.ShowPreview();
         }
         BUSChiTietTKB ck = new BUSChiTietTKB();

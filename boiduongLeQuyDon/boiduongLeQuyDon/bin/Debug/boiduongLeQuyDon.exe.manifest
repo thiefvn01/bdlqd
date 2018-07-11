@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boiduongLeQuyDon.exe" size="3197440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boiduongLeQuyDon.exe" size="3243520">
       <assemblyIdentity name="boiduongLeQuyDon" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>a86kZOlGP9hiUlhLLYjrI6UKm2E=</dsig:DigestValue>
+        <dsig:DigestValue>Is23coOKSrZPqFhtB4TbBLtolTY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

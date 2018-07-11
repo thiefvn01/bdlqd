@@ -37,9 +37,11 @@
             this.colHọvàtên = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colĐặcđiểm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNộidungviphạm = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgàyviphạm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSốlần = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNguyênnhân = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKhắcphục = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGhichú = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblID = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -68,6 +70,10 @@
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.getKhoaHocTableAdapter = new boiduongLeQuyDon.bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtGhichu = new DevExpress.XtraEditors.TextEdit();
+            this.dtNgayVipham = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getCaBiet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).BeginInit();
@@ -85,6 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhichu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayVipham.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayVipham.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -117,9 +126,11 @@
             this.colHọvàtên,
             this.colĐặcđiểm,
             this.colNộidungviphạm,
+            this.colNgàyviphạm,
             this.colSốlần,
             this.colNguyênnhân,
-            this.colKhắcphục});
+            this.colKhắcphục,
+            this.colGhichú});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
@@ -153,6 +164,13 @@
             this.colNộidungviphạm.Visible = true;
             this.colNộidungviphạm.VisibleIndex = 3;
             // 
+            // colNgàyviphạm
+            // 
+            this.colNgàyviphạm.FieldName = "Ngày vi phạm";
+            this.colNgàyviphạm.Name = "colNgàyviphạm";
+            this.colNgàyviphạm.Visible = true;
+            this.colNgàyviphạm.VisibleIndex = 7;
+            // 
             // colSốlần
             // 
             this.colSốlần.FieldName = "Số lần";
@@ -173,6 +191,13 @@
             this.colKhắcphục.Name = "colKhắcphục";
             this.colKhắcphục.Visible = true;
             this.colKhắcphục.VisibleIndex = 6;
+            // 
+            // colGhichú
+            // 
+            this.colGhichú.FieldName = "Ghi chú";
+            this.colGhichú.Name = "colGhichú";
+            this.colGhichú.Visible = true;
+            this.colGhichú.VisibleIndex = 8;
             // 
             // lblID
             // 
@@ -214,7 +239,7 @@
             // labelControl5
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelControl5.Location = new System.Drawing.Point(345, 426);
+            this.labelControl5.Location = new System.Drawing.Point(289, 426);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(49, 13);
             this.labelControl5.TabIndex = 1;
@@ -232,7 +257,7 @@
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelControl7.Location = new System.Drawing.Point(704, 364);
+            this.labelControl7.Location = new System.Drawing.Point(600, 364);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(29, 13);
             this.labelControl7.TabIndex = 1;
@@ -279,15 +304,15 @@
             this.txtNguyenNhan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNguyenNhan.Location = new System.Drawing.Point(87, 423);
             this.txtNguyenNhan.Name = "txtNguyenNhan";
-            this.txtNguyenNhan.Size = new System.Drawing.Size(252, 20);
+            this.txtNguyenNhan.Size = new System.Drawing.Size(177, 20);
             this.txtNguyenNhan.TabIndex = 7;
             // 
             // txtKhacPhuc
             // 
             this.txtKhacPhuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtKhacPhuc.Location = new System.Drawing.Point(405, 423);
+            this.txtKhacPhuc.Location = new System.Drawing.Point(349, 423);
             this.txtKhacPhuc.Name = "txtKhacPhuc";
-            this.txtKhacPhuc.Size = new System.Drawing.Size(328, 20);
+            this.txtKhacPhuc.Size = new System.Drawing.Size(193, 20);
             this.txtKhacPhuc.TabIndex = 8;
             // 
             // txtViPham
@@ -295,24 +320,24 @@
             this.txtViPham.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtViPham.Location = new System.Drawing.Point(405, 361);
             this.txtViPham.Name = "txtViPham";
-            this.txtViPham.Size = new System.Drawing.Size(261, 20);
+            this.txtViPham.Size = new System.Drawing.Size(182, 20);
             this.txtViPham.TabIndex = 5;
             // 
             // txtSoLan
             // 
             this.txtSoLan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtSoLan.Location = new System.Drawing.Point(798, 361);
+            this.txtSoLan.Location = new System.Drawing.Point(635, 357);
             this.txtSoLan.Name = "txtSoLan";
-            this.txtSoLan.Size = new System.Drawing.Size(100, 20);
+            this.txtSoLan.Size = new System.Drawing.Size(30, 20);
             this.txtSoLan.TabIndex = 6;
             // 
             // ckGiaiQuyet
             // 
             this.ckGiaiQuyet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ckGiaiQuyet.Location = new System.Drawing.Point(764, 423);
+            this.ckGiaiQuyet.Location = new System.Drawing.Point(782, 423);
             this.ckGiaiQuyet.Name = "ckGiaiQuyet";
             this.ckGiaiQuyet.Properties.Caption = "Đã giải quyết";
-            this.ckGiaiQuyet.Size = new System.Drawing.Size(162, 19);
+            this.ckGiaiQuyet.Size = new System.Drawing.Size(101, 19);
             this.ckGiaiQuyet.TabIndex = 9;
             // 
             // simpleButton1
@@ -417,16 +442,57 @@
             this.checkEdit1.TabIndex = 2;
             this.checkEdit1.CheckStateChanged += new System.EventHandler(this.checkEdit1_CheckStateChanged);
             // 
+            // labelControl9
+            // 
+            this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelControl9.Location = new System.Drawing.Point(701, 364);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(65, 13);
+            this.labelControl9.TabIndex = 1;
+            this.labelControl9.Text = "Ngày vi phạm";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelControl10.Location = new System.Drawing.Point(566, 426);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(35, 13);
+            this.labelControl10.TabIndex = 1;
+            this.labelControl10.Text = "Ghi chú";
+            // 
+            // txtGhichu
+            // 
+            this.txtGhichu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtGhichu.Location = new System.Drawing.Point(635, 422);
+            this.txtGhichu.Name = "txtGhichu";
+            this.txtGhichu.Size = new System.Drawing.Size(123, 20);
+            this.txtGhichu.TabIndex = 8;
+            // 
+            // dtNgayVipham
+            // 
+            this.dtNgayVipham.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtNgayVipham.EditValue = null;
+            this.dtNgayVipham.Location = new System.Drawing.Point(783, 357);
+            this.dtNgayVipham.Name = "dtNgayVipham";
+            this.dtNgayVipham.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtNgayVipham.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtNgayVipham.Size = new System.Drawing.Size(127, 20);
+            this.dtNgayVipham.TabIndex = 12;
+            // 
             // QLCaBiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtNgayVipham);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.txtNguyenNhan);
             this.Controls.Add(this.txtSoLan);
             this.Controls.Add(this.txtViPham);
+            this.Controls.Add(this.txtGhichu);
             this.Controls.Add(this.txtKhacPhuc);
             this.Controls.Add(this.txtDacDiem);
             this.Controls.Add(this.lookUpEdit2);
@@ -437,8 +503,10 @@
             this.Controls.Add(this.ckTatCa);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.labelControl1);
@@ -447,6 +515,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "QLCaBiet";
             this.Size = new System.Drawing.Size(944, 550);
+            this.Load += new System.EventHandler(this.QLCaBiet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getCaBiet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdlqdDataSet1)).EndInit();
@@ -464,6 +533,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.getKhoaHocBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhichu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayVipham.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayVipham.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,13 +567,6 @@
         private bdlqdDataSet1 bdlqdDataSet1;
         private bdlqdDataSet1TableAdapters.getHocVienDangHocTableAdapter getHocVienDangHocTableAdapter;
         private System.Windows.Forms.BindingSource getCaBiet1BindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colHọvàtên;
-        private DevExpress.XtraGrid.Columns.GridColumn colĐặcđiểm;
-        private DevExpress.XtraGrid.Columns.GridColumn colNộidungviphạm;
-        private DevExpress.XtraGrid.Columns.GridColumn colSốlần;
-        private DevExpress.XtraGrid.Columns.GridColumn colNguyênnhân;
-        private DevExpress.XtraGrid.Columns.GridColumn colKhắcphục;
         private bdlqdDataSet1TableAdapters.getCaBiet1TableAdapter getCaBiet1TableAdapter;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
@@ -510,5 +575,18 @@
         private System.Windows.Forms.BindingSource getKhoaHocBindingSource;
         private bdlqdDataSet1TableAdapters.getKhoaHocTableAdapter getKhoaHocTableAdapter;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit txtGhichu;
+        private DevExpress.XtraEditors.DateEdit dtNgayVipham;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colHọvàtên;
+        private DevExpress.XtraGrid.Columns.GridColumn colĐặcđiểm;
+        private DevExpress.XtraGrid.Columns.GridColumn colNộidungviphạm;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgàyviphạm;
+        private DevExpress.XtraGrid.Columns.GridColumn colSốlần;
+        private DevExpress.XtraGrid.Columns.GridColumn colNguyênnhân;
+        private DevExpress.XtraGrid.Columns.GridColumn colKhắcphục;
+        private DevExpress.XtraGrid.Columns.GridColumn colGhichú;
     }
 }

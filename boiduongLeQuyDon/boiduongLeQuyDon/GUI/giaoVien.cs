@@ -42,13 +42,13 @@ namespace boiduongLeQuyDon.GUI
             queries.insertnhanvien(txtHoLot.Text, txtTen.Text, txtThuongTru.Text, txtTamTru.Text,txtDienThoai.Text, txtEmail.Text, txtUname.Text, txtPasswd.Text, txtGhiChu.Text, lkChucDanh.Text, ckGioiTinh.Text, txtCMND.Text, Convert.ToDateTime(dtNgayCap.EditValue.ToString().Substring(0, 10)), txtNoiCap.Text, txtChuyenNganh.Text, Convert.ToInt32(txtNamThu.Text), txtTruong.Text, txtKhoa.Text, txtBietDen.Text);
             int id = Convert.ToInt32(nvmoi.GetData().Rows[0][0].ToString());
             if (txtBo.Text!="")
-                queries.insertquanhenhanvien(id, txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text,  "N'Bố'");
+                queries.insertquanhenhanvien(id, txtBo.Text, Convert.ToInt32(txtTuoiBo.Text), txtNgheBo.Text, txtDcBo.Text,  "Bố");
             if(txtMe.Text!="")
-                queries.insertquanhenhanvien(id, txtMe.Text, Convert.ToInt32(txtTuoiMe.Text), txtNgheMe.Text, txtDCMe.Text, "N'Mẹ'");
+                queries.insertquanhenhanvien(id, txtMe.Text, Convert.ToInt32(txtTuoiMe.Text), txtNgheMe.Text, txtDCMe.Text, "Mẹ");
             if (txtAnh.Text!="")
-                queries.insertquanhenhanvien(id, txtAnh.Text, Convert.ToInt32(txtTuoiAnh.Text), txtNNAnh.Text, "", "N'Anh'");
+                queries.insertquanhenhanvien(id, txtAnh.Text, Convert.ToInt32(txtTuoiAnh.Text), txtNNAnh.Text, "", "Anh");
             if (txtChi.Text!="")
-                queries.insertquanhenhanvien(id, txtChi.Text, Convert.ToInt32(txtTuoiChi.Text), txtNNChi.Text, "", "N'Chị'");
+                queries.insertquanhenhanvien(id, txtChi.Text, Convert.ToInt32(txtTuoiChi.Text), txtNNChi.Text, "", "Chị");
             if (txtMon1.Text != "")
                 queries.insertkinhnghiemnhanvien(id, txtMon1.Text, txtLop1.Text, txtTruong1.Text, Convert.ToInt32(txtNam1.Text));
             if (txtMon2.Text != "")
@@ -153,10 +153,44 @@ namespace boiduongLeQuyDon.GUI
             lblID.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString();
             int nid = Convert.ToInt32(lblID.Text);
             DataTable dtNhanVien = nv2.GetData(nid);
-            DataTable dtQuanHeCha = quanhe.GetData(nid, "Cha");
+            DataTable dtQuanHeCha = quanhe.GetData(nid, "Bố");
             DataTable dtQuanHeMe = quanhe.GetData(nid, "Mẹ");
             DataTable dtQuanHeAnh = quanhe.GetData(nid, "Anh");
             DataTable dtQuanHeChi = quanhe.GetData(nid, "Chị");
+            if (dtQuanHeAnh.Rows.Count > 0)
+            {
+                txtAnh.Text = dtQuanHeAnh.Rows[0][0].ToString();
+                txtTuoiAnh.Text = dtQuanHeAnh.Rows[0][1].ToString();
+                txtNNAnh.Text = dtQuanHeAnh.Rows[0][2].ToString();
+            }
+            else
+                txtAnh.Text = txtTuoiAnh.Text = txtNNAnh.Text = "";
+            if (dtQuanHeChi.Rows.Count > 0)
+            {
+                txtChi.Text = dtQuanHeChi.Rows[0][0].ToString();
+                txtTuoiChi.Text = dtQuanHeChi.Rows[0][1].ToString();
+                txtNNChi.Text = dtQuanHeChi.Rows[0][2].ToString();
+            }
+            else
+                txtChi.Text = txtTuoiChi.Text = txtNNChi.Text = "";
+            if (dtQuanHeCha.Rows.Count > 0)
+            {
+                txtBo.Text = dtQuanHeCha.Rows[0][0].ToString();
+                txtTuoiBo.Text = dtQuanHeCha.Rows[0][1].ToString();
+                txtNgheBo.Text = dtQuanHeCha.Rows[0][2].ToString();
+                txtDcBo.Text = dtQuanHeCha.Rows[0][3].ToString();
+            }
+            else
+                txtBo.Text = txtTuoiBo.Text = txtNgheBo.Text = txtDcBo.Text = "";
+            if (dtQuanHeMe.Rows.Count > 0)
+            {
+                txtMe.Text = dtQuanHeMe.Rows[0][0].ToString();
+                txtTuoiMe.Text = dtQuanHeMe.Rows[0][1].ToString();
+                txtNgheMe.Text = dtQuanHeMe.Rows[0][2].ToString();
+                txtDCMe.Text = dtQuanHeMe.Rows[0][3].ToString();
+            }
+            else
+                txtMe.Text = txtTuoiMe.Text = txtNgheMe.Text = txtDCMe.Text = "";
             DataTable dtKinhnghiem = kinhnghiem.GetData(nid);
             txtTen.Text = dtNhanVien.Rows[0][2].ToString();
             txtHoLot.Text = dtNhanVien.Rows[0][1].ToString();
@@ -238,100 +272,100 @@ namespace boiduongLeQuyDon.GUI
                 txtNam2.Text = "";
             }
             //dtQuanHeCha
-            try
-            {
-                tam = dtQuanHeCha.Rows[0][0].ToString();
-                bo = 1;
-            }
-            catch
-            {
-                bo = 0;
-                tam = "";
-            }
-            if (tam != "")
-            {
-                //bắt đầu quan hệ
-                txtBo.Text = dtQuanHeCha.Rows[0][0].ToString();
-                txtDcBo.Text = dtQuanHeCha.Rows[0][3].ToString();
-                txtNgheBo.Text = dtQuanHeCha.Rows[0][2].ToString();
-                txtTuoiBo.Text = dtQuanHeCha.Rows[0][1].ToString();
-            }
-            else
-            {
-                txtBo.Text = "";
-                txtDcBo.Text = "";
-                txtNgheBo.Text = "";
-                txtTuoiBo.Text = "";
-            }
-            try
-            {
-                tam = dtQuanHeMe.Rows[0][0].ToString();
-                me = 1;
-            }
-            catch
-            {
-                me = 0;
-                tam = "";
-            }
-            if (tam != "")
-            {
-                txtMe.Text = dtQuanHeMe.Rows[0][0].ToString();
-                txtDCMe.Text = dtQuanHeMe.Rows[0][3].ToString();
-                txtNgheMe.Text = dtQuanHeMe.Rows[0][2].ToString();
-                txtTuoiMe.Text = dtQuanHeMe.Rows[0][1].ToString();
-            }
-            else
-            {
-                txtMe.Text = "";
-                txtDCMe.Text = "";
-                txtNgheMe.Text = "";
-                txtTuoiMe.Text = "";
-            }
-            try
-            {
-                tam = dtQuanHeAnh.Rows[0][0].ToString();
-                anh = 1;
-            }
-            catch
-            {
-                anh = 0;
-                tam = "";
-            }
-            if (tam != "")
-            {
-                txtAnh.Text = dtQuanHeAnh.Rows[0][2].ToString(); ;
-                txtTuoiAnh.Text = dtQuanHeAnh.Rows[0][3].ToString(); ;
-                txtNNAnh.Text = dtQuanHeAnh.Rows[0][4].ToString(); ;
-            }
-            else
-            {
-                txtAnh.Text = "";
-                txtTuoiAnh.Text = "";
-                txtNNAnh.Text ="" ;
-            }
-            try
-            {
-                tam = dtQuanHeChi.Rows[0][0].ToString();
-                chi = 1;
-            }
-            catch
-            {
-                chi = 0;
-                tam = "";
-            }
-            if (tam != "")
-            {
-                txtChi.Text = dtQuanHeChi.Rows[0][2].ToString();
-                txtTuoiChi.Text = dtQuanHeChi.Rows[0][3].ToString();
-                txtNNChi.Text = dtQuanHeChi.Rows[0][4].ToString();
-            }
-            else
-            {
-                txtChi.Text = "";
-                txtTuoiChi.Text = "";
-                txtNNChi.Text = "";
-            }
-            //bắt đầu kinh nghiệm
+            //try
+            //{
+            //    tam = dtQuanHeCha.Rows[0][0].ToString();
+            //    bo = 1;
+            //}
+            //catch
+            //{
+            //    bo = 0;
+            //    tam = "";
+            //}
+            //if (tam != "")
+            //{
+            //    //bắt đầu quan hệ
+            //    txtBo.Text = dtQuanHeCha.Rows[0][0].ToString();
+            //    txtDcBo.Text = dtQuanHeCha.Rows[0][3].ToString();
+            //    txtNgheBo.Text = dtQuanHeCha.Rows[0][2].ToString();
+            //    txtTuoiBo.Text = dtQuanHeCha.Rows[0][1].ToString();
+            //}
+            //else
+            //{
+            //    txtBo.Text = "";
+            //    txtDcBo.Text = "";
+            //    txtNgheBo.Text = "";
+            //    txtTuoiBo.Text = "";
+            //}
+            //try
+            //{
+            //    tam = dtQuanHeMe.Rows[0][0].ToString();
+            //    me = 1;
+            //}
+            //catch
+            //{
+            //    me = 0;
+            //    tam = "";
+            //}
+            //if (tam != "")
+            //{
+            //    txtMe.Text = dtQuanHeMe.Rows[0][0].ToString();
+            //    txtDCMe.Text = dtQuanHeMe.Rows[0][3].ToString();
+            //    txtNgheMe.Text = dtQuanHeMe.Rows[0][2].ToString();
+            //    txtTuoiMe.Text = dtQuanHeMe.Rows[0][1].ToString();
+            //}
+            //else
+            //{
+            //    txtMe.Text = "";
+            //    txtDCMe.Text = "";
+            //    txtNgheMe.Text = "";
+            //    txtTuoiMe.Text = "";
+            //}
+            //try
+            //{
+            //    tam = dtQuanHeAnh.Rows[0][0].ToString();
+            //    anh = 1;
+            //}
+            //catch
+            //{
+            //    anh = 0;
+            //    tam = "";
+            //}
+            //if (tam != "")
+            //{
+            //    txtAnh.Text = dtQuanHeAnh.Rows[0][2].ToString(); ;
+            //    txtTuoiAnh.Text = dtQuanHeAnh.Rows[0][3].ToString(); ;
+            //    txtNNAnh.Text = dtQuanHeAnh.Rows[0][4].ToString(); ;
+            //}
+            //else
+            //{
+            //    txtAnh.Text = "";
+            //    txtTuoiAnh.Text = "";
+            //    txtNNAnh.Text ="" ;
+            //}
+            //try
+            //{
+            //    tam = dtQuanHeChi.Rows[0][0].ToString();
+            //    chi = 1;
+            //}
+            //catch
+            //{
+            //    chi = 0;
+            //    tam = "";
+            //}
+            //if (tam != "")
+            //{
+            //    txtChi.Text = dtQuanHeChi.Rows[0][2].ToString();
+            //    txtTuoiChi.Text = dtQuanHeChi.Rows[0][3].ToString();
+            //    txtNNChi.Text = dtQuanHeChi.Rows[0][4].ToString();
+            //}
+            //else
+            //{
+            //    txtChi.Text = "";
+            //    txtTuoiChi.Text = "";
+            //    txtNNChi.Text = "";
+            //}
+            ////bắt đầu kinh nghiệm
             //try
             //{
             //    tam = dtKinhnghiem.Rows[0][0].ToString();

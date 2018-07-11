@@ -253,7 +253,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdlqdDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="bdlqdDataSet1.Designer.cs">
+    <Compile Include="bdlqdDataSet11.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdlqdDataSet1.xsd</DependentUpon>
